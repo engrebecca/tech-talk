@@ -7,10 +7,10 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
 
-    // Tag.associate = function (models) {
-    //     // A tag has many posts
-    //     models.Tag.hasMany(models.Post);
-    // };
+    Tag.associate = function (models) {
+        // A tag has many PostTags
+        models.Tag.hasMany(models.PostTag);
+    };
 
     return Tag;
 };
