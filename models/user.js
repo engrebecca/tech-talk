@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    // Define Tag model
+    // Define User model
     var User = sequelize.define("User", {
         firstName: {
             type: DataTypes.STRING,
@@ -47,9 +47,10 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
 
-    // Tag.associate = function (models) {
-    //     // A tag has many posts
-    //     models.Tag.hasMany(models.Post);
+    // User.associate = function (models) {
+    //     // A user has many posts and comments
+    //     models.User.hasMany(models.Post);
+    //     models.User.hasMany(models.Comment)
     // };
 
     return User;
