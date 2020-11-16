@@ -7,6 +7,10 @@ module.exports = (sequelize, DataTypes) => {
             // validate: {
             //     len: [1]
             // }
+        },
+        title: {
+            type: DataTypes.STRING,
+            allowNull: false
         }
     });
 
