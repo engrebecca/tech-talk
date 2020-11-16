@@ -47,11 +47,11 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
 
-    // User.associate = function (models) {
-    //     // A user has many posts and comments
-    //     models.User.hasMany(models.Post);
-    //     models.User.hasMany(models.Comment)
-    // };
+    User.associate = function (models) {
+        // A user has many posts and comments
+        models.User.hasMany(models.Post);
+        models.User.hasMany(models.Comment)
+    };
 
     return User;
 };

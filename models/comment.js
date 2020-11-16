@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
 
-    const Comment = sequelize.define("comment", {
+    const Comment = sequelize.define("Comment", {
         text: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -8,20 +8,20 @@ module.exports = (sequelize, DataTypes) => {
         }
     });
 
-    // Comment.associate = (models) => {
+    Comment.associate = (models) => {
 
-    //     Comment.belongsTo(models.user, {
-    //         foreignKey: {
-    //             allowNull: false
-    //         }
-    //     });
+        Comment.belongsTo(models.User, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
 
-    //     Comment.belongsTo(models.post, {
-    //         foreignKey: {
-    //             allowNull: false
-    //         }
-    //     });
-    // };
+        Comment.belongsTo(models.Post, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    };
 
     return Comment;
 };
