@@ -3,10 +3,10 @@ const postController = require("../../controllers/postController");
 
 // Routes for getting and adding posts
 router.route("/")
-    // add new saved book
-    .post(postController.create);
+    // add new post
+    .post(postController.create)
 
-// view saved books
-// .get(bookController.findAll)
+    // view saved posts
+    .get(postController.findAll)
 
 module.exports = router;
