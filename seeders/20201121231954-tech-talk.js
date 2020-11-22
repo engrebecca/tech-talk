@@ -1,8 +1,8 @@
-
 'use strict';
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
+
     // Adds seeds for Users table
     await queryInterface.bulkInsert('Users', [{
       UserId: userRows[0].id,
