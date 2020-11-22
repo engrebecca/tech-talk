@@ -11,7 +11,7 @@ module.exports = {
       email: "kellystone916@gmail.com",
       password: "kspass",
       bio: "Lover of food, friends, animals, music, and nature.",
-      photo: "img",
+      image: "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
       role: "Software Engineer",
       organization: "Tech Talk",
       github: "https://github.com/kellystone4",
@@ -104,8 +104,8 @@ module.exports = {
     await queryInterface.bulkInsert("Comments", [{
       commentId: "",
       text: "Hi, yes I've heard of a new job opportunity! I will send the link your way.",
-      postId: postRows[0].id,
-      UserId: userRows[0].id,
+      // postId: postRows[0].id,
+      // UserId: userRows[0].id,
       createdAt: new Date(),
       updatedAt: new Date(),
       // CityId: cityRows[0].id
@@ -115,7 +115,7 @@ module.exports = {
 
     // Adds seeds for Tags table
     await queryInterface.bulkInsert("Tags", [{
-      tagId: tagRows[0].id,
+      // tagId: tagRows[0].id,
       tag: "Career Advice, Job Asks, Offers, Events, Job Post, Random",
       createdAt: new Date(),
       updatedAt: new Date(),
