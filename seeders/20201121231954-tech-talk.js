@@ -147,12 +147,12 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        name: "Job Asks",
+        name: "Asks",
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        name: "Offers",
+        name: "Mentorship",
         createdAt: new Date(),
         updatedAt: new Date(),
       },

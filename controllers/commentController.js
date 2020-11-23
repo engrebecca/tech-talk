@@ -2,6 +2,7 @@ const db = require("../models");
 
 module.exports = {
 
+    // Controller for creating a new comment
     create: (req, res) => {
         db.Comment.create({
             text: req.body.text,
