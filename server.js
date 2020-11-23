@@ -30,10 +30,6 @@ app.use(passport.session());
 // =============================================================
 app.use(routes);
 
-// will need one of these for every routes file that we use
-require("./routes/sign&log-routes.js")(app);
-require("./routes/user-routes.js")(app);
-
 // Syncing our sequelize models and then starting our Express app
 // Force will be true for all environments except for when in production environment/Heroku
 // =============================================================

@@ -1,7 +1,7 @@
 const path = require("path");
-const passport = require("../config/passport");
-const isAuthenticated = require("../config/middleware/isAuthenticated");
-const isProfileConfirmed = require("../config/middleware/isProfileConfirmed");
+const passport = require("../../config/passport");
+const isAuthenticated = require("../../config/middleware/isAuthenticated");
+const isProfileConfirmed = require("../../config/middleware/isProfileConfirmed");
 
 module.exports = (app) => {
 
