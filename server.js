@@ -3,15 +3,17 @@
 //
 // ******************************************************************************
 const routes = require("./routes");
+const passport = require("./config/passport");
 
 // Sets up the Express App
 // =============================================================
-var express = require("express");
-var app = express();
-var PORT = process.env.PORT || 3001;
+const express = require("express");
+const session = require("express-session");
+const app = express();
+const PORT = process.env.PORT || 3001;
 
 // Requiring our models for syncing
-var db = require("./models");
+const db = require("./models");
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -19,6 +21,10 @@ app.use(express.json());
 
 // Static directory
 app.use(express.static("public"));
+
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Give server access to routes
 // =============================================================
