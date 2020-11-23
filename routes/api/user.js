@@ -1,18 +1,15 @@
-// From Google-Book-Search homework
-
 const router = require("express").Router();
 const userController = require("../../controllers/userController");
 
-// Routes for displaying books and saving new books
+// Routes getting all users and add a new user
 router.route("/")
-  // view saved books
+  // View all users
   .get(userController.findAll)
-  // add new saved book
+  // Add a new user
   .post(userController.create);
 
-// Routes for finding saved books and removing books from saved list
+// Route for finding a user by their id
 router.route("/:id")
-  // delete book by id
   .get(userController.findOne)
 
 module.exports = router;

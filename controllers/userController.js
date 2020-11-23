@@ -3,27 +3,30 @@ const db = require("../models");
 module.exports = {
 
     // get/find all users
-    findAll:function(req, res) {
+    findAll: (req, res) => {
         db.User.findAll()
-        .then(function(data){
-            res.json(data);
-        });
-        // console.log(data);
+            .then(data => res.json(data))
+            .catch(err => {
+                console.log(err);
+                res.send(false)
+            })
     },
 
     // find specific user by userId
-    findOne:function(req, res) {
+    findOne: (req, res) => {
         db.User.findOne({
             where:
-            { id: req.params.id }
+                { id: req.params.id }
         })
-        .then(function(data){
-            res.json(data);
-        });
+            .then(data => res.json(data))
+            .catch(err => {
+                console.log(err);
+                res.send(false)
+            })
     },
 
     // create new user
-    create:function(req, res) {
+    create: (req, res) => {
         db.User.create({
             firstName: req.body.firstName,
             lastName: req.body.lastName,
@@ -37,9 +40,11 @@ module.exports = {
             website: req.body.website,
             location: req.body.location
         })
-        .then(function(data){
-            res.json(data);
-        });
+            .then(data => res.json(data))
+            .catch(err => {
+                console.log(err);
+                res.send(false)
+            })
     }
 };
 
