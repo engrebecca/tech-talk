@@ -25,7 +25,7 @@ module.exports = {
                 db.PostTag.bulkCreate(
                     tags.map((TagId) => ({ PostId: newPost.id, TagId }))
                 ).catch(err => res.status(422).json(err));
-                res.status(201).end()
+                res.send(true);
             })
     },
 
