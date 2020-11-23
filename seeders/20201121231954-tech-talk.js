@@ -5,7 +5,6 @@ module.exports = {
 
     // Adds seeds for Users table
     await queryInterface.bulkInsert('Users', [{
-      // UserId: userRows[0].id,
       firstName: "Kelly",
       lastName: "Stone",
       email: "kellystone916@gmail.com",
@@ -21,7 +20,6 @@ module.exports = {
       updatedAt: new Date()
     },
     {
-      // UserId: userRows[0].id,
       firstName: "Rebecca",
       lastName: "Eng",
       email: "Rebecca.e.Eng@gmail.com",
@@ -37,7 +35,6 @@ module.exports = {
       updatedAt: new Date()
     },
     {
-      // UserId: userRows[0].id,
       firstName: "Kelly",
       lastName: "Kim",
       email: "kellykim408@gmail.com",
@@ -53,7 +50,6 @@ module.exports = {
       updatedAt: new Date()
     },
     {
-      // UserId: userRows[0].id,
       firstName: "Christy",
       lastName: "Lee",
       email: "christy.g.lee@gmail.com",
@@ -70,45 +66,75 @@ module.exports = {
     }
     ], {});
 
+    // --------------------------------------------------------------------------------------------
+    // Get user ids from the users table
+    const userIds = await queryInterface.sequelize.query(
+      "SELECT id from Users;"
+    )
+
+    // Create variable to access user ids to use for associations in seeds
+    const userRows = userIds[0];
+    console.log("Users: " + userRows)
+    // --------------------------------------------------------------------------------------------
+
     // Adds seeds for Posts table
     await queryInterface.bulkInsert("Posts", [
       {
-        // postId: postRows[0].id,
-        // UserId: userRows[0].id,
         title: "Job Opportunities",
         body: "Hi everyone, I am looking to relocate to the east coast and was wondering if anyone knew of any job opportunities or internships for me out there. Thanks!",
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        UserId: userRows[0].id,
       },
       {
-        // postId: postRows[0].id,
-        // UserId: userRows[0].id,
         title: "Job Opportunities",
         body: "Hi everyone, I am looking to relocate to the east coast and was wondering if anyone knew of any job opportunities or internships for me out there. Thanks!",
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        UserId: userRows[1].id,
+      },
+      {
+        title: "Job Opportunities",
+        body: "Hi everyone, I am looking to relocate to the east coast and was wondering if anyone knew of any job opportunities or internships for me out there. Thanks!",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        UserId: userRows[2].id,
       }
     ], {});
 
     // --------------------------------------------------------------------------------------------
-    // Create variable to access user ids to use for associations in seeds
-    const userRows = userIds[0];
-    console.log("Users: " + userRows)
-
-    // Get post ids from the post table
+    // Get post ids from the posts table
     const postIds = await queryInterface.sequelize.query(
       "SELECT id from Posts;"
     )
+
+    // Create variable to access post ids to use for associations in seeds
+    const postRows = postIds[0];
+    console.log("Posts: " + postRows)
     // --------------------------------------------------------------------------------------------
 
     // Adds seeds for Comments table
     await queryInterface.bulkInsert("Comments", [
       {
         text: "Hi, yes I've heard of a new job opportunity! I will send the link your way.",
-        postId: postRows[0].id,
-        UserId: userRows[0].id,
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        PostId: postRows[0].id,
+        UserId: userRows[1].id
+      },
+      {
+        text: "Hi, yes I've heard of a new job opportunity! I will send the link your way.",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        PostId: postRows[1].id,
+        UserId: userRows[0].id
+      },
+      {
+        text: "Hi, yes I've heard of a new job opportunity! I will send the link your way.",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        PostId: postRows[1].id,
+        UserId: userRows[2].id
       }
 
     ], {});
@@ -116,39 +142,75 @@ module.exports = {
     // Adds seeds for Tags table
     await queryInterface.bulkInsert("Tags", [
       {
-        tag: "Career Advice",
+        name: "Career Advice",
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        tag: "Job Asks",
+        name: "Job Asks",
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        tag: "Offers",
+        name: "Offers",
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        tag: "Events",
+        name: "Events",
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        tag: "Job Post",
+        name: "Job Post",
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        tag: "Random",
+        name: "Random",
         createdAt: new Date(),
         updatedAt: new Date(),
       }
     ], {});
 
+    // --------------------------------------------------------------------------------------------
+    // Get tag ids from the tags table
+    const tagIds = await queryInterface.sequelize.query(
+      "SELECT id from Tags;"
+    )
+
+    // Create variable to access tag ids to use for associations in seeds
+    const tagRows = tagIds[0];
+    console.log("Tags: " + tagRows)
+    // --------------------------------------------------------------------------------------------
+
     // Add seeds for PostTag
-    //
+    await queryInterface.bulkInsert("PostTags", [
+      {
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        PostId: postRows[0].id,
+        TagId: tagRows[0].id
+      },
+      {
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        PostId: postRows[1].id,
+        TagId: tagRows[0].id
+      },
+      {
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        PostId: postRows[1].id,
+        TagId: tagRows[1].id
+      },
+      {
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        PostId: postRows[2].id,
+        TagId: tagRows[0].id
+      }
+    ], {});
 
   },
 
@@ -158,6 +220,7 @@ module.exports = {
     await queryInterface.bulkDelete('Posts', null, {});
     await queryInterface.bulkDelete('Comments', null, {});
     await queryInterface.bulkDelete('Tags', null, {});
+    await queryInterface.bulkDelete('PostTags', null, {});
   }
 };
 
