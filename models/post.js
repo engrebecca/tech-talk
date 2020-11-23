@@ -16,17 +16,16 @@ module.exports = (sequelize, DataTypes) => {
 
     Post.associate = (models) => {
         // A post belongs to a user
-        Post.belongsTo(models.User, {
-            foreignKey: {
-                allowNull: false
-            }
-        });
+        // models.Post.belongsTo(models.User, {
+        //     foreignKey: {
+        //         allowNull: false
+        //     }
+        // });
+        models.Post.belongsTo(models.User);
         // A post has many comments
-        Post.hasMany(models.Comment, {
-            onDelete: "cascade"
-        });
+        models.Post.hasMany(models.Comment);
         // A post has many tags
-        Post.hasMany(models.PostTag);
+        models.Post.hasMany(models.PostTag);
 
     }
 
