@@ -91,7 +91,7 @@ module.exports = (sequelize, DataTypes) => {
     User.prototype.validPassword = function (password) {
         return bcrypt.compareSync(password, this.password);
     };
-    //synchrnously generates a hash for the given string.
+    //synchronously generates a hash for the given string.
     User.addHook("beforeCreate", function (user) {
         user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
     });

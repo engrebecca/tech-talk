@@ -19,103 +19,103 @@ module.exports = (app) => {
 
     });
 
-    app.put("/api/createprofile", (req, res) => {
+    // app.put("/api/createprofile", (req, res) => {
 
-        db.user.update({
-            first_name: req.body.first_name,
-            last_name: req.body.last_name,
-            bio: req.body.bio
+    //     // db.user.update({
+    //     //     first_name: req.body.first_name,
+    //     //     last_name: req.body.last_name,
+    //     //     bio: req.body.bio
 
-        }, {
-            where: {
-                id: req.user.id
-            }
-        })
-            .then((data) => {
-                res.json(data)
-            });
-    });
+    //     // }, {
+    //     //     where: {
+    //     //         id: req.user.id
+    //     //     }
+    //     // })
+    //     //     .then((data) => {
+    //     //         res.json(data)
+    //     //     });
+    // });
 
-    app.get("/api/user_data", (req, res) => {
-        if (!req.user) {
-            res.json({});
-        } else {
-            res.json({
-                username: req.user.username,
-                first_name: req.user.first_name,
-                last_name: req.user.last_name,
-                bio: req.user.bio,
-                id: req.user.id
-            });
-        }
-    });
+    // app.get("/api/user_data", (req, res) => {
+    //     if (!req.user) {
+    //         res.json({});
+    //     } else {
+    //         res.json({
+    //             username: req.user.username,
+    //             first_name: req.user.first_name,
+    //             last_name: req.user.last_name,
+    //             bio: req.user.bio,
+    //             id: req.user.id
+    //         });
+    //     }
+    // });
 
-    app.get("/api/user_data/:userId", (req, res) => {
-        db.user.findAll({
-            where: {
-                id: req.params.userId
-            }
-        })
-            .then(data => {
-                res.json(data);
-            })
-    });
+    // app.get("/api/user_data/:userId", (req, res) => {
+    //     db.user.findAll({
+    //         where: {
+    //             id: req.params.userId
+    //         }
+    //     })
+    //         .then(data => {
+    //             res.json(data);
+    //         })
+    // });
 
-    app.get("/api/post_data", (req, res) => {
-        if (!req.user) {
-            res.json({});
-        } else {
-            res.json({
-                username: req.user.username,
-                first_name: req.user.first_name,
-                last_name: req.user.last_name,
-                bio: req.user.bio,
-                id: req.user.id
-            });
-        }
-    });
+    // app.get("/api/post_data", (req, res) => {
+    //     if (!req.user) {
+    //         res.json({});
+    //     } else {
+    //         res.json({
+    //             username: req.user.username,
+    //             first_name: req.user.first_name,
+    //             last_name: req.user.last_name,
+    //             bio: req.user.bio,
+    //             id: req.user.id
+    //         });
+    //     }
+    // });
 
-    app.post("/api/post", (req, res) => {
-        db.post.create({
-            body: req.body.body,
-            userId: req.user.id
-        })
-            .then((data) => {
-                res.json(data)
-            });
-    });
+    // app.post("/api/post", (req, res) => {
+    //     db.post.create({
+    //         body: req.body.body,
+    //         userId: req.user.id
+    //     })
+    //         .then((data) => {
+    //             res.json(data)
+    //         });
+    // });
 
-    app.post("/api/comment", (req, res) => {
-        db.comment.create({
-            text: req.body.text,
-            userId: req.user.id,
-            postId: req.body.postId
-        })
-            .then((data) => {
-                res.json(data)
-            });
-    });
+    // app.post("/api/comment", (req, res) => {
+    //     db.comment.create({
+    //         text: req.body.text,
+    //         userId: req.user.id,
+    //         postId: req.body.postId
+    //     })
+    //         .then((data) => {
+    //             res.json(data)
+    //         });
+    // });
 
-    app.get("/api/comments/:postId", (req, res) => {
-        db.comment.findAll({
-            where: {
-                postId: req.params.postId
-            }
-        })
-            .then(data => {
-                res.json(data);
-            });
-    });
+    // app.get("/api/comments/:postId", (req, res) => {
+    //     db.comment.findAll({
+    //         where: {
+    //             postId: req.params.postId
+    //         }
+    //     })
+    //         .then(data => {
+    //             res.json(data);
+    //         });
+    // });
 
-    app.get("/posts", (req, res) => {
-        db.post.findAll({
-            where: {
-                userId: req.user.id
-            }
-        })
-            .then(data => {
-                res.json(data);
-            })
-    });
+    // app.get("/posts", (req, res) => {
+    //     db.post.findAll({
+    //         where: {
+    //             userId: req.user.id
+    //         }
+    //     })
+    //         .then(data => {
+    //             res.json(data);
+    //         })
+    // });
 
 };
