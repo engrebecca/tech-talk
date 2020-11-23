@@ -1,18 +1,8 @@
 const db = require("../models");
 
 module.exports = {
-    // create new comment
-    // async create(req, res) {
 
-    //     const { id, text, postId, userId } = req.body
-    //     // Validate user input 
-    //     // Look into express validator
-    //     await db.Comment.create({ text, PostId: postId, UserId: userId })
-
-    //     res.status(201).end()
-    // }
-
-    create: function (req, res) {
+    create: (req, res) => {
         db.Comment.create({
             text: req.body.text,
             UserId: req.body.userId,
@@ -20,7 +10,11 @@ module.exports = {
         })
             .then((data) => {
                 res.json(data)
-            });
+            })
+            .catch(err => {
+                console.log(err);
+                res.send(false)
+            })
     }
 
 };
