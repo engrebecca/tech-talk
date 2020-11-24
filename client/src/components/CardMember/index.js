@@ -6,15 +6,26 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
-import Avatar from '@material-ui/core/Avatar';
+// import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import TextField from '@material-ui/core/TextField';
+import AccountCircleSharpIcon from '@material-ui/icons/AccountCircleSharp';
+import LanguageSharpIcon from '@material-ui/icons/LanguageSharp';
+import WorkOutlineSharpIcon from '@material-ui/icons/WorkOutlineSharp';
+import ComputerIcon from '@material-ui/icons/Computer';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles((theme) => ({
     root: {
         maxWidth: 345,
+        flexGrow: 1,
+    },
+    paper: {
+        padding: theme.spacing(2),
+        textAlign: 'left',
+        color: theme.palette.text.secondary,
     },
     media: {
         height: 0,
@@ -32,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function RecipeReviewCard() {
+export default function UserCard() {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
 
@@ -44,7 +55,7 @@ export default function RecipeReviewCard() {
         <Card className={classes.root}>
             <CardMedia
                 className={classes.media}
-                image="/static/images/cards/paella.jpg"
+                image="https://i.pinimg.com/originals/2e/2f/ac/2e2fac9d4a392456e511345021592dd2.jpg"
                 title="Paella dish"
             />
             <CardContent>
@@ -52,7 +63,10 @@ export default function RecipeReviewCard() {
                     Username
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                    User title goes here
+                    Title
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                    Location
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>
@@ -69,31 +83,42 @@ export default function RecipeReviewCard() {
             </CardActions>
             <Collapse in={expanded} timeout="auto" unmountOnExit>
                 <CardContent>
-                    <Typography paragraph>Method:</Typography>
-                    <Typography paragraph>
-                        Heat 1/2 cup of the broth in a pot until simmering, add saffron and set aside for 10
-                        minutes.
-                    </Typography>
-                    <Typography paragraph>
-                        Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over medium-high
-                        heat. Add chicken, shrimp and chorizo, and cook, stirring occasionally until lightly
-                        browned, 6 to 8 minutes. Transfer shrimp to a large plate and set aside, leaving chicken
-                        and chorizo in the pan. Add pimentón, bay leaves, garlic, tomatoes, onion, salt and
-                        pepper, and cook, stirring often until thickened and fragrant, about 10 minutes. Add
-                        saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil.
-                    </Typography>
-                    <Typography paragraph>
-                        Add rice and stir very gently to distribute. Top with artichokes and peppers, and cook
-                        without stirring, until most of the liquid is absorbed, 15 to 18 minutes. Reduce heat to
-                        medium-low, add reserved shrimp and mussels, tucking them down into the rice, and cook
-                        again without stirring, until mussels have opened and rice is just tender, 5 to 7
-                        minutes more. (Discard any mussels that don’t open.)
-                    </Typography>
-                    <Typography>
-                        Set aside off of the heat to let rest for 10 minutes, and then serve.
-                    </Typography>
+                    <Typography paragraph><AccountCircleSharpIcon />Bio: <span>This is the user bio</span></Typography>
+                    <Typography paragraph><span><WorkOutlineSharpIcon /></span>Org: <span>This is the user's org</span></Typography>
+                    <Typography paragraph><span><ComputerIcon /></span>Github: <span>This is the user's Github</span></Typography>
+                    <Typography paragraph><span><LanguageSharpIcon /></span>Website: <span>This is the user's website</span></Typography>
+                    <Grid container spacing={1}>
+                        {/* Bio */}
+                        <Grid item xs={3}>
+                            <Paper className={classes.paper}><AccountCircleSharpIcon /></Paper>
+                        </Grid>
+                        <Grid item xs={9}>
+                            <Paper className={classes.paper}>This is the user bio</Paper>
+                        </Grid>
+                        {/* Org */}
+                        <Grid item xs={3}>
+                            <Paper className={classes.paper}>xs=6</Paper>
+                        </Grid>
+                        <Grid item xs={9}>
+                            <Paper className={classes.paper}>xs=6</Paper>
+                        </Grid>
+                        {/* GitHub */}
+                        <Grid item xs={3}>
+                            <Paper className={classes.paper}>xs=6</Paper>
+                        </Grid>
+                        <Grid item xs={9}>
+                            <Paper className={classes.paper}>xs=6</Paper>
+                        </Grid>
+                        {/* Website */}
+                        <Grid item xs={3}>
+                            <Paper className={classes.paper}>xs=6</Paper>
+                        </Grid>
+                        <Grid item xs={9}>
+                            <Paper className={classes.paper}>xs=6</Paper>
+                        </Grid>
+                    </Grid>
                 </CardContent>
-            </Collapse>
-        </Card>
+            </Collapse >
+        </Card >
     );
 }
