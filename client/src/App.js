@@ -13,12 +13,15 @@ import Btn6 from "./components/Btn-submit";
 import Btn7 from "./components/Btn-tags";
 import "./App.css";
 import CardMember from "./components/CardMember"
+import Homepage from "./pages/Homepage";
+import SignUp from "./components/SignUp";
 
 
 function App() {
   return (
     // <Test></Test>
-    <CardMember></CardMember>
+    // <CardMember></CardMember>
+    <SignUp />
   );
 }
 
