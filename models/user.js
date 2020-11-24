@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
         password: {
             type: DataTypes.STRING,
             allowNull: false,
-            
+
         },
         bio: {
             type: DataTypes.TEXT,
@@ -35,12 +35,12 @@ module.exports = (sequelize, DataTypes) => {
             validate: {
                 len: [1, 100],
             }
-        
+
         },
-        // photo: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false
-        // },
+        photo: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         role: {
             type: DataTypes.STRING,
             allowNull: false,
