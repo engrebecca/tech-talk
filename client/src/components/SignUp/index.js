@@ -115,7 +115,7 @@ export default function SignUp() {
                 id="organization"
                 label="Organization"
                 name="organization"
-                autoComplete="lname" //Not sure what this is or does
+                autoComplete="organization" //Not sure what this is or does
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -126,7 +126,7 @@ export default function SignUp() {
                 id="title"
                 label="Title"
                 name="title"
-                autoComplete="lname" //Not sure what this is or does
+                autoComplete="title" //Not sure what this is or does
               />
             </Grid>
             <Grid item xs={12}>
@@ -137,7 +137,7 @@ export default function SignUp() {
                 id="location"
                 label="Location"
                 name="location"
-                autoComplete="lname" //Not sure what this is or does
+                autoComplete="location" //Not sure what this is or does
               />
             </Grid>
             <Grid item xs={12}>
@@ -148,7 +148,7 @@ export default function SignUp() {
                 id="github"
                 label="GitHub Link"
                 name="github"
-                autoComplete="lname" //Not sure what this is or does
+                autoComplete="github" //Not sure what this is or does
               />
             </Grid>
             <Grid item xs={12}>
@@ -159,7 +159,7 @@ export default function SignUp() {
                 id="website"
                 label="Website"
                 name="website"
-                autoComplete="lname" //Not sure what this is or does
+                autoComplete="website" //Not sure what this is or does
               />
             </Grid>
             <Grid item xs={12}>
