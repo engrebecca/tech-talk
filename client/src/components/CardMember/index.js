@@ -9,6 +9,7 @@ import LanguageSharpIcon from '@material-ui/icons/LanguageSharp';
 import WorkOutlineSharpIcon from '@material-ui/icons/WorkOutlineSharp';
 import ComputerIcon from '@material-ui/icons/Computer';
 import LocationOnSharpIcon from '@material-ui/icons/LocationOnSharp';
+import "./style.css";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -56,10 +57,10 @@ export default function UserCard() {
                     Firstname Lastname
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                    Title
+                    User's Title
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                    <LocationOnSharpIcon style={{ display: "inline-flex", verticalAlign: "middle", paddingRight: "10px" }} />Location
+                    <LocationOnSharpIcon className="icon" />Location
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>
@@ -82,19 +83,19 @@ export default function UserCard() {
                             <Paper className={classes.paper}><AccountCircleSharpIcon /></Paper>
                         </Grid> */}
                         <Grid item xs={12}>
-                            <Paper className={classes.paper} ><AccountCircleSharpIcon style={{ display: "inline-flex", verticalAlign: "middle", paddingRight: "10px" }} />This is the user bio</Paper>
+                            <Paper className={classes.paper} ><AccountCircleSharpIcon className="icon" />This is the user bio</Paper>
                         </Grid>
                         {/* Org */}
                         <Grid item xs={12}>
-                            <Paper className={classes.paper} ><WorkOutlineSharpIcon style={{ display: "inline-flex", verticalAlign: "middle", paddingRight: "10px" }} />This is the user's org</Paper>
+                            <Paper className={classes.paper} ><WorkOutlineSharpIcon className="icon" />This is the user's org</Paper>
                         </Grid>
                         {/* GitHub */}
                         <Grid item xs={12}>
-                            <Paper className={classes.paper} ><ComputerIcon style={{ display: "inline-flex", verticalAlign: "middle", paddingRight: "10px" }} /><a href="#">This is the user's github</a></Paper>
+                            <Paper className={classes.paper} ><ComputerIcon className="icon" /><a href="#">This is the user's github</a></Paper>
                         </Grid>
                         {/* Website */}
                         <Grid item xs={12}>
-                            <Paper className={classes.paper} ><LanguageSharpIcon style={{ display: "inline-flex", verticalAlign: "middle", paddingRight: "10px" }} /><a href="#">This is the user's website</a></Paper>
+                            <Paper className={classes.paper} ><LanguageSharpIcon className="icon" /><a href="#">This is the user's website</a></Paper>
                         </Grid>
                     </Grid>
                 </CardContent>
