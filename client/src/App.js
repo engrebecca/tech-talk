@@ -1,21 +1,19 @@
 import React, { Component } from "react";
-// import Test from "./components/Test";
-// import Test from "./components/Test";
-import "./App.css";
-import Navbar from "./components/Navbar";
-import Row from "./components/Row";
-import Column from "./components/Column";
-import Container from "./components/Container";
+// import React from "react";
+// import { BrowserRouter as Router, Route } from "react-router-dom";
+import Homepage from "./pages/Homepage";
+
+
+
+
 
 function App() {
   return (
-  <div className= "name">
-    <Navbar></Navbar>
-    <Container></Container>
-    <Column></Column> 
-     <Row></Row>
-   {/* <Test></Test> */}
-   </div>
+    <div>
+        <Homepage></Homepage>
+              
+    </div>
+  
   );
 }
 
