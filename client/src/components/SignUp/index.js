@@ -44,17 +44,21 @@ export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [organization, setOrganization] = useState("");
-  const [title, setTitle] = useState("");
+  const [role, setRole] = useState("");
   const [location, setLocation] = useState("");
   const [github, setGithub] = useState("");
   const [website, setWebsite] = useState("");
-  const [profilePicture, setProfilePicture] = useState();
+  const [bio, setBio] = useState("");
+  // const [profilePicture, setProfilePicture] = useState();
 
   function submitForm(e) {
     e.preventDefault();
-    const formData = new FormData(e.target)
-    console.log([...formData.entries()])
-    API.User.create()
+    // const formData = new FormData(e.target)
+    // console.log([...formData.entries()])
+    let formData =
+      { firstName, lastName, email, password, bio, organization, role, organization, location, github, website }
+    console.log(formData)
+    API.User.create(formData)
       .then(res => {
         console.log("User created!");
       })
@@ -150,8 +154,21 @@ export default function SignUp() {
                 label="Title"
                 name="title"
                 autoComplete="organization-title"
-                value={title}
-                onChange={e => setTitle(e.target.value)}
+                value={role}
+                onChange={e => setRole(e.target.value)}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                id="bio"
+                label="bio"
+                name="bio"
+                autoComplete="bio"
+                value={bio}
+                onChange={e => setBio(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -194,7 +211,7 @@ export default function SignUp() {
               />
             </Grid>
           </Grid>
-          <input type="file" onChange={e => setProfilePicture(e.target.files[0])} />
+          {/* <input type="file" onChange={e => setProfilePicture(e.target.files[0])} /> */}
           <Button
             type="submit"
             fullWidth
