@@ -158,7 +158,7 @@ export default function SignUp() {
                 onChange={e => setRole(e.target.value)}
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12}>
               <TextField
                 variant="outlined"
                 required
