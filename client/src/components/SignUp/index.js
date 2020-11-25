@@ -105,6 +105,8 @@ export default function SignUp() {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -116,7 +118,9 @@ export default function SignUp() {
                 label="Password"
                 type="password"
                 id="password"
-                autoComplete="current-password"
+                autoComplete="new-password"
+                value={password}
+                onChange={e => setPassword(e.target.value)}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -127,7 +131,9 @@ export default function SignUp() {
                 id="organization"
                 label="Organization"
                 name="organization"
-                autoComplete="organization" //Not sure what this is or does
+                autoComplete="organization"
+                value={organization}
+                onChange={e => setOrganization(e.target.value)}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -138,7 +144,9 @@ export default function SignUp() {
                 id="title"
                 label="Title"
                 name="title"
-                autoComplete="title" //Not sure what this is or does
+                autoComplete="organization-title"
+                value={title}
+                onChange={e => setTitle(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -149,7 +157,9 @@ export default function SignUp() {
                 id="location"
                 label="Location"
                 name="location"
-                autoComplete="location" //Not sure what this is or does
+                autoComplete="address-level2" //Not sure what this is or does
+                value={location}
+                onChange={e => setLocation(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -161,6 +171,8 @@ export default function SignUp() {
                 label="GitHub Link"
                 name="github"
                 autoComplete="github" //Not sure what this is or does
+                value={github}
+                onChange={e => setGithub(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -172,6 +184,8 @@ export default function SignUp() {
                 label="Website"
                 name="website"
                 autoComplete="website" //Not sure what this is or does
+                value={website}
+                onChange={e => setWebsite(e.target.value)}
               />
             </Grid>
           </Grid>
