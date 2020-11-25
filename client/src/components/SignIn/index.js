@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     height: '80vh',
   },
   image: {
-    backgroundImage: 'url(https://source.unsplash.com/random)',
+    backgroundImage: 'url(https://entrepreneur.indiegogo.com/education/wp-content/uploads/sites/4/2019/05/Soft-Skills-for-Crowdfunding.jpeg)',
     backgroundRepeat: 'no-repeat',
     backgroundColor:
       theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
