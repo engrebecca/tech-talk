@@ -5,11 +5,9 @@ import Homepage from "./pages/Homepage";
 
 function App() {
   return (
-    <div>
-        <Homepage></Homepage>
-              
-    </div>
-  
+    // <Test></Test>
+    // <CardUser></CardUser>
+    <SignUp />
   );
 }
 

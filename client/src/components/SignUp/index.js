@@ -49,20 +49,33 @@ export default function SignUp() {
   const [github, setGithub] = useState("");
   const [website, setWebsite] = useState("");
   const [bio, setBio] = useState("");
-  // const [profilePicture, setProfilePicture] = useState();
+  const [imageUrl, setImageUrl] = useState("");
+  const [profilePicture, setProfilePicture] = useState();
+
+  const cloudinaryUrl = "https://api.cloudinary.com/v1_1/tech-talk/upload"
+  const cloudinaryPreset = "io46qdvv"
+
+  function uploadImage(e) {
+    let file = e.target.files[0];
+    console.log(file);
+    let formData = new FormData();
+    formData.append("file", file)
+    formData.append("upload_preset", cloudinaryPreset)
+    console.log(formData);
+  }
 
   function submitForm(e) {
     e.preventDefault();
     // const formData = new FormData(e.target)
     // console.log([...formData.entries()])
-    let formData =
-      { firstName, lastName, email, password, bio, organization, role, location, github, website }
-    console.log(formData)
-    API.User.create(formData)
-      .then(res => {
-        console.log("User created!");
-      })
-      .catch(err => console.log(err));
+    // let formData =
+    //   { firstName, lastName, email, password, bio, organization, role, location, github, website }
+    // console.log(formData)
+    // API.User.create(formData)
+    //   .then(res => {
+    //     console.log("User created!");
+    //   })
+    //   .catch(err => console.log(err));
 
   }
 
@@ -76,7 +89,7 @@ export default function SignUp() {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <form className={classes.form} noValidate onSubmit={submitForm} >
+        <form className={classes.form} noValidate encType="multipart/form-data" onSubmit={submitForm} >
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
@@ -150,9 +163,9 @@ export default function SignUp() {
                 variant="outlined"
                 required
                 fullWidth
-                id="title"
-                label="Title"
-                name="title"
+                id="role"
+                label="Role"
+                name="role"
                 autoComplete="organization-title"
                 value={role}
                 onChange={e => setRole(e.target.value)}
@@ -212,6 +225,8 @@ export default function SignUp() {
             </Grid>
           </Grid>
           {/* <input type="file" onChange={e => setProfilePicture(e.target.files[0])} /> */}
+          <input type="file" onChange={uploadImage} />
+          {/* <input type="file" /> */}
           <Button
             type="submit"
             fullWidth
