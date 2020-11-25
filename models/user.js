@@ -37,10 +37,10 @@ module.exports = (sequelize, DataTypes) => {
             }
 
         },
-        photo: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
+        // photo: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false
+        // },
         role: {
             type: DataTypes.STRING,
             allowNull: false,
