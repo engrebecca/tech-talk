@@ -1,10 +1,7 @@
 import React, { Component } from "react";
-// import Test from "./components/Test";
-import "./App.css";
-import CardUser from "./components/CardUser"
-// import Homepage from "./pages/Homepage";
-import SignUp from "./components/SignUp";
-
+// import React from "react";
+// import { BrowserRouter as Router, Route } from "react-router-dom";
+import Homepage from "./pages/Homepage";
 
 function App() {
   return (
@@ -13,6 +10,5 @@ function App() {
     <SignUp />
   );
 }
-
 
 export default App;
