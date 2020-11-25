@@ -36,26 +36,26 @@ module.exports = {
     // create new user
     create: (req, res) => {
         // Use uploader to upload a new image to Cloudinary
-        // cloudinary.uploader.upload(req.files.image.path, result => {
-        db.User.create({
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            email: req.body.email,
-            password: req.body.password,
-            bio: req.body.bio,
-            // photo: result.url,
-            role: req.body.role,
-            organization: req.body.organization,
-            github: req.body.github,
-            website: req.body.website,
-            location: req.body.location
-        })
-            .then(data => res.json(data))
-            .catch(err => {
-                console.log(err);
-                res.send(false)
+        cloudinary.uploader.upload(req.files.image.path, result => {
+            db.User.create({
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                email: req.body.email,
+                password: req.body.password,
+                bio: req.body.bio,
+                photo: result.url,
+                role: req.body.role,
+                organization: req.body.organization,
+                github: req.body.github,
+                website: req.body.website,
+                location: req.body.location
             })
-        // })
+                .then(data => res.json(data))
+                .catch(err => {
+                    console.log(err);
+                    res.send(false)
+                })
+        })
     }
 
 };

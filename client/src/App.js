@@ -9,8 +9,8 @@ import SignUp from "./components/SignUp";
 function App() {
   return (
     // <Test></Test>
-    <CardUser></CardUser>
-    // <SignUp />
+    // <CardUser></CardUser>
+    <SignUp />
   );
 }
 
