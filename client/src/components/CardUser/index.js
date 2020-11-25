@@ -47,20 +47,22 @@ export default function UserCard() {
 
     return (
         <Card className={classes.root}>
+            {/* User Image */}
             <CardMedia
                 className={classes.media}
                 image="https://i.pinimg.com/originals/2e/2f/ac/2e2fac9d4a392456e511345021592dd2.jpg"
                 title="Paella dish"
             />
+            {/* User name, title, location */}
             <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
                     Firstname Lastname
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                    User's Title
+                    Software Engineer
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                    <LocationOnSharpIcon className="icon" />Location
+                    <LocationOnSharpIcon className="icon" />San Francisco
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>
@@ -79,23 +81,20 @@ export default function UserCard() {
                 <CardContent>
                     <Grid container spacing={1}>
                         {/* Bio */}
-                        {/* <Grid item xs={3}>
-                            <Paper className={classes.paper}><AccountCircleSharpIcon /></Paper>
-                        </Grid> */}
                         <Grid item xs={12}>
-                            <Paper className={classes.paper} ><AccountCircleSharpIcon className="icon" />This is the user bio</Paper>
+                            <Paper className={classes.paper} ><AccountCircleSharpIcon className="icon" />Hi there! I'm a software engineer and student at UCB.</Paper>
                         </Grid>
                         {/* Org */}
                         <Grid item xs={12}>
-                            <Paper className={classes.paper} ><WorkOutlineSharpIcon className="icon" />This is the user's org</Paper>
+                            <Paper className={classes.paper} ><WorkOutlineSharpIcon className="icon" />UC Berkeley</Paper>
                         </Grid>
                         {/* GitHub */}
                         <Grid item xs={12}>
-                            <Paper className={classes.paper} ><ComputerIcon className="icon" /><a href="#">This is the user's github</a></Paper>
+                            <Paper className={classes.paper} ><ComputerIcon className="icon" /><a href="#">github.com</a></Paper>
                         </Grid>
                         {/* Website */}
                         <Grid item xs={12}>
-                            <Paper className={classes.paper} ><LanguageSharpIcon className="icon" /><a href="#">This is the user's website</a></Paper>
+                            <Paper className={classes.paper} ><LanguageSharpIcon className="icon" /><a href="#">website.com</a></Paper>
                         </Grid>
                     </Grid>
                 </CardContent>
