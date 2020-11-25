@@ -1,21 +1,14 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
-import Card from '@material-ui/core/Card';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import Collapse from '@material-ui/core/Collapse';
+import { Card, CardMedia, CardContent, CardActions, Collapse, IconButton, Typography, Paper, Grid } from '@material-ui/core';
 // import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMoreSharp';
 import AccountCircleSharpIcon from '@material-ui/icons/AccountCircleSharp';
 import LanguageSharpIcon from '@material-ui/icons/LanguageSharp';
 import WorkOutlineSharpIcon from '@material-ui/icons/WorkOutlineSharp';
 import ComputerIcon from '@material-ui/icons/Computer';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
+import LocationOnSharpIcon from '@material-ui/icons/LocationOnSharp';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -60,13 +53,13 @@ export default function UserCard() {
             />
             <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
-                    Username
+                    Firstname Lastname
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
                     Title
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                    Location
+                    <LocationOnSharpIcon style={{ display: "inline-flex", verticalAlign: "middle", paddingRight: "10px" }} />Location
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>
@@ -83,38 +76,25 @@ export default function UserCard() {
             </CardActions>
             <Collapse in={expanded} timeout="auto" unmountOnExit>
                 <CardContent>
-                    <Typography paragraph><AccountCircleSharpIcon />Bio: <span>This is the user bio</span></Typography>
-                    <Typography paragraph><span><WorkOutlineSharpIcon /></span>Org: <span>This is the user's org</span></Typography>
-                    <Typography paragraph><span><ComputerIcon /></span>Github: <span>This is the user's Github</span></Typography>
-                    <Typography paragraph><span><LanguageSharpIcon /></span>Website: <span>This is the user's website</span></Typography>
                     <Grid container spacing={1}>
                         {/* Bio */}
-                        <Grid item xs={3}>
+                        {/* <Grid item xs={3}>
                             <Paper className={classes.paper}><AccountCircleSharpIcon /></Paper>
-                        </Grid>
-                        <Grid item xs={9}>
-                            <Paper className={classes.paper}>This is the user bio</Paper>
+                        </Grid> */}
+                        <Grid item xs={12}>
+                            <Paper className={classes.paper} ><AccountCircleSharpIcon style={{ display: "inline-flex", verticalAlign: "middle", paddingRight: "10px" }} />This is the user bio</Paper>
                         </Grid>
                         {/* Org */}
-                        <Grid item xs={3}>
-                            <Paper className={classes.paper}>xs=6</Paper>
-                        </Grid>
-                        <Grid item xs={9}>
-                            <Paper className={classes.paper}>xs=6</Paper>
+                        <Grid item xs={12}>
+                            <Paper className={classes.paper} ><WorkOutlineSharpIcon style={{ display: "inline-flex", verticalAlign: "middle", paddingRight: "10px" }} />This is the user's org</Paper>
                         </Grid>
                         {/* GitHub */}
-                        <Grid item xs={3}>
-                            <Paper className={classes.paper}>xs=6</Paper>
-                        </Grid>
-                        <Grid item xs={9}>
-                            <Paper className={classes.paper}>xs=6</Paper>
+                        <Grid item xs={12}>
+                            <Paper className={classes.paper} ><ComputerIcon style={{ display: "inline-flex", verticalAlign: "middle", paddingRight: "10px" }} /><a href="#">This is the user's github</a></Paper>
                         </Grid>
                         {/* Website */}
-                        <Grid item xs={3}>
-                            <Paper className={classes.paper}>xs=6</Paper>
-                        </Grid>
-                        <Grid item xs={9}>
-                            <Paper className={classes.paper}>xs=6</Paper>
+                        <Grid item xs={12}>
+                            <Paper className={classes.paper} ><LanguageSharpIcon style={{ display: "inline-flex", verticalAlign: "middle", paddingRight: "10px" }} /><a href="#">This is the user's website</a></Paper>
                         </Grid>
                     </Grid>
                 </CardContent>

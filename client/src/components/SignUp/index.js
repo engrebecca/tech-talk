@@ -56,7 +56,7 @@ export default function SignUp() {
     // const formData = new FormData(e.target)
     // console.log([...formData.entries()])
     let formData =
-      { firstName, lastName, email, password, bio, organization, role, organization, location, github, website }
+      { firstName, lastName, email, password, bio, organization, role, location, github, website }
     console.log(formData)
     API.User.create(formData)
       .then(res => {
@@ -164,7 +164,7 @@ export default function SignUp() {
                 required
                 fullWidth
                 id="bio"
-                label="bio"
+                label="Bio"
                 name="bio"
                 autoComplete="bio"
                 value={bio}
