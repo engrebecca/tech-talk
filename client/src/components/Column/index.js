@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function AutoGrid() {
+export default function CenteredGrid() {
   const classes = useStyles();
 
   return (
