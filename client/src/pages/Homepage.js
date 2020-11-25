@@ -15,7 +15,6 @@ function Homepage() {
     <div>
     <Navbar></Navbar>
     <SignIn></SignIn>
-    <BtnSignup></BtnSignup>
    {/* </Container> */}
     </div>
   
