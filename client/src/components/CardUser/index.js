@@ -11,10 +11,12 @@ import ComputerIcon from '@material-ui/icons/Computer';
 import LocationOnSharpIcon from '@material-ui/icons/LocationOnSharp';
 import "./style.css";
 
+
 const useStyles = makeStyles((theme) => ({
     root: {
         maxWidth: 345,
         flexGrow: 1,
+        margin: 30,
     },
     paper: {
         padding: theme.spacing(2),
@@ -34,10 +36,13 @@ const useStyles = makeStyles((theme) => ({
     },
     expandOpen: {
         transform: 'rotate(180deg)',
+    },
+    marginAutoItem: {
+        margin: 'auto',
     }
 }));
 
-export default function UserCard() {
+export default function UserCard(props) {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
 
@@ -46,23 +51,23 @@ export default function UserCard() {
     };
 
     return (
-        <Card className={classes.root}>
+        <Card className={classes.root, classes.marginAutoItem}>
             {/* User Image */}
             <CardMedia
                 className={classes.media}
-                image="https://i.pinimg.com/originals/2e/2f/ac/2e2fac9d4a392456e511345021592dd2.jpg"
-                title="Paella dish"
+                image={props.photo}
+                title="User image"
             />
             {/* User name, title, location */}
             <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
-                    Firstname Lastname
+                    {props.firstName} {props.lastName}
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                    Software Engineer
+                    {props.role}
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                    <LocationOnSharpIcon className="icon" />San Francisco
+                    <LocationOnSharpIcon className="icon" /> {props.loc}
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>
@@ -82,19 +87,19 @@ export default function UserCard() {
                     <Grid container spacing={1}>
                         {/* Bio */}
                         <Grid item xs={12}>
-                            <Paper className={classes.paper} ><AccountCircleSharpIcon className="icon" />Hi there! I'm a software engineer and student at UCB.</Paper>
+                            <Paper className={classes.paper} ><AccountCircleSharpIcon className="icon" />{props.bio}</Paper>
                         </Grid>
                         {/* Org */}
                         <Grid item xs={12}>
-                            <Paper className={classes.paper} ><WorkOutlineSharpIcon className="icon" />UC Berkeley</Paper>
+                            <Paper className={classes.paper} ><WorkOutlineSharpIcon className="icon" />{props.org}</Paper>
                         </Grid>
                         {/* GitHub */}
                         <Grid item xs={12}>
-                            <Paper className={classes.paper} ><ComputerIcon className="icon" /><a href="#">github.com</a></Paper>
+                            <Paper className={classes.paper} ><ComputerIcon className="icon" /><a href={props.github} target="_blank" rel="noopener noreferrer">{props.github}</a></Paper>
                         </Grid>
                         {/* Website */}
                         <Grid item xs={12}>
-                            <Paper className={classes.paper} ><LanguageSharpIcon className="icon" /><a href="#">website.com</a></Paper>
+                            <Paper className={classes.paper} ><LanguageSharpIcon className="icon" /><a href={props.website} target="_blank" rel="noopener noreferrer">{props.website}</a></Paper>
                         </Grid>
                     </Grid>
                 </CardContent>
