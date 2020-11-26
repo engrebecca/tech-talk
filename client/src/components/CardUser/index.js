@@ -11,10 +11,12 @@ import ComputerIcon from '@material-ui/icons/Computer';
 import LocationOnSharpIcon from '@material-ui/icons/LocationOnSharp';
 import "./style.css";
 
+
 const useStyles = makeStyles((theme) => ({
     root: {
         maxWidth: 345,
         flexGrow: 1,
+        margin: 30,
     },
     paper: {
         padding: theme.spacing(2),
@@ -34,6 +36,9 @@ const useStyles = makeStyles((theme) => ({
     },
     expandOpen: {
         transform: 'rotate(180deg)',
+    },
+    marginAutoItem: {
+        margin: 'auto',
     }
 }));
 
@@ -46,7 +51,7 @@ export default function UserCard(props) {
     };
 
     return (
-        <Card className={classes.root}>
+        <Card className={classes.root, classes.marginAutoItem}>
             {/* User Image */}
             <CardMedia
                 className={classes.media}
@@ -90,11 +95,11 @@ export default function UserCard(props) {
                         </Grid>
                         {/* GitHub */}
                         <Grid item xs={12}>
-                            <Paper className={classes.paper} ><ComputerIcon className="icon" /><a href={props.github} target="_blank">{props.github}</a></Paper>
+                            <Paper className={classes.paper} ><ComputerIcon className="icon" /><a href={props.github} target="_blank" rel="noopener noreferrer">{props.github}</a></Paper>
                         </Grid>
                         {/* Website */}
                         <Grid item xs={12}>
-                            <Paper className={classes.paper} ><LanguageSharpIcon className="icon" /><a href={props.website} target="_blank">{props.website}</a></Paper>
+                            <Paper className={classes.paper} ><LanguageSharpIcon className="icon" /><a href={props.website} target="_blank" rel="noopener noreferrer">{props.website}</a></Paper>
                         </Grid>
                     </Grid>
                 </CardContent>
