@@ -4,12 +4,16 @@ import API from '../utils/API';
 function MemberPage() {
 
 
-    useEffect(( => {
+    useEffect(() => {
         loadMembers()
-    }), []);
+    }, []);
 
     function loadMembers() {
-
+        API.User.getUser()
+            .then(res => {
+                console.log(res.data)
+            })
+            .catch(err => console.log(err));
     }
 
     return (
