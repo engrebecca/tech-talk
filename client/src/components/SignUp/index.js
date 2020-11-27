@@ -50,7 +50,6 @@ export default function SignUp() {
   const [website, setWebsite] = useState("");
   const [bio, setBio] = useState("");
   const [imageUrl, setImageUrl] = useState("");
-  // const [profilePicture, setProfilePicture] = useState();
 
   const cloudinaryPreset = "io46qdvv"
 
@@ -72,11 +71,12 @@ export default function SignUp() {
 
   function submitForm(e) {
     e.preventDefault();
-    // const formData = new FormData(e.target)
-    // console.log([...formData.entries()])
     let userSignupData =
       { firstName, lastName, email, password, bio, organization, role, location, github, website, imageUrl }
     console.log(userSignupData);
+    if (!imageUrl) {
+      return;
+    }
     API.User.create(userSignupData)
       .then(res => {
         console.log("User created!");
