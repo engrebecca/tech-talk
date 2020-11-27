@@ -12,6 +12,8 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import API from "../../utils/API";
+
 
 function Copyright() {
   return (
@@ -57,9 +59,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 export default function SignInSide() {
   const classes = useStyles();
-
+  state = {
+    email: "",
+    password: "",
+  }
+  
+  formSubmit(event) => {
+    event.preventDefault();
+    API.User.create
+  };
+  
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
