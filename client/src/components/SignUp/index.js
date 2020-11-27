@@ -50,9 +50,8 @@ export default function SignUp() {
   const [website, setWebsite] = useState("");
   const [bio, setBio] = useState("");
   const [imageUrl, setImageUrl] = useState("");
-  const [profilePicture, setProfilePicture] = useState();
+  // const [profilePicture, setProfilePicture] = useState();
 
-  const cloudinaryUrl = "https://api.cloudinary.com/v1_1/tech-talk/upload"
   const cloudinaryPreset = "io46qdvv"
 
   function uploadImage(e) {
@@ -62,20 +61,27 @@ export default function SignUp() {
     formData.append("file", file)
     formData.append("upload_preset", cloudinaryPreset)
     console.log(formData);
+
+    API.User.createImage(formData)
+      .then(res => {
+        console.log(res.data);
+        setImageUrl(res.data.secure_url)
+      })
+      .catch(err => console.log(err));
   }
 
   function submitForm(e) {
     e.preventDefault();
     // const formData = new FormData(e.target)
     // console.log([...formData.entries()])
-    // let formData =
-    //   { firstName, lastName, email, password, bio, organization, role, location, github, website }
-    // console.log(formData)
-    // API.User.create(formData)
-    //   .then(res => {
-    //     console.log("User created!");
-    //   })
-    //   .catch(err => console.log(err));
+    let userSignupData =
+      { firstName, lastName, email, password, bio, organization, role, location, github, website, imageUrl }
+    console.log(userSignupData);
+    API.User.create(userSignupData)
+      .then(res => {
+        console.log("User created!");
+      })
+      .catch(err => console.log(err));
 
   }
 
