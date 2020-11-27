@@ -1,4 +1,5 @@
 import React from 'react';
+// import { NavLink } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -17,6 +18,9 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
+  navbar: {
+    marginBottom: 50
+  }
 }));
 
 export default function ButtonAppBar() {
@@ -24,19 +28,19 @@ export default function ButtonAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" className={classes.navbar}>
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            *Logo* 
-            <Button color="inherit">Home</Button>
-          <Button color="inherit">Members</Button>
-          <Button color="inherit">Login</Button>
+            *Logo*
+            {/* <NavLink to="/" exact> Home </NavLink>
+            <NavLink to="/Members"> Members </NavLink>
+            <NavLink to="/SignIn"> Sign In </NavLink> */}
           </Typography>
-          <Button color="inherit">Profile</Button>
-          <Button color="inherit">Logout</Button>
+          {/* <NavLink to="/Profile"> Profile </NavLink>
+          <NavLink to="/Logout"> Logout </NavLink> */}
         </Toolbar>
       </AppBar>
     </div>
