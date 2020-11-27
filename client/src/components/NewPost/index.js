@@ -80,7 +80,7 @@ export default function CheckboxesGroup() {
 
             <FormControl component="fieldset" className={classes.formControl}>
                 <FormLabel component="legend">Choose tags associated with your post</FormLabel>
-                <FormGroup>
+                <div>
                     <FormControlLabel
                         control={<Checkbox checked={careerAdvice} onChange={handleChange} name="careerAdvice" />}
                         label="Career Advice"
@@ -105,7 +105,7 @@ export default function CheckboxesGroup() {
                         control={<Checkbox checked={random} onChange={handleChange} name="random" />}
                         label="Random"
                     />
-                </FormGroup>
+                </div>
 
                
             </FormControl>
