@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Avatar, Button, CssBaseline, TextField, Link, Grid, Box, Typography, Container } from '@material-ui/core'
+import React, { useState, useEffect } from 'react';
+import { Avatar, Button, CssBaseline, TextField, Link, Grid, Box, Typography, Container, LinearProgress } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import API from "../../utils/API";
@@ -35,6 +35,9 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  root: {
+    width: '100%',
+  },
 }));
 
 export default function SignUp() {
@@ -50,8 +53,25 @@ export default function SignUp() {
   const [website, setWebsite] = useState("");
   const [bio, setBio] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const [progress, setProgress] = useState(0);
 
   const cloudinaryPreset = "io46qdvv"
+
+  // functionuseEffect(() => {
+  //   const timer = setInterval(() => {
+  //     setProgress((oldProgress) => {
+  //       if (oldProgress === 100) {
+  //         return 0;
+  //       }
+  //       const diff = Math.random() * 10;
+  //       return Math.min(oldProgress + diff, 100);
+  //     });
+  //   }, 500);
+
+  //   return () => {
+  //     clearInterval(timer);
+  //   };
+  // }, []);
 
   function uploadImage(e) {
     let file = e.target.files[0];
@@ -67,6 +87,23 @@ export default function SignUp() {
         setImageUrl(res.data.secure_url)
       })
       .catch(err => console.log(err));
+
+    const timer = setInterval(() => {
+      setProgress((oldProgress) => {
+        // if (imageUrl) {
+        //   return;
+        // }
+        // if (oldProgress === 100) {
+        //   return 0;
+        // }
+        const diff = Math.random() * 10;
+        return Math.min(oldProgress + diff, 100);
+      });
+    }, 300);
+
+    return () => {
+      clearInterval(timer);
+    };
   }
 
   function submitForm(e) {
@@ -74,9 +111,7 @@ export default function SignUp() {
     let userSignupData =
       { firstName, lastName, email, password, bio, organization, role, location, github, website, imageUrl }
     console.log(userSignupData);
-    if (!imageUrl) {
-      return;
-    }
+
     API.User.create(userSignupData)
       .then(res => {
         console.log("User created!");
@@ -230,9 +265,10 @@ export default function SignUp() {
               />
             </Grid>
           </Grid>
-          {/* <input type="file" onChange={e => setProfilePicture(e.target.files[0])} /> */}
           <input type="file" onChange={uploadImage} />
-          {/* <input type="file" /> */}
+          <div className={classes.root}>
+            <LinearProgress variant="determinate" value={progress} />
+          </div>
           <Button
             type="submit"
             fullWidth

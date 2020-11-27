@@ -12,6 +12,7 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import API from "../../utils/API";
 
 function Copyright() {
   return (
@@ -100,6 +101,7 @@ export default function SignInSide() {
               label="Remember me"
             />
             <Button
+                // onClick={() => signIn(profilePage)} we need the onclick to take us to our user profile page.
               type="submit"
               fullWidth
               variant="contained"
