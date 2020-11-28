@@ -9,7 +9,7 @@ const useStyles = makeStyles(() => ({
     }
 }));
 
-export default function RecipeReviewCard() {
+export default function Card() {
     const classes = useStyles();
 
     return (
