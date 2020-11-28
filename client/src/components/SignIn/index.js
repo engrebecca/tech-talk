@@ -61,11 +61,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignInSide() {
   const classes = useStyles();
-  // state = {
-  //   email: "",
-  //   password: "",
-  // }
-  
+
   let signIn= (event) => {
     event.preventDefault();
     API.User.create()
@@ -111,7 +107,7 @@ export default function SignInSide() {
               label="Remember me"
             />
             <Button
-              onClick={(e) => signIn(e)} 
+              onClick={(event) => signIn(event)} 
               //we need the onclick to take us to our user profile page
               type="submit"
               fullWidth

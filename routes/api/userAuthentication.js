@@ -13,6 +13,7 @@ module.exports = (app) => {
     });
 
     app.post("/api/login", passport.authenticate("local"), (req, res) => {
+        console.log("listening", req.user)
         res.json(req.user);
     });
 
