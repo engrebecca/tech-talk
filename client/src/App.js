@@ -6,7 +6,8 @@ import HomePage from "./pages/Homepage";
 // import MembersPage from "./pages/Members";
 // import SignInPage from "./pages/SignIn";
 // import ProfilePage from "./pages/Profile";
-// import LogOutPage from "./pages/LogOut";
+// import LogOutPage from "./pages/LogOut";,
+import SignUp from "./pages/SignupPage";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
       {/* <Navbar></Navbar> */}
       {/* <Switch>
           <Route path="/" exact> */}
-      <HomePage></HomePage>
+      {/* <HomePage></HomePage> */}
       {/* </Route> */}
       {/* <Route path="/Members" exact>
             <MembersPage></MembersPage>
@@ -34,7 +35,7 @@ function App() {
           </Route>
         </Switch>
       </Router> */}
-
+      <SignUp />
 
     </div>
   );

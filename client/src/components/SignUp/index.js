@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Avatar, Button, CssBaseline, TextField, Link, Grid, Box, Typography, Container, LinearProgress } from '@material-ui/core'
+import { Avatar, Button, CssBaseline, TextField, Link, Grid, Box, Typography, Container, CircularProgress } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import API from "../../utils/API";
@@ -53,8 +53,8 @@ export default function SignUp() {
   const [website, setWebsite] = useState("");
   const [bio, setBio] = useState("");
   const [imageUrl, setImageUrl] = useState("");
-  const [progress, setProgress] = useState(0);
-
+  const [progress, setProgress] = useState(null);
+  const [validationSuccess, setValidationSuccess] = useState(false);
   const cloudinaryPreset = "io46qdvv"
 
   // functionuseEffect(() => {
@@ -73,6 +73,27 @@ export default function SignUp() {
   //   };
   // }, []);
 
+  useEffect(() => {
+    if (!firstName || !lastName || !email || !password || !organization || !role || !location || !github || !website || !bio || !imageUrl) {
+      setValidationSuccess(() => false)
+      return
+    }
+    setValidationSuccess(() => true)
+  }, [firstName, lastName, email, password, organization, role, location, github, website, bio, imageUrl]);
+
+  useEffect(() => {
+    if (progress === null) {
+      return
+    }
+    const handle = setTimeout(() => {
+      const diff = Math.random() * 10;
+      setProgress(Math.min(progress + diff, 100));
+    }, 300)
+    return () => {
+      clearTimeout(handle)
+    }
+  }, [progress])
+
   function uploadImage(e) {
     let file = e.target.files[0];
     console.log(file);
@@ -80,30 +101,31 @@ export default function SignUp() {
     formData.append("file", file)
     formData.append("upload_preset", cloudinaryPreset)
     console.log(formData);
+    setProgress(0)
 
     API.User.createImage(formData)
       .then(res => {
         console.log(res.data);
         setImageUrl(res.data.secure_url)
+        setProgress(null)
       })
       .catch(err => console.log(err));
+    // const timer = setInterval(() => {
+    //   setProgress((oldProgress) => {
+    //     // if (imageUrl) {
+    //     //   return;
+    //     // }
+    //     // if (oldProgress === 100) {
+    //     //   return 0;
+    //     // }
+    //     const diff = Math.random() * 10;
+    //     return Math.min(oldProgress + diff, 100);
+    //   });
+    // }, 300);
 
-    const timer = setInterval(() => {
-      setProgress((oldProgress) => {
-        // if (imageUrl) {
-        //   return;
-        // }
-        // if (oldProgress === 100) {
-        //   return 0;
-        // }
-        const diff = Math.random() * 10;
-        return Math.min(oldProgress + diff, 100);
-      });
-    }, 300);
-
-    return () => {
-      clearInterval(timer);
-    };
+    // return () => {
+    //   clearInterval(timer);
+    // };
   }
 
   function submitForm(e) {
@@ -265,16 +287,20 @@ export default function SignUp() {
               />
             </Grid>
           </Grid>
-          <input type="file" onChange={uploadImage} />
-          <div className={classes.root}>
-            <LinearProgress variant="determinate" value={progress} />
-          </div>
+          <Button variant="contained" component="label">
+            Upload Profile Picture
+            <input type="file" onChange={uploadImage} hidden />
+          </Button>
+          {imageUrl ? (<img src={imageUrl}></img>) : progress !== null && <div className={classes.root}>
+            <CircularProgress />
+          </div>}
           <Button
             type="submit"
             fullWidth
             variant="contained"
             color="primary"
             className={classes.submit}
+            disabled={!validationSuccess}
           >
             Sign Up
           </Button>
