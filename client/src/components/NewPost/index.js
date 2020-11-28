@@ -6,7 +6,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormLabel from '@material-ui/core/FormLabel';
 import FormControl from '@material-ui/core/FormControl';
-import FormGroup from '@material-ui/core/FormGroup';
+// import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Typography from '@material-ui/core/Typography';
@@ -68,7 +68,7 @@ export default function CheckboxesGroup() {
                         required
                         fullWidth
                         multiline={true}
-                        rows={5}
+                        rows={3}
                         id="postText"
                         label="Text"
                         name="postText"
@@ -80,7 +80,7 @@ export default function CheckboxesGroup() {
 
             <FormControl component="fieldset" className={classes.formControl}>
                 <FormLabel component="legend">Choose tags associated with your post</FormLabel>
-                <FormGroup>
+                <div>
                     <FormControlLabel
                         control={<Checkbox checked={careerAdvice} onChange={handleChange} name="careerAdvice" />}
                         label="Career Advice"
@@ -105,7 +105,7 @@ export default function CheckboxesGroup() {
                         control={<Checkbox checked={random} onChange={handleChange} name="random" />}
                         label="Random"
                     />
-                </FormGroup>
+                </div>
 
                
             </FormControl>
