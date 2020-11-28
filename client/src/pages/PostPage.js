@@ -31,23 +31,6 @@ const useStyles = makeStyles((theme) => ({
         margin: `${theme.spacing(1)}px auto`,
         padding: theme.spacing(2),
     }
-    // media: {
-    //     height: 0,
-    //     paddingTop: '56.25%', // 16:9
-    // },
-    // expand: {
-    //     transform: 'rotate(0deg)',
-    //     marginLeft: 'auto',
-    //     transition: theme.transitions.create('transform', {
-    //         duration: theme.transitions.duration.shortest,
-    //     }),
-    // },
-    // expandOpen: {
-    //     transform: 'rotate(180deg)',
-    // },
-    // marginAutoItem: {
-    //     margin: 'auto',
-    // }
 }));
 
 
@@ -73,28 +56,41 @@ function PostPage() {
             <Navbar />
             <NewPost />
 
-
             {/* {posts.map(post => {
                 return ( */}
                     <Paper className={classes.paper}>
                         <Grid container wrap="nowrap" spacing={2}>
                             <Grid item xs zeroMinWidth>
-                                <Typography noWrap><BtnTags></BtnTags></Typography>
+                                {/* <Typography noWrap> */}
+                                    <BtnTags></BtnTags>
+                                    {/* </Typography> */}
                             </Grid>
                         </Grid>
                         <Grid container wrap="nowrap" spacing={2}>
                             <Grid item>
                                 <Avatar
+                            // Pass props to the Avatar component to render each user's individual information
                                 // photo={post.photo}
                                 ></Avatar>
                             </Grid>
                             <Grid item xs zeroMinWidth>
-                                <Typography noWrap><UserName></UserName></Typography>
+                                <Typography noWrap>
+                                {/* Pass props to the UserName component to render each user's individual information */}
+                                    <UserName firstName={post.firstName} lastName={post.lastName}>
+                                        </UserName>
+                                </Typography>
                             </Grid>
                         </Grid>
                         <Grid item xs zeroMinWidth>
-                            <Typography noWrap><PostTitle></PostTitle></Typography>
-                            <Typography noWrap><PostComment></PostComment></Typography>
+                            <Typography noWrap>
+                                {/* Pass props to the PostTitle component to render each user's individual information */}
+                                <PostTitle postTitle= {post.title}>
+                                    </PostTitle>
+                            </Typography>
+                            <Typography noWrap>
+                                <PostComment postComment= {post.comment}>
+                                    </PostComment>
+                            </Typography>
 
                             <Grid container wrap="nowrap" spacing={2}>
                                 <Grid item xs zeroMinWidth>
@@ -105,8 +101,6 @@ function PostPage() {
                     </Paper>
             {/*     )
              })} */}
-
-
 
         </div>
 
