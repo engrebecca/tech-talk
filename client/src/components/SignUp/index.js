@@ -38,6 +38,12 @@ const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
   },
+  photoUploadBtn: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 25,
+  },
 }));
 
 export default function SignUp() {
@@ -56,22 +62,6 @@ export default function SignUp() {
   const [progress, setProgress] = useState(null);
   const [validationSuccess, setValidationSuccess] = useState(false);
   const cloudinaryPreset = "io46qdvv"
-
-  // functionuseEffect(() => {
-  //   const timer = setInterval(() => {
-  //     setProgress((oldProgress) => {
-  //       if (oldProgress === 100) {
-  //         return 0;
-  //       }
-  //       const diff = Math.random() * 10;
-  //       return Math.min(oldProgress + diff, 100);
-  //     });
-  //   }, 500);
-
-  //   return () => {
-  //     clearInterval(timer);
-  //   };
-  // }, []);
 
   useEffect(() => {
     if (!firstName || !lastName || !email || !password || !organization || !role || !location || !github || !website || !bio || !imageUrl) {
@@ -110,22 +100,6 @@ export default function SignUp() {
         setProgress(null)
       })
       .catch(err => console.log(err));
-    // const timer = setInterval(() => {
-    //   setProgress((oldProgress) => {
-    //     // if (imageUrl) {
-    //     //   return;
-    //     // }
-    //     // if (oldProgress === 100) {
-    //     //   return 0;
-    //     // }
-    //     const diff = Math.random() * 10;
-    //     return Math.min(oldProgress + diff, 100);
-    //   });
-    // }, 300);
-
-    // return () => {
-    //   clearInterval(timer);
-    // };
   }
 
   function submitForm(e) {
@@ -287,13 +261,30 @@ export default function SignUp() {
               />
             </Grid>
           </Grid>
-          <Button variant="contained" component="label">
+          <Button variant="contained" component="label" className={classes.photoUploadBtn}>
             Upload Profile Picture
             <input type="file" onChange={uploadImage} hidden />
           </Button>
-          {imageUrl ? (<img src={imageUrl}></img>) : progress !== null && <div className={classes.root}>
-            <CircularProgress />
-          </div>}
+          {imageUrl ?
+            <Box
+              display="flex"
+              marginTop="10px"
+            >
+              <Box m="auto">
+                <img src={imageUrl} width={300} height={300}></img>
+              </Box>
+            </Box>
+            :
+            progress !== null && <div className={classes.root}>
+              <Box
+                display="flex"
+                marginTop="10px"
+              >
+                <Box m="auto">
+                  <CircularProgress />
+                </Box>
+              </Box>
+            </div>}
           <Button
             type="submit"
             fullWidth
