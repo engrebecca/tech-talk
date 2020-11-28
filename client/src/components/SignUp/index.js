@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Avatar, Button, CssBaseline, TextField, Link, Grid, Box, Typography, Container } from '@material-ui/core'
+import React, { useState, useEffect } from 'react';
+import { Avatar, Button, CssBaseline, TextField, Link, Grid, Box, Typography, Container, CircularProgress } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import API from "../../utils/API";
@@ -35,6 +35,15 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  root: {
+    width: '100%',
+  },
+  photoUploadBtn: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 25,
+  },
 }));
 
 export default function SignUp() {
@@ -50,10 +59,30 @@ export default function SignUp() {
   const [website, setWebsite] = useState("");
   const [bio, setBio] = useState("");
   const [imageUrl, setImageUrl] = useState("");
-  const [profilePicture, setProfilePicture] = useState();
-
-  const cloudinaryUrl = "https://api.cloudinary.com/v1_1/tech-talk/upload"
+  const [progress, setProgress] = useState(null);
+  const [validationSuccess, setValidationSuccess] = useState(false);
   const cloudinaryPreset = "io46qdvv"
+
+  useEffect(() => {
+    if (!firstName || !lastName || !email || !password || !organization || !role || !location || !github || !website || !bio || !imageUrl) {
+      setValidationSuccess(() => false)
+      return
+    }
+    setValidationSuccess(() => true)
+  }, [firstName, lastName, email, password, organization, role, location, github, website, bio, imageUrl]);
+
+  useEffect(() => {
+    if (progress === null) {
+      return
+    }
+    const handle = setTimeout(() => {
+      const diff = Math.random() * 10;
+      setProgress(Math.min(progress + diff, 100));
+    }, 300)
+    return () => {
+      clearTimeout(handle)
+    }
+  }, [progress])
 
   function uploadImage(e) {
     let file = e.target.files[0];
@@ -62,20 +91,28 @@ export default function SignUp() {
     formData.append("file", file)
     formData.append("upload_preset", cloudinaryPreset)
     console.log(formData);
+    setProgress(0)
+
+    API.User.createImage(formData)
+      .then(res => {
+        console.log(res.data);
+        setImageUrl(res.data.secure_url)
+        setProgress(null)
+      })
+      .catch(err => console.log(err));
   }
 
   function submitForm(e) {
     e.preventDefault();
-    // const formData = new FormData(e.target)
-    // console.log([...formData.entries()])
-    // let formData =
-    //   { firstName, lastName, email, password, bio, organization, role, location, github, website }
-    // console.log(formData)
-    // API.User.create(formData)
-    //   .then(res => {
-    //     console.log("User created!");
-    //   })
-    //   .catch(err => console.log(err));
+    let userSignupData =
+      { firstName, lastName, email, password, bio, organization, role, location, github, website, imageUrl }
+    console.log(userSignupData);
+
+    API.User.create(userSignupData)
+      .then(res => {
+        console.log("User created!");
+      })
+      .catch(err => console.log(err));
 
   }
 
@@ -224,15 +261,37 @@ export default function SignUp() {
               />
             </Grid>
           </Grid>
-          {/* <input type="file" onChange={e => setProfilePicture(e.target.files[0])} /> */}
-          <input type="file" onChange={uploadImage} />
-          {/* <input type="file" /> */}
+          <Button variant="contained" component="label" className={classes.photoUploadBtn}>
+            Upload Profile Picture
+            <input type="file" onChange={uploadImage} hidden />
+          </Button>
+          {imageUrl ?
+            <Box
+              display="flex"
+              marginTop="10px"
+            >
+              <Box m="auto">
+                <img src={imageUrl} width={300} height={300}></img>
+              </Box>
+            </Box>
+            :
+            progress !== null && <div className={classes.root}>
+              <Box
+                display="flex"
+                marginTop="10px"
+              >
+                <Box m="auto">
+                  <CircularProgress />
+                </Box>
+              </Box>
+            </div>}
           <Button
             type="submit"
             fullWidth
             variant="contained"
             color="primary"
             className={classes.submit}
+            disabled={!validationSuccess}
           >
             Sign Up
           </Button>
