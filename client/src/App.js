@@ -3,7 +3,7 @@ import React from "react";
 // import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 // import Navbar from "./components/Navbar";
 import HomePage from "./pages/Homepage";
-// import MembersPage from "./pages/Members";
+// import MembersPage from "./pages/MemberPage";
 // import SignInPage from "./pages/SignIn";
 // import ProfilePage from "./pages/Profile";
 // import LogOutPage from "./pages/LogOut";,
@@ -36,6 +36,7 @@ function App() {
         </Switch>
       </Router> */}
       <SignUp />
+      {/* <MembersPage /> */}
 
     </div>
   );
