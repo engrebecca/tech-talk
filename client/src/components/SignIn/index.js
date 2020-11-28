@@ -13,10 +13,6 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import API from "../../utils/API";
-<<<<<<< HEAD
-
-=======
->>>>>>> 67c3ac727b2334ac362dff76fb89ca61edbeca57
 
 function Copyright() {
   return (
@@ -65,14 +61,14 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignInSide() {
   const classes = useStyles();
-  state = {
-    email: "",
-    password: "",
-  }
+  // state = {
+  //   email: "",
+  //   password: "",
+  // }
   
-  formSubmit(event) => {
+  let signIn= (event) => {
     event.preventDefault();
-    API.User.create
+    API.User.create()
   };
   
   return (
@@ -115,7 +111,8 @@ export default function SignInSide() {
               label="Remember me"
             />
             <Button
-                // onClick={() => signIn(profilePage)} we need the onclick to take us to our user profile page.
+              onClick={(e) => signIn(e)} 
+              //we need the onclick to take us to our user profile page
               type="submit"
               fullWidth
               variant="contained"

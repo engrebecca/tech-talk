@@ -4,8 +4,9 @@ export default {
 
     User: {
         create(formData) {
+            console.log(formData)
             // return axios.post("/api/user", formData, { headers: formData.getHeaders() })
-            return axios.post("/api/user", formData);
+            return axios.post("/api/login", formData);
         },
 
         getUser() {
