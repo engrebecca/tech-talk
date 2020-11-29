@@ -4,7 +4,6 @@ import HomePage from "./pages/Homepage";
 import MemberPage from "./pages/MemberPage";
 import ProfilePage from "./pages/ProfilePage";
 import SignUpPage from "./pages/SignupPage";
-// import NavbarHP from "./components/NavbarHP"
 
 function App() {
   return (
