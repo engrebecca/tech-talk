@@ -4,6 +4,7 @@ import HomePage from "./pages/Homepage";
 import MemberPage from "./pages/MemberPage";
 // import ProfilePage from "./pages/ProfilePage";
 import SignUpPage from "./pages/SignupPage";
+import PostPage from "./pages/PostPage";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route exact path="/" component={HomePage} />
           <Route exact path="/members" component={MemberPage} />
           <Route exact path="/signup" component={SignUpPage} />
+          <Route exact path="/newsfeed" component={PostPage} />
           {/* <Route exact path="/profile" component={ProfilePage} /> */}
           <Route path="*">
             <Redirect to="/" />
