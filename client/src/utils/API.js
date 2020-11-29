@@ -19,11 +19,14 @@ export default {
         },
 
 
+        login(userLoginData) {
+            return axios.post("/api/login", userLoginData);
     },
 
     Post: {
         getPost() {
             return axios.get("/api/post/");
+
         }
 
       

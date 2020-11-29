@@ -21,7 +21,7 @@ app.use(express.json());
 
 // Static directory
 app.use(express.static("public"));
-
+//keyboard cat is a cookie setting. Using cookie parser may result in issues if the secret is not the same between this module amd cookie-parser.
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());

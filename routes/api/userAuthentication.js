@@ -38,13 +38,13 @@ module.exports = (app) => {
 
     app.get("/logout", (req, res) => {
 
-        if (req.user.bio === null) {
-            req.logout();
-            res.redirect("/login");
-        } else {
+        // if (req.user === null) {
+        //     req.logout();
+        //     res.redirect("/login");
+        // } else {
             req.logout();
             res.redirect("/");
-        }
+        // }
     });
 
     app.get("/createprofile", (req, res) => {

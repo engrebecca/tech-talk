@@ -3,11 +3,12 @@ import React from "react";
 // import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 // import Navbar from "./components/Navbar";
 import HomePage from "./pages/Homepage";
-// import MembersPage from "./pages/MemberPage";
+import MembersPage from "./pages/MemberPage";
 // import SignInPage from "./pages/SignIn";
 // import ProfilePage from "./pages/Profile";
 // import LogOutPage from "./pages/LogOut";,
 import SignUp from "./pages/SignupPage";
+import SignIn from "./components/SignIn";
 
 function App() {
   return (
@@ -35,8 +36,9 @@ function App() {
           </Route>
         </Switch>
       </Router> */}
-      <SignUp />
+      {/* <SignUp /> */}
       {/* <MembersPage /> */}
+      <SignIn></SignIn>
 
     </div>
   );
