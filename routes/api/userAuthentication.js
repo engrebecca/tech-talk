@@ -48,7 +48,7 @@ module.exports = (app) => {
     });
 
     app.get("/createprofile", (req, res) => {
-        res.sendFile(path.join(__dirname, "../public/html/profileConfirm.html"));
+        // res.sendFile(path.join(__dirname, "../public/html/profileConfirm.html"));
 
     });
 
