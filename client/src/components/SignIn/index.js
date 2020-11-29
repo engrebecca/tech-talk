@@ -59,6 +59,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 export default function SignInSide() {
   const classes = useStyles();
   const [email, setEmail] = useState("");
@@ -76,6 +77,11 @@ export default function SignInSide() {
         
       };
 
+  // let signIn= (event) => {
+  //   event.preventDefault();
+  //   API.User.create()
+  // };
+  
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
