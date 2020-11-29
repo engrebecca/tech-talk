@@ -27,6 +27,11 @@ module.exports = {
                     model: db.Tag,
                     attriutes: ["name"]
                 }
+            },
+            {
+                model: db.User,
+                as: "User",
+                attriutes: ["fistName", "lastName"]
             }]
         })
             .then(data => res.json(data))
