@@ -19,7 +19,11 @@ module.exports = {
             include: [{
                 model: db.Comment,
                 as: "Comments",
-                attributes: ["text"]
+                attributes: ["text"],
+                include: {
+                    model: db.User,
+                    attriutes: ["fistName", "lastName"]
+                }
             },
             {
                 model: db.PostTag,
