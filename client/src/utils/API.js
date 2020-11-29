@@ -16,7 +16,19 @@ export default {
 
         getUser() {
             return axios.get("/api/user");
+        },
+
+
+    },
+
+    Post: {
+        getPost() {
+            return axios.get("/api/post/");
         }
+
+      
+
+
     }
 }
 
