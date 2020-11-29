@@ -5,28 +5,34 @@ const isProfileConfirmed = require("../../config/middleware/isProfileConfirmed")
 
 module.exports = (app) => {
 
-    app.get("/login", (req, res) => {
+    // app.post("/SignupPage", (req, res) => {
+    //     db.user.create({
+
+    //     })
+    // })
+
+    app.get("/homepage", (req, res) => {
         if (req.user) {
-            res.redirect("/members");
+            res.redirect("/profile");
         }
-        res.sendFile(path.join(__dirname, "../public/html/login.html"));
+        // res.sendFile(path.join(__dirname, "../../client/src/pages/ProfilePage.js"));
     });
 
-    app.post("/api/login", passport.authenticate("local"), (req, res) => {
+    app.post("/api/homepage", passport.authenticate("local"), (req, res) => {
         res.json(req.user);
     });
 
     app.get("/", (req, res) => {
         if (req.user) {
-            res.redirect("/members");
+            res.redirect("/profile");
         }
 
-        res.sendFile(path.join(__dirname, "../public/html/signup.html"));
+        // res.sendFile(path.join(__dirname, "../../../../pages/SignupPage.js"));
     });
 
-    app.get("/members", isAuthenticated, isProfileConfirmed, (req, res) => {
+    app.get("/profile", isAuthenticated, isProfileConfirmed, (req, res) => {
 
-        res.sendFile(path.join(__dirname, "../public/html/profilePage.html"));
+        // res.sendFile(path.join(__dirname, "../../../../pages/ProfilePage.js"));
 
     });
 
@@ -36,19 +42,14 @@ module.exports = (app) => {
 
 module.exports = (app) => {
 
-    app.get("/logout", (req, res) => {
+    app.get("/LogOut", (req, res) => {
 
-        // if (req.user === null) {
-        //     req.logout();
-        //     res.redirect("/login");
-        // } else {
             req.logout();
             res.redirect("/");
-        // }
+        
     });
 
-    app.get("/createprofile", (req, res) => {
-        // res.sendFile(path.join(__dirname, "../public/html/profileConfirm.html"));
+    app.get("/profilepage", (req, res) => {
 
     });
 
