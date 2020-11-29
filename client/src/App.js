@@ -1,45 +1,24 @@
-// import React, { Component } from "react";
-import React from "react";
-// import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
-// import Navbar from "./components/Navbar";
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import HomePage from "./pages/Homepage";
-import MembersPage from "./pages/MemberPage";
-// import SignInPage from "./pages/SignIn";
-// import ProfilePage from "./pages/Profile";
-// import LogOutPage from "./pages/LogOut";,
-import SignUp from "./pages/SignupPage";
-import SignIn from "./components/SignIn";
+import MemberPage from "./pages/MemberPage";
+// import ProfilePage from "./pages/ProfilePage";
+import SignUpPage from "./pages/SignupPage";
 
 function App() {
   return (
     <div>
-      {/* <Router> */}
-      {/* <Navbar></Navbar> */}
-      {/* <Switch>
-          <Route path="/" exact> */}
-      {/* <HomePage></HomePage> */}
-      {/* </Route> */}
-      {/* <Route path="/Members" exact>
-            <MembersPage></MembersPage>
-          </Route> */}
-      {/* <Route path="/SignIn" exact>
-            <SignInPage></SignInPage>
-          </Route>
-          <Route path="/Profile" exact>
-            <ProfilePage></ProfilePage>
-          </Route> */}
-      {/* <Route path="/LogOut" exact>
-            <LogOutPage></LogOutPage>
-          </Route> */}
-      {/* <Route path="*">
+      <Router>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/members" component={MemberPage} />
+          <Route exact path="/signup" component={SignUpPage} />
+          {/* <Route exact path="/profile" component={ProfilePage} /> */}
+          <Route path="*">
             <Redirect to="/" />
           </Route>
         </Switch>
-      </Router> */}
-      {/* <SignUp /> */}
-      {/* <MembersPage /> */}
-      <SignIn></SignIn>
-
+      </Router>
     </div>
   );
 }
