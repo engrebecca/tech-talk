@@ -1,10 +1,10 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 
-function Tags() {
+function Tags(props) {
   return (
     <Button variant="contained" color="primary">
-      Tag Button
+      {props.tags}
     </Button>
   );
 }
