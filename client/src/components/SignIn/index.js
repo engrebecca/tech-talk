@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -61,6 +61,20 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignInSide() {
   const classes = useStyles();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+      let signIn = (event) => {
+        event.preventDefault();
+        if (!email || !password) {
+          return;
+        }
+        let userLoginData = {email, password}
+        API.User.login(userLoginData)
+        .then(res => console.log("logging in"))
+        .catch(err => console.log(err))
+        
+      };
 
   let signIn= (event) => {
     event.preventDefault();
@@ -90,6 +104,7 @@ export default function SignInSide() {
               name="email"
               autoComplete="email"
               autoFocus
+              onChange = {event => setEmail(event.target.value)}
             />
             <TextField
               variant="outlined"
@@ -101,14 +116,19 @@ export default function SignInSide() {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange = {event => setPassword(event.target.value)}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
             <Button
+<<<<<<< HEAD
               onClick={(event) => signIn(event)} 
               //we need the onclick to take us to our user profile page
+=======
+              onClick={(event) => signIn(event)}
+>>>>>>> 0b5af5b8df5207221e9ade79b15c3f13d2f27c42
               type="submit"
               fullWidth
               variant="contained"
