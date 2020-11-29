@@ -1,5 +1,5 @@
 import React from 'react';
-// import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -35,12 +35,12 @@ export default function ButtonAppBar() {
           </IconButton>
           <Typography variant="h6" className={classes.title}>
             *Logo*
-            {/* <NavLink to="/" exact> Home </NavLink>
-            <NavLink to="/Members"> Members </NavLink>
-            <NavLink to="/SignIn"> Sign In </NavLink> */}
+            <NavLink to="/" exact> Home </NavLink>
+            <NavLink to="/members"> Members </NavLink>
+            <NavLink to="/signup"> Sign Up</NavLink>
           </Typography>
-          {/* <NavLink to="/Profile"> Profile </NavLink>
-          <NavLink to="/Logout"> Logout </NavLink> */}
+          {/* <NavLink to="/profile"> Profile </NavLink> */}
+          <NavLink to="/"> Logout </NavLink>
         </Toolbar>
       </AppBar>
     </div>
