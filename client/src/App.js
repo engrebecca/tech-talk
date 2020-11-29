@@ -8,6 +8,7 @@ import HomePage from "./pages/Homepage";
 // import ProfilePage from "./pages/Profile";
 // import LogOutPage from "./pages/LogOut";,
 import SignUp from "./pages/SignupPage";
+import PostPage from "./pages/PostPage";
 
 function App() {
   return (
@@ -35,8 +36,9 @@ function App() {
           </Route>
         </Switch>
       </Router> */}
-      <SignUp />
+      {/* <SignUp /> */}
       {/* <MembersPage /> */}
+      <PostPage />
 
     </div>
   );

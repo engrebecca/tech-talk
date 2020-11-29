@@ -3,8 +3,8 @@ import Button from '@material-ui/core/Button';
 
 function Comment() {
   return (
-    <Button variant="contained" color="primary">
-      Comment Button
+    <Button variant="contained" color="primary" disabled>
+      View Comments
     </Button>
   );
 }
