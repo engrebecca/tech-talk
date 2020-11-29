@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import API from "../utils/API";
 import Navbar from "../components/Navbar";
 import NewPost from "../components/NewPost";
-import Container from "../components/Container";
+// import Container from "../components/Container";
 import PostTitle from "../components/PostTitle";
 import PostComment from "../components/PostComment-Content";
 import BtnTags from "../components/Btn-tags";
@@ -37,16 +37,19 @@ const useStyles = makeStyles((theme) => ({
 function PostPage() {
     const classes = useStyles();
     const [posts, setPosts] = useState([]);
+    const [tags, setTags] = useState([]);
 
     useEffect(() => {
         loadPosts()
     }, []);
 
     function loadPosts() {
-        API.User.getUser()
+        API.Post.getPost()
             .then(res => {
-                console.log(res.data)
+                console.log("getting response")
+                console.log(res.data);
                 setPosts(res.data);
+                setTags(res.data);
             })
             .catch(err => console.log(err));
     }
@@ -56,40 +59,45 @@ function PostPage() {
             <Navbar />
             <NewPost />
 
-            {/* {posts.map(post => {
-                return ( */}
+            {posts.map(post => {
+                return (
                     <Paper className={classes.paper}>
                         <Grid container wrap="nowrap" spacing={2}>
                             <Grid item xs zeroMinWidth>
                                 {/* <Typography noWrap> */}
-                                    <BtnTags></BtnTags>
-                                    {/* </Typography> */}
+                                {post.PostTags.map(tag => {
+                                    return (
+                                        <BtnTags tags={tag.Tag.name} />
+                                    )
+                                })}
+                                
+                                {/* </Typography> */}
                             </Grid>
                         </Grid>
                         <Grid container wrap="nowrap" spacing={2}>
                             <Grid item>
                                 <Avatar
-                            // Pass props to the Avatar component to render each user's individual information
+                                // Pass props to the Avatar component to render each user's individual information
                                 // photo={post.photo}
                                 ></Avatar>
                             </Grid>
                             <Grid item xs zeroMinWidth>
                                 <Typography noWrap>
-                                {/* Pass props to the UserName component to render each user's individual information */}
-                                    <UserName firstName={post.firstName} lastName={post.lastName}>
-                                        </UserName>
+                                    {/* Pass props to the UserName component to render each user's individual information */}
+                                    <UserName firstName={post.userId}>
+                                    </UserName>
                                 </Typography>
                             </Grid>
                         </Grid>
                         <Grid item xs zeroMinWidth>
                             <Typography noWrap>
                                 {/* Pass props to the PostTitle component to render each user's individual information */}
-                                <PostTitle postTitle= {post.title}>
-                                    </PostTitle>
+                                <PostTitle postTitle={post.title}>
+                                </PostTitle>
                             </Typography>
                             <Typography noWrap>
-                                <PostComment postComment= {post.comment}>
-                                    </PostComment>
+                                <PostComment postComment={post.comment}>
+                                </PostComment>
                             </Typography>
 
                             <Grid container wrap="nowrap" spacing={2}>
@@ -99,8 +107,8 @@ function PostPage() {
                             </Grid>
                         </Grid>
                     </Paper>
-            {/*     )
-             })} */}
+                )
+            })}
 
         </div>
 

@@ -19,7 +19,11 @@ module.exports = {
             include: [{
                 model: db.Comment,
                 as: "Comments",
-                attributes: ["text"]
+                attributes: ["text"],
+                include: {
+                    model: db.User,
+                    attriutes: ["fistName", "lastName"]
+                }
             },
             {
                 model: db.PostTag,
@@ -27,6 +31,11 @@ module.exports = {
                     model: db.Tag,
                     attriutes: ["name"]
                 }
+            },
+            {
+                model: db.User,
+                as: "User",
+                attriutes: ["fistName", "lastName"]
             }]
         })
             .then(data => res.json(data))
