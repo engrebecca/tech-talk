@@ -14,18 +14,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function AutoGrid() {
+export default function CenteredGrid() {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
-        <Grid item xs={6}>
-          <Paper className={classes.paper}></Paper>
-        </Grid>
-        <Grid item xs={6}>
-          <Paper className={classes.paper}></Paper>
-        </Grid>
       </Grid>
     </div>
   );

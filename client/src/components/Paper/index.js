@@ -1,7 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,19 +13,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CenteredGrid() {
+export default function AutoGrid() {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={3}>
-        <Grid item xs={6}>
           <Paper className={classes.paper}></Paper>
-        </Grid>
-        <Grid item xs={6}>
-          <Paper className={classes.paper}></Paper>
-        </Grid>
-      </Grid>
     </div>
   );
 }
