@@ -76,10 +76,10 @@ export default function SignInSide() {
         
       };
 
-  let signIn= (event) => {
-    event.preventDefault();
-    API.User.create()
-  };
+  // let signIn= (event) => {
+  //   event.preventDefault();
+  //   API.User.create()
+  // };
   
   return (
     <Grid container component="main" className={classes.root}>
@@ -123,12 +123,7 @@ export default function SignInSide() {
               label="Remember me"
             />
             <Button
-<<<<<<< HEAD
-              onClick={(event) => signIn(event)} 
-              //we need the onclick to take us to our user profile page
-=======
               onClick={(event) => signIn(event)}
->>>>>>> 0b5af5b8df5207221e9ade79b15c3f13d2f27c42
               type="submit"
               fullWidth
               variant="contained"

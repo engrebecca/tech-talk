@@ -27,11 +27,8 @@ export default {
         getPost() {
             return axios.get("/api/post/");
 
-        }
-
-      
-
-
+        },
     }
+}
 }
 
