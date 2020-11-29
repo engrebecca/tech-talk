@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
-import { Paper, Grid, Card, CardContent, Collapse, CardActions, IconButton, Typography } from '@material-ui/core';
+import { Paper, Grid, Card, CardContent, Collapse, CardActions, IconButton, Typography, TextField } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMoreSharp';
 import API from "../utils/API";
 import Navbar from "../components/Navbar";
@@ -115,6 +115,22 @@ function PostPage() {
                             {/* Hidden comments that display when user clicks the expand more icon */}
                             <Collapse in={expanded} timeout="auto" unmountOnExit>
                                 <CardContent>
+                                    {/* Text field for posting new comments */}
+                                    <Grid container>
+                                        <Grid item xs={12}>
+                                            <TextField
+                                                autoComplete="postTitle"
+                                                name="postTitle"
+                                                variant="outlined"
+                                                required
+                                                fullWidth
+                                                id="postTitle"
+                                                label="Title"
+                                                autoFocus
+                                            // onChange={e => setPostTitle(e.target.value)}
+                                            />
+                                        </Grid>
+                                    </Grid>
                                     {post.Comments.map(comment => {
                                         return (
                                             <Grid container spacing={1} key={comment.id}>
