@@ -25,8 +25,11 @@ export default {
     },
     Post: {
         getPost() {
-            return axios.get("/api/post/");
+            return axios.get("/api/post");
 
+        },
+        createPost(newPostData) {
+            return axios.post("/api/post", newPostData)
         }
 
 
