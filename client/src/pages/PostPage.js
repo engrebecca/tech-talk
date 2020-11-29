@@ -12,6 +12,7 @@ import BtnTags from "../components/Btn-tags";
 import BtnComment from "../components/Btn-comments";
 import Avatar from "../components/Avatar";
 import UserName from "../components/UserName";
+import UserRole from "../components/UserRole";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -37,9 +38,6 @@ const useStyles = makeStyles((theme) => ({
         transition: theme.transitions.create('transform', {
             duration: theme.transitions.duration.shortest,
         }),
-    },
-    expandOpen: {
-        transform: 'rotate(180deg)',
     },
 }));
 
@@ -87,15 +85,13 @@ function PostPage() {
                         </Grid>
                         <Grid container wrap="nowrap" spacing={2}>
                             <Grid item>
-                                <Avatar
-                                    // Pass props to the Avatar component to render each user's individual information
-                                    photo={post.User.photo}
-                                ></Avatar>
+                                {/* Pass props to the Avatar component to render each user's individual information */}
+                                <Avatar photo={post.User.photo} />
                             </Grid>
                             <Grid item xs zeroMinWidth>
                                 {/* Pass props to the UserName component to render each user's individual information */}
-                                <UserName firstName={post.User.firstName} lastName={post.User.lastName}>
-                                </UserName>
+                                <UserName firstName={post.User.firstName} lastName={post.User.lastName} />
+                                <UserRole role={post.User.role} />
                             </Grid>
                         </Grid>
                         <Grid item xs zeroMinWidth>
@@ -104,30 +100,8 @@ function PostPage() {
                             {/* Pass props to the PostComment component to render each post body text */}
                             <PostComment postBody={post.body} />
                             {/* Logic for opening and closing the comments with expand more icon */}
-                            <Grid container wrap="nowrap" spacing={2}>
-                                <Grid item>
-                                    {/* <BtnComment /> */}
-                                    <Typography variant="button" display="block" gutterBottom>
-                                        Comments
-                                    </Typography>
-                                </Grid>
-                                <Grid item xs zeroMinWidth>
-                                    <CardActions disableSpacing>
-                                        <IconButton
-                                            className={clsx(classes.expand, {
-                                                [classes.expandOpen]: expanded,
-                                            })}
-                                            onClick={handleExpandClick}
-                                            aria-expanded={expanded}
-                                            aria-label="show more"
-                                        >
-                                            <ExpandMoreIcon />
-                                        </IconButton>
-                                    </CardActions>
-                                </Grid>
-                            </Grid>
-                            {/* <CardActions disableSpacing>
-                                <IconButton
+                            <CardActions disableSpacing>
+                                <div
                                     className={clsx(classes.expand, {
                                         [classes.expandOpen]: expanded,
                                     })}
@@ -135,9 +109,9 @@ function PostPage() {
                                     aria-expanded={expanded}
                                     aria-label="show more"
                                 >
-                                    <ExpandMoreIcon />
-                                </IconButton>
-                            </CardActions> */}
+                                    <BtnComment numComments={post.Comments.length} />
+                                </div>
+                            </CardActions>
                             {/* Hidden comments that display when user clicks the expand more icon */}
                             <Collapse in={expanded} timeout="auto" unmountOnExit>
                                 <CardContent>
