@@ -6,14 +6,14 @@ import React, { Component } from "react";
 import SignIn from "../components/SignIn";
 // import Container from "./components/Container";
 import BtnSignup from "../components/Btn-signup";
-import Navbar from "../components/Navbar";
+import NavbarHP from "../components/NavbarHP";
 
 
 function Homepage() {
   return (
     // <Container>
     <div>
-    <Navbar></Navbar>
+    <NavbarHP></NavbarHP>
     <SignIn></SignIn>
     
    {/* </Container> */}
