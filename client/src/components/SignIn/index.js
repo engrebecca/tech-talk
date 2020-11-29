@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -60,6 +60,20 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignInSide() {
   const classes = useStyles();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+      let signIn = (event) => {
+        event.preventDefault();
+        if (!email || !password) {
+          return;
+        }
+        let userLoginData = {email, password}
+        API.User.login(userLoginData)
+        .then(res => console.log("logging in"))
+        .catch(err => console.log(err))
+        
+      };
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -84,6 +98,7 @@ export default function SignInSide() {
               name="email"
               autoComplete="email"
               autoFocus
+              onChange = {event => setEmail(event.target.value)}
             />
             <TextField
               variant="outlined"
@@ -95,13 +110,14 @@ export default function SignInSide() {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange = {event => setPassword(event.target.value)}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
             <Button
-                // onClick={() => signIn(profilePage)} we need the onclick to take us to our user profile page.
+              onClick={(event) => signIn(event)}
               type="submit"
               fullWidth
               variant="contained"
