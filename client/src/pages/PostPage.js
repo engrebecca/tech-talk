@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
-import { Paper, Grid, Card, CardContent, Collapse, CardActions, IconButton, Typography, TextField } from '@material-ui/core';
+import { Paper, Grid, Card, CardContent, Collapse, CardActions, TextField, Button } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMoreSharp';
 import API from "../utils/API";
 import Navbar from "../components/Navbar";
@@ -46,6 +46,10 @@ function PostPage() {
     const classes = useStyles();
     const [posts, setPosts] = useState([]);
     const [expanded, setExpanded] = useState(false);
+    const [newComment, setNewComment] = useState("");
+    // TO DO: change userId to be current signed in user, change postId to be the target post's id
+    const [userId, setUserId] = useState(3);
+    const [postId, setPostId] = useState(1);
 
     useEffect(() => {
         loadPosts()
@@ -63,6 +67,18 @@ function PostPage() {
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
+
+    function submitForm(e) {
+        e.preventDefault();
+        let newCommentData = { text: newComment, userId: userId, postId: postId }
+        console.log(newCommentData);
+
+        API.Comment.createComment(newCommentData)
+            .then(res => {
+                console.log("Comment created!");
+            })
+            .catch(err => console.log(err));
+    }
 
     return (
         <div>
@@ -115,22 +131,37 @@ function PostPage() {
                             {/* Hidden comments that display when user clicks the expand more icon */}
                             <Collapse in={expanded} timeout="auto" unmountOnExit>
                                 <CardContent>
-                                    {/* Text field for posting new comments */}
-                                    <Grid container>
-                                        <Grid item xs={12}>
-                                            <TextField
-                                                autoComplete="postTitle"
-                                                name="postTitle"
-                                                variant="outlined"
-                                                required
-                                                fullWidth
-                                                id="postTitle"
-                                                label="Title"
-                                                autoFocus
-                                            // onChange={e => setPostTitle(e.target.value)}
-                                            />
+                                    {/* Form for posting new comments */}
+                                    <form className={classes.form} noValidate onSubmit={submitForm}>
+                                        <Grid container>
+                                            <Grid item xs={12}>
+                                                <TextField
+                                                    name="newComment"
+                                                    variant="outlined"
+                                                    required
+                                                    fullWidth
+                                                    id="newComment"
+                                                    label="Comment"
+                                                    autoFocus
+                                                    postid={post.id}
+                                                    onChange={e => {
+                                                        setNewComment(e.target.value);
+                                                        // setPostId(e.target.postid);
+                                                    }}
+                                                />
+                                            </Grid>
+                                            <Grid item xs={12} style={{ textAlign: "right", margin: "10px" }}>
+                                                <Button item xs={4}
+                                                    type="submit"
+                                                    variant="contained"
+                                                    color="primary"
+                                                    className={classes.submit}
+                                                >
+                                                    Submit
+                                                </Button>
+                                            </Grid>
                                         </Grid>
-                                    </Grid>
+                                    </form>
                                     {post.Comments.map(comment => {
                                         return (
                                             <Grid container spacing={1} key={comment.id}>

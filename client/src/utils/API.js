@@ -31,10 +31,11 @@ export default {
         createPost(newPostData) {
             return axios.post("/api/post", newPostData)
         }
-
-
-
-
+    },
+    Comment: {
+        createComment(newCommentData) {
+            return axios.post("/api/comments", newCommentData)
+        }
     }
 }
 
