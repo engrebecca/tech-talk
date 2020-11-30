@@ -16,20 +16,30 @@ const useStyles = makeStyles((theme) => ({
 
 function ProfilePage() {
     const classes = useStyles();
+    //change to whatever it is to res.data {} or [] to get the data from the array
     const [member, setMember] = useState([]);
+    //hard coding user #1 for now
+    const [userId, setUserId] = useState(2);
 
     useEffect(() => {
         loadMember()
     }, []);
 
     function loadMember() {
-        API.User.getUser()
+        //change API.User
+        API.User.getUserById(userId)
             .then(res => {
-                console.log(res.data)
+                console.log(res)
                 setMember(res.data);
             })
             .catch(err => console.log(err));
+
+            localStorage.setItem("id", 1);
+
+        // var localStorage = localStorage.getItem("id");
     }
+
+    //need to get passport authentification (id) variable to put it in our profile page and use setUserId in a function 
 
     return (
         <div>
