@@ -77,7 +77,7 @@ export default function SignInSide() {
       .then(res => {
         console.log("logging in");
         // <Redirect to="/" />
-        res.redirect("/members");
+        window.location.href="/members";
       })
       .catch(err => console.log(err))
 
