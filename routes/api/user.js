@@ -5,7 +5,7 @@ const passport = require("../../config/passport");
 // var multipart = require('connect-multiparty');
 // var multipartMiddleware = multipart();
 
-console.log("inside Auth file");
+console.log("inside User file");
 
 // Routes getting all users and add a new user
 router.route("/")
@@ -19,17 +19,19 @@ router.route("/:id")
   .get(userController.findOne)
 
 
-// This is where we need to fix our routes!
+// This is the route to login user with passport
 router.route("/login")
   .post(passport.authenticate("local"), (req, res) => {
     console.log("logging in");
     res.json(req.user);
-
-    // app.post("/login", passport.authenticate("local"), (req, res) => {
-    //     console.log("logging in");
-    //     res.json(req.user);
   });
 
+  router.route("/logout") 
+  .get((req, res)=> {
+  console.log("logging out");
+  req.logout();
+  window.location.href="/";
+  })
 
 // app.get("/homepage", (req, res) => {
 //     if (req.user) {
@@ -58,20 +60,8 @@ router.route("/login")
 
 
 
+// app.get("/profilepage", (req, res) => {
 
-// module.exports = (app) => {
-
-//     app.get("/LogOut", (req, res) => {
-
-//         req.logout();
-//         res.redirect("/");
-
-//     });
-
-//     app.get("/profilepage", (req, res) => {
-
-//     });
-
-// };
+// });
 
 module.exports = router;
