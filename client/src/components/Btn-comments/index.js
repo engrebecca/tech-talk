@@ -1,10 +1,10 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 
-function Comment() {
+function Comment(props) {
   return (
     <Button variant="contained" color="primary">
-      Comment Button
+      Comments: {props.numComments}
     </Button>
   );
 }

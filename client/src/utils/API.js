@@ -20,18 +20,22 @@ export default {
 
 
         login(userLoginData) {
-            return axios.post("/api/login", userLoginData);
+            console.log("api login")
+            return axios.post("/api/userAuthentication/login", userLoginData);
         },
+    },
+    Post: {
+        getPost() {
+            return axios.get("/api/post");
 
-        Post: {
-            getPost() {
-                return axios.get("/api/post/");
-
-            }
-
-
-
-
+        },
+        createPost(newPostData) {
+            return axios.post("/api/post", newPostData)
+        }
+    },
+    Comment: {
+        createComment(newCommentData) {
+            return axios.post("/api/comments", newCommentData)
         }
     }
 }

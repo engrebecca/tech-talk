@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
     },
+
 }));
 
 function ProfilePage() {
@@ -44,12 +45,14 @@ function ProfilePage() {
                     >
                         {/* Create a card to display each member user's info */}
                     
-                                <Grid item xs={12} sm={12} key={member.id}>
+                                <Grid item xs={2}></Grid>
+                                    <Grid item sm={8} key={member.id}>
                                     {/* // Pass props to the card component to render each user's individual information */}
                                     <CardUser bio={member.bio} email={member.email} firstName={member.firstName} lastName={member.lastName} loc={member.location} org={member.organization} photo={member.photo} role={member.role} website={member.website} github={member.github}>
 
                                     </CardUser>
                                 </Grid>
+                                <Grid item xs={2}></Grid>
                     </Grid>
                 </div>
             </Container>

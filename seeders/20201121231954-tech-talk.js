@@ -10,7 +10,7 @@ module.exports = {
       email: "kellystone916@gmail.com",
       password: "kspass",
       bio: "Lover of food, friends, animals, music, and nature.",
-      photo: "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
+      photo: "https://ca.slack-edge.com/T019Q4YALLA-U019ZPGTR50-40d12b5b8fd4-512",
       role: "Software Engineer",
       organization: "Tech Talk",
       github: "https://github.com/kellystone4",
@@ -25,7 +25,7 @@ module.exports = {
       email: "Rebecca.e.Eng@gmail.com",
       password: "repass",
       bio: "Lover of food, friends, animals, music, and nature.",
-      photo: "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
+      photo: "https://ca.slack-edge.com/T019Q4YALLA-U01A0AQASP6-0f25cefe2d48-512",
       role: "Software Engineer",
       organization: "Tech Talk",
       github: "https://github.com/engrebecca",
@@ -40,7 +40,7 @@ module.exports = {
       email: "kellykim408@gmail.com",
       password: "kkpass",
       bio: "Lover of food, friends, animals, music, and nature.",
-      photo: "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
+      photo: "https://ca.slack-edge.com/T019Q4YALLA-U01APE0602U-99b268c3e741-512",
       role: "Software Engineer",
       organization: "Tech Talk",
       github: "https://github.com/kellykim831",
@@ -55,7 +55,7 @@ module.exports = {
       email: "christy.g.lee@gmail.com",
       password: "clpass",
       bio: "Lover of food, friends, animals, music, and nature.",
-      photo: "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
+      photo: "https://ca.slack-edge.com/T019Q4YALLA-U019PQPLCLX-20b7c42beec1-512",
       role: "Software Engineer",
       organization: "Tech Talk",
       github: "https://github.com/christyglee",
@@ -81,21 +81,21 @@ module.exports = {
     await queryInterface.bulkInsert("Posts", [
       {
         title: "Job Opportunities",
-        body: "Hi everyone, I am looking to relocate to the east coast and was wondering if anyone knew of any job opportunities or internships for me out there. Thanks!",
+        body: "Post #1: Hi everyone, I am looking to relocate to the east coast and was wondering if anyone knew of any job opportunities or internships for me out there. Thanks!",
         createdAt: new Date(),
         updatedAt: new Date(),
         UserId: userRows[0].id,
       },
       {
-        title: "Job Opportunities",
-        body: "Hi everyone, I am looking to relocate to the east coast and was wondering if anyone knew of any job opportunities or internships for me out there. Thanks!",
+        title: "Job Opportunities #2",
+        body: "Post #2: Hi everyone, I am looking to relocate to the east coast and was wondering if anyone knew of any job opportunities or internships for me out there. Thanks!",
         createdAt: new Date(),
         updatedAt: new Date(),
         UserId: userRows[1].id,
       },
       {
-        title: "Job Opportunities",
-        body: "Hi everyone, I am looking to relocate to the east coast and was wondering if anyone knew of any job opportunities or internships for me out there. Thanks!",
+        title: "Job Opportunities #3",
+        body: "Post #3: Hi everyone, I am looking to relocate to the east coast and was wondering if anyone knew of any job opportunities or internships for me out there. Thanks!",
         createdAt: new Date(),
         updatedAt: new Date(),
         UserId: userRows[2].id,
@@ -116,21 +116,21 @@ module.exports = {
     // Adds seeds for Comments table
     await queryInterface.bulkInsert("Comments", [
       {
-        text: "Hi, yes I've heard of a new job opportunity! I will send the link your way.",
+        text: "Comment #1: Hi, yes I've heard of a new job opportunity! I will send the link your way.",
         createdAt: new Date(),
         updatedAt: new Date(),
         PostId: postRows[0].id,
         UserId: userRows[1].id
       },
       {
-        text: "Hi, yes I've heard of a new job opportunity! I will send the link your way.",
+        text: "Comment #2: Hi, yes I've heard of a new job opportunity! I will send the link your way.",
         createdAt: new Date(),
         updatedAt: new Date(),
         PostId: postRows[1].id,
         UserId: userRows[0].id
       },
       {
-        text: "Hi, yes I've heard of a new job opportunity! I will send the link your way.",
+        text: "Comment #3: Hi, yes I've heard of a new job opportunity! I will send the link your way.",
         createdAt: new Date(),
         updatedAt: new Date(),
         PostId: postRows[1].id,
