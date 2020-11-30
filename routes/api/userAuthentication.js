@@ -11,6 +11,12 @@ module.exports = (app) => {
     //     })
     // })
 
+    // This is where we need to fix our routes!
+    app.post("/login", passport.authenticate("local"), (req, res) => {
+        console.log("logging in");
+        res.json(req.user);
+    });
+
     app.get("/homepage", (req, res) => {
         if (req.user) {
             res.redirect("/profile");
@@ -44,9 +50,9 @@ module.exports = (app) => {
 
     app.get("/LogOut", (req, res) => {
 
-            req.logout();
-            res.redirect("/");
-        
+        req.logout();
+        res.redirect("/");
+
     });
 
     app.get("/profilepage", (req, res) => {
