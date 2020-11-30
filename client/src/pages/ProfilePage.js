@@ -13,19 +13,19 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function MemberPage() {
+function ProfilePage() {
     const classes = useStyles();
-    const [members, setMembers] = useState([]);
+    const [member, setMember] = useState([]);
 
     useEffect(() => {
-        loadMembers()
+        loadMember()
     }, []);
 
-    function loadMembers() {
+    function loadMember() {
         API.User.getUser()
             .then(res => {
                 console.log(res.data)
-                setMembers(res.data);
+                setMember(res.data);
             })
             .catch(err => console.log(err));
     }
@@ -43,16 +43,13 @@ function MemberPage() {
                         alignItems="flex-start"
                     >
                         {/* Create a card to display each member user's info */}
-                        {members.map(member => {
-                            return (
-                                <Grid item xs={12} sm={6} key={member.id}>
+                    
+                                <Grid item xs={12} sm={12} key={member.id}>
                                     {/* // Pass props to the card component to render each user's individual information */}
                                     <CardUser bio={member.bio} email={member.email} firstName={member.firstName} lastName={member.lastName} loc={member.location} org={member.organization} photo={member.photo} role={member.role} website={member.website} github={member.github}>
 
                                     </CardUser>
                                 </Grid>
-                            )
-                        })}
                     </Grid>
                 </div>
             </Container>
@@ -60,4 +57,4 @@ function MemberPage() {
     );
 };
 
-export default MemberPage;
+export default ProfilePage;
