@@ -6,7 +6,8 @@ import React, { Component } from "react";
 import SignIn from "../components/SignIn";
 // import Container from "./components/Container";
 import BtnSignup from "../components/Btn-signup";
-import NavbarHP from "../components/NavbarHP"
+import NavbarHP from "../components/NavbarHP";
+import About from "../components/About";
 
 
 
@@ -16,6 +17,7 @@ function Homepage() {
     <div>
       <NavbarHP></NavbarHP>
     <SignIn></SignIn>
+    <About></About>
     
    {/* </Container> */}
     </div>
