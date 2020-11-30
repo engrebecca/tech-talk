@@ -8,10 +8,10 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: '60vh',
+    height: '80vh',
   },
   image: {
-    backgroundImage: 'url(https://entrepreneur.indiegogo.com/education/wp-content/uploads/sites/4/2019/05/Soft-Skills-for-Crowdfunding.jpeg)',
+    backgroundImage: 'url(https://static.ivanti.com/sites/marketing/media/images/blog/2018/03/women.in_.tech_-2.jpg)',
     backgroundRepeat: 'no-repeat',
     backgroundColor:
       theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
