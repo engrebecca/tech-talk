@@ -37,7 +37,7 @@ export default function ButtonAppBar() {
             *Logo*
             <NavLink to="/" exact> Home </NavLink>
             <NavLink to="/members"> Members </NavLink>
-            <NavLink to="/signup"> Sign Up</NavLink>
+            <NavLink to="/profile"> Profile</NavLink>
           </Typography>
           {/* <NavLink to="/profile"> Profile </NavLink> */}
           <NavLink to="/"> Logout </NavLink>

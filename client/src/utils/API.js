@@ -21,7 +21,7 @@ export default {
 
         login(userLoginData) {
             console.log("api login")
-            return axios.post("/api/userAuthentication/login", userLoginData);
+            return axios.post("/api/user/login", userLoginData);
         },
     },
     Post: {

@@ -23,6 +23,7 @@ function ProfilePage() {
     useEffect(() => {
         loadMember()
     }, []);
+
     function loadMember() {
         API.User.getUser()
             .then(res => {
@@ -44,6 +45,7 @@ function ProfilePage() {
                         alignItems="flex-start"
                     > */}
                         {/* Create a card to display each member user's info */}
+
                         {members.map(member => {
                             return (
                                 <div className={classes.paper}>
@@ -57,12 +59,13 @@ function ProfilePage() {
                                 </div>
                             )
                         })}
-                    {/* </Grid> */}
-             
+                
+
                 </div>
             </Container>
             
         </div>
     );
 };
+
 export default ProfilePage;
