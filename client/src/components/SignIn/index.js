@@ -78,8 +78,10 @@ export default function SignInSide() {
     API.User.login(userLoginData)
       .then(res => {
         console.log("logging in");
-        // <Redirect to="/" />
-        window.location.href="/members";
+        console.log(res.data)
+        localStorage.setItem("userId",res.data.id);
+        localStorage.setItem("userName",`${res.data.firstName} ${res.data.lastName}`);
+        // window.location.href="/members";
       })
       .catch(err => console.log(err))
 
