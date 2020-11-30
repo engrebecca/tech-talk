@@ -9,6 +9,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   root: {
     height: '80vh',
+    marginTop: 20
   },
   image: {
     backgroundImage: 'url(https://entrepreneur.indiegogo.com/education/wp-content/uploads/sites/4/2019/05/Soft-Skills-for-Crowdfunding.jpeg)',
