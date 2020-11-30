@@ -53,7 +53,7 @@ function PostPage() {
 
     useEffect(() => {
         loadPosts()
-    }, []);
+    }, [newComment]);
 
     function loadPosts() {
         API.Post.getPost()

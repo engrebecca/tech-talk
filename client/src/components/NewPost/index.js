@@ -55,7 +55,7 @@ export default function CheckboxesGroup() {
       { body: postText, title: postTitle, UserId: postUser, tags }
     console.log(newPostData);
 
-    API.User.create(newPostData)
+    API.Post.createPost(newPostData)
       .then(res => {
         console.log("Post created!");
       })
