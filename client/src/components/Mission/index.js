@@ -9,6 +9,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   root: {
     height: '80vh',
+    marginTop: 20
   },
   image: {
     backgroundImage: 'url(https://static.ivanti.com/sites/marketing/media/images/blog/2018/03/women.in_.tech_-2.jpg)',
