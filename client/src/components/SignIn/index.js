@@ -81,17 +81,11 @@ export default function SignInSide() {
         console.log(res.data)
         localStorage.setItem("userId",res.data.id);
         localStorage.setItem("userName",`${res.data.firstName} ${res.data.lastName}`);
-        // window.location.href="/members";
+        window.location.href="/members";
       })
       .catch(err => console.log(err))
 
   };
-
-  // let signIn= (event) => {
-  //   event.preventDefault();
-  //   API.User.create()
-  // };
-
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
