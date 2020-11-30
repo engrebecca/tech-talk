@@ -4,10 +4,7 @@ import HomePage from "./pages/Homepage";
 import MemberPage from "./pages/MemberPage";
 import ProfilePage from "./pages/ProfilePage";
 import SignUpPage from "./pages/SignupPage";
-<<<<<<< HEAD
-=======
 import PostPage from "./pages/PostPage";
->>>>>>> dfee46f57e686b4ac160a7c55fce46fd90ce040c
 
 function App() {
   return (
