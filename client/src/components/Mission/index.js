@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function About() {
+export default function Mission() {
   const classes = useStyles();
 
   return (
@@ -40,13 +40,13 @@ export default function About() {
         <Typography component="h1" variant="h3">
             Our Mission
           </Typography>
-
+          <Typography component="p" variant="h6">
+          Our goal is for you to ask questions, exchange ideas, and connect with each other. We’re creating a space for you to share not just what you do, but who you are to build a better you! We want to provide the tools and connections that women in technology need to own their futures.
+          </Typography>
           
         </div>
       </Grid>
       </Grid>
 
-    
-     
   );
 }
