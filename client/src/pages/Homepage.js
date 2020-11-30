@@ -9,6 +9,7 @@ import BtnSignup from "../components/Btn-signup";
 import NavbarHP from "../components/NavbarHP";
 import About from "../components/About";
 import Mission from "../components/Mission";
+import StickyFooter from "../components/StickyFooter";
 
 
 
@@ -16,10 +17,11 @@ function Homepage() {
   return (
     // <Container>
     <div>
-      <NavbarHP></NavbarHP>
-    <SignIn></SignIn>
-    <About></About>
-    <Mission></Mission>
+      <NavbarHP />
+    <SignIn />
+    <About />
+    <Mission />
+    <StickyFooter />
     
    {/* </Container> */}
     </div>
