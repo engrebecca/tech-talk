@@ -18,6 +18,10 @@ export default {
             return axios.get("/api/user");
         },
 
+        getUserById(userId) {
+            return axios.get("/api/user/" + userId);
+        },
+
         login(userLoginData) {
             console.log("api login")
             return axios.post("/api/user/login", userLoginData);
