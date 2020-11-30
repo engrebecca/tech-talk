@@ -32,14 +32,16 @@ function Copyright() {
 const useStyles = makeStyles((theme) => ({
   root: {
     height: '80vh',
+    backgroundColor: 'white'
   },
   image: {
-    backgroundImage: 'url(https://entrepreneur.indiegogo.com/education/wp-content/uploads/sites/4/2019/05/Soft-Skills-for-Crowdfunding.jpeg)',
+    backgroundImage: 'url(https://res.cloudinary.com/tech-talk/image/upload/v1606714581/tech-talk/techtalklogobig_ay98tb.png)',
     backgroundRepeat: 'no-repeat',
-    backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
-    backgroundSize: 'cover',
+    // backgroundColor:
+    //   theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
+    // backgroundSize: 'cover',
     backgroundPosition: 'center',
+
   },
   paper: {
     margin: theme.spacing(8, 4),
