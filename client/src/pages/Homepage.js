@@ -8,6 +8,7 @@ import SignIn from "../components/SignIn";
 import BtnSignup from "../components/Btn-signup";
 import NavbarHP from "../components/NavbarHP";
 import About from "../components/About";
+import Mission from "../components/Mission";
 
 
 
@@ -18,6 +19,7 @@ function Homepage() {
       <NavbarHP></NavbarHP>
     <SignIn></SignIn>
     <About></About>
+    <Mission></Mission>
     
    {/* </Container> */}
     </div>
