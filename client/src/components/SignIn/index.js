@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -14,6 +14,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import API from "../../utils/API";
 import { NavLink } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 function Copyright() {
   return (
@@ -65,23 +66,28 @@ export default function SignInSide() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-      let signIn = (event) => {
-        event.preventDefault();
-        if (!email || !password) {
-          return;
-        }
-        let userLoginData = {email, password}
-        API.User.login(userLoginData)
-        .then(res => console.log("logging in"))
-        .catch(err => console.log(err))
-        
-      };
+  let signIn = (event) => {
+    event.preventDefault();
+    if (!email || !password) {
+      return;
+    }
+    let userLoginData = { email, password }
+    console.log(userLoginData)
+    API.User.login(userLoginData)
+      .then(res => {
+        console.log("logging in");
+        // <Redirect to="/" />
+        res.redirect("/members");
+      })
+      .catch(err => console.log(err))
+
+  };
 
   // let signIn= (event) => {
   //   event.preventDefault();
   //   API.User.create()
   // };
-  
+
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
@@ -105,7 +111,7 @@ export default function SignInSide() {
               name="email"
               autoComplete="email"
               autoFocus
-              onChange = {event => setEmail(event.target.value)}
+              onChange={event => setEmail(event.target.value)}
             />
             <TextField
               variant="outlined"
@@ -117,7 +123,7 @@ export default function SignInSide() {
               type="password"
               id="password"
               autoComplete="current-password"
-              onChange = {event => setPassword(event.target.value)}
+              onChange={event => setPassword(event.target.value)}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
