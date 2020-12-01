@@ -9,7 +9,7 @@ import BtnSignup from "../components/Btn-signup";
 import NavbarHP from "../components/NavbarHP";
 import About from "../components/About";
 import Mission from "../components/Mission";
-// import StickyFooter from "../components/StickyFooter";
+import StickyFooter from "../components/StickyFooter";
 
 
 
