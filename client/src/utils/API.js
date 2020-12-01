@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const cloudinaryURL = "https://api.cloudinary.com/v1_1/tech-talk/upload"
+const URL = "https://api..com/v1_1/tech-talk/upload"
 
 export default {
 
@@ -11,7 +11,7 @@ export default {
         },
 
         createImage(formData) {
-            return axios.post(cloudinaryURL, formData)
+            return axios.post(URL, formData)
         },
 
         getUser() {
