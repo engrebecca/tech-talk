@@ -35,6 +35,7 @@ export default function NavbarHP() {
           </IconButton>
           <Typography variant="h6" className={classes.title}>
           <img className = "logo" src="https://i.ibb.co/zSC5kSq/TECH-TALK-21.png" alt="TECH-TALK-21" border="0"></img>
+          
           </Typography>
           <NavLink to="/signup"> Sign Up</NavLink>
         </Toolbar>
