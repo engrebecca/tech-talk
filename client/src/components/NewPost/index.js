@@ -30,47 +30,55 @@ export default function CheckboxesGroup() {
   const [tags, setTags] = useState([
     // Career advice
     {
-      careerAdvice: false,
-      tagId: 1
+      name: "careerAdvice",
+      checkedValue: false,
+      id: 1
     },
     // Asks
     {
-      asks: false,
-      tagId: 2
+      name: "asks",
+      checkedValue: false,
+      id: 2
     },
     // Mentorship
     {
-      mentorship: false,
-      tagId: 3
+      name: "mentorship",
+      checkedValue: false,
+      id: 3
     },
+
     // Events
     {
-      events: false,
-      tagId: 4
+      name: "events",
+      checkedValue: false,
+      id: 4
     },
     // Job posts
     {
-      jobPost: false,
-      tagId: 5
+      name: "jobPost",
+      checkedValue: false,
+      id: 5
     },
     // Random
     {
-      random: false,
-      tagId: 6
+      name: "random",
+      checkedValue: false,
+      id: 6
     }
   ]);
+
   const [postText, setPostText] = useState("");
   const [postTitle, setPostTitle] = useState("");
   const [postUser, setPostUser] = useState(1)
 
   const addTag = (event) => {
-    // setTags({ ...tags, [event.target.name]: event.target.checked });
-    const oldTags = [...tags]
-    const updatedTags = oldTags.map(tag => {
-      if (tag.event.target.name) {
-        tag.event.target.name = event.target.checked
-      }
-    })
+    const updatedTags = tags.map(function (tag) {
+      return (tag.name === event.target.name) ?
+        { ...tag, checkedValue: true }
+        :
+        { ...tag };
+    });
+    console.log(updatedTags)
     setTags(updatedTags)
   };
 
@@ -78,8 +86,18 @@ export default function CheckboxesGroup() {
 
   function submitForm(e) {
     e.preventDefault();
+    let selectedTags = []
+
+    for (let i = 0; i < tags.length; i++) {
+      console.log(tags[i]);
+      if (tags[i].checkedValue) {
+        selectedTags.push(tags[i].id);
+      }
+    }
+
+    console.log(selectedTags)
     let newPostData =
-      { body: postText, title: postTitle, tags }
+      { body: postText, title: postTitle, selectedTags }
     console.log(newPostData);
 
     API.Post.createPost(newPostData)
