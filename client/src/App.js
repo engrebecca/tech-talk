@@ -51,7 +51,6 @@ function App() {
             {checkedUser && (user ? <Redirect to="/newsfeed" /> : <Redirect to="/" />)}
           </Route>
         </Switch>
-        <StickyFooter />
       </Router>
     </UserContext.Provider>
   );
