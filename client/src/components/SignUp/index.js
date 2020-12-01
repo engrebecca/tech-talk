@@ -98,6 +98,8 @@ export default function SignUp() {
     API.User.create(userSignupData)
       .then(res => {
         console.log("User created!");
+          window.location.href="/";
+
       })
       .catch(err => console.log(err));
 
