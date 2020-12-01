@@ -3,8 +3,8 @@ const db = require("../models");
 module.exports = {
     // Controller to create a new post with it's associated user and tags
     create: (req, res) => {
-        const { title, body, UserId, tags } = req.body
-        db.Post.create({ title, body, UserId })
+        const { title, body, tags } = req.body
+        db.Post.create({ title, body, UserId: req.user.id })
             .then(newPost => {
                 db.PostTag.bulkCreate(
                     tags.map((TagId) => ({ PostId: newPost.id, TagId }))

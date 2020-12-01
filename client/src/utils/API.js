@@ -31,6 +31,9 @@ export default {
             console.log("api logout")
             return axios.get("/api/user/logout");
         },
+        getCurrent() {
+            return axios.get("/api/user/current");
+        }
     },
     Post: {
         getPost() {

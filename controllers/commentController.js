@@ -6,7 +6,7 @@ module.exports = {
     create: (req, res) => {
         db.Comment.create({
             text: req.body.text,
-            UserId: req.body.userId,
+            UserId: req.user.id,
             PostId: req.body.postId
         })
             .then((data) => {
