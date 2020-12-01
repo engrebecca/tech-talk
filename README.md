@@ -7,10 +7,12 @@
 [![Generic badge](https://img.shields.io/badge/Hard_Dependancy-if_env-orange.svg)](https://shields.io/)
 
  ## Description 
-Tech-Talk is a professional network for women in technology. This is the perfect place for ambitious women to connect and make things happen. Whether you are searching for a job opportunity, looking for a mentor to guide you through this bustling industry, or just have questions about the tech field you're in, Tech-Talk is the community to join. We want you to level up personally and professionally.
+Tech-Talk is a professional network for ambitious women in technology to connect and uplift each other professionally and personally. Whether you are searching for a job opportunity, looking for a mentor to guide you through this bustling industry, or just have questions about the tech field you're in, Tech-Talk is the community to join! 
+
 
 ## Mission Statement
 Our goal is for you to ask questions, exchange ideas, and connect with each other. We’re creating a space for you to share not just what you do, but who you are to build a better you! We want to provide the tools and connections that women in technology need to own their futures.
+
 
 ## Features
 * MySQL stores user information
