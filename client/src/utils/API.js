@@ -26,6 +26,14 @@ export default {
             console.log("api login")
             return axios.post("/api/user/login", userLoginData);
         },
+
+        logout() {
+            console.log("api logout")
+            return axios.post("/api/user/logout");
+        },
+        getCurrent() {
+            return axios.get("/api/user/current");
+        }
     },
     Post: {
         getPost() {

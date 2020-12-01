@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 // import Test from "./components/Test";
 // import "./App.css";
 // import CardUser from "../components/CardUser"
@@ -18,13 +18,13 @@ function Homepage() {
     // <Container>
     <div>
       <NavbarHP />
-    <SignIn />
-    <About />
-    <Mission />
-    
-   {/* </Container> */}
+      <SignIn />
+      <About />
+      <Mission />
+
+      {/* </Container> */}
     </div>
-  
+
   );
 }
 

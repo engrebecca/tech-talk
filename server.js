@@ -2,13 +2,15 @@
 // Server.js - This file is the initial starting point for the Node/Express server.
 //
 // ******************************************************************************
+require("dotenv").config();
 const routes = require("./routes");
 const passport = require("./config/passport");
-
+console.log(process.env.JWT_SECRET)
 // Sets up the Express App
 // =============================================================
 const express = require("express");
-const session = require("express-session");
+// const session = require("express-session");
+const cookieSession = require("cookie-session");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -21,10 +23,12 @@ app.use(express.json());
 
 // Static directory
 app.use(express.static("./client/build"));
+// Add a cookie to each session
+app.use(cookieSession({ httpOnly: true, signed: false }));
 //keyboard cat is a cookie setting. Using cookie parser may result in issues if the secret is not the same between this module amd cookie-parser.
-app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+// app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.session());
 
 // Give server access to routes
 // =============================================================

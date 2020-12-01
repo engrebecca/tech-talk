@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -15,6 +15,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import API from "../../utils/API";
 import { NavLink } from "react-router-dom";
 import { Redirect } from "react-router-dom";
+import { UserContext } from "../../utils/UserContext";
 
 function Copyright() {
   return (
@@ -65,6 +66,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignInSide() {
   const classes = useStyles();
+  const { user, login, logout, refreshUser } = useContext(UserContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -75,21 +77,10 @@ export default function SignInSide() {
     }
     let userLoginData = { email, password }
     console.log(userLoginData)
-    API.User.login(userLoginData)
-      .then(res => {
-        console.log("logging in");
-        // <Redirect to="/" />
-        res.redirect("/members");
-      })
+    login(userLoginData)
       .catch(err => console.log(err))
 
   };
-
-  // let signIn= (event) => {
-  //   event.preventDefault();
-  //   API.User.create()
-  // };
-
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
