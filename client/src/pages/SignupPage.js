@@ -10,6 +10,7 @@ function SignupPage() {
             <Container>
                 <SignUp />
             </Container>
+            <StickyFooter />
         </div>
     );
 };
