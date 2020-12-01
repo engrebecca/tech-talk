@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
@@ -12,6 +12,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import API from "../../utils/API";
+import { UserContext } from "../../utils/UserContext";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -25,26 +26,52 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CheckboxesGroup() {
   const classes = useStyles();
-  const [tags, setTags] = useState({
+  const { user, login, logout, refreshUser } = useContext(UserContext);
+  const [tags, setTags] = useState([
     // Career advice
-    careerAdvice: false,
+    {
+      careerAdvice: false,
+      tagId: 1
+    },
     // Asks
-    asks: false,
+    {
+      asks: false,
+      tagId: 2
+    },
     // Mentorship
-    mentorship: false,
+    {
+      mentorship: false,
+      tagId: 3
+    },
     // Events
-    events: false,
+    {
+      events: false,
+      tagId: 4
+    },
     // Job posts
-    jobPost: false,
+    {
+      jobPost: false,
+      tagId: 5
+    },
     // Random
-    random: false
-  });
+    {
+      random: false,
+      tagId: 6
+    }
+  ]);
   const [postText, setPostText] = useState("");
   const [postTitle, setPostTitle] = useState("");
   const [postUser, setPostUser] = useState(1)
 
   const addTag = (event) => {
-    setTags({ ...tags, [event.target.name]: event.target.checked });
+    // setTags({ ...tags, [event.target.name]: event.target.checked });
+    const oldTags = [...tags]
+    const updatedTags = oldTags.map(tag => {
+      if (tag.event.target.name) {
+        tag.event.target.name = event.target.checked
+      }
+    })
+    setTags(updatedTags)
   };
 
   const { careerAdvice, asks, mentorship, events, jobPost, random } = tags;

@@ -4,6 +4,7 @@ module.exports = {
     // Controller to create a new post with it's associated user and tags
     create: (req, res) => {
         const { title, body, tags } = req.body
+        console.log(req.user);
         db.Post.create({ title, body, UserId: req.user.id })
             .then(newPost => {
                 db.PostTag.bulkCreate(
