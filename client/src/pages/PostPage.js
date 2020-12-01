@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import { Paper, Grid, Card, CardContent, Collapse, CardActions, TextField, Button } from '@material-ui/core';
@@ -13,6 +13,7 @@ import BtnComment from "../components/Btn-comments";
 import Avatar from "../components/Avatar";
 import UserName from "../components/UserName";
 import UserRole from "../components/UserRole";
+import { UserContext } from "../utils/UserContext";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -44,6 +45,7 @@ const useStyles = makeStyles((theme) => ({
 
 function PostPage() {
     const classes = useStyles();
+    const { user, refreshUser } = useContext(UserContext);
     const [posts, setPosts] = useState([]);
     const [expanded, setExpanded] = useState(false);
     const [newComment, setNewComment] = useState("");
