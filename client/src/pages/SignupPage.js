@@ -2,7 +2,7 @@ import React from "react";
 import Container from "../components/Container";
 import SignUp from "../components/SignUp";
 import NavbarHP from "../components/NavbarHP";
-import StickyFooter from "./components/StickyFooter";
+import StickyFooter from "../components/StickyFooter";
 
 
 function SignupPage() {
