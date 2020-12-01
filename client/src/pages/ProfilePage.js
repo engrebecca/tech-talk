@@ -45,6 +45,7 @@ function ProfilePage() {
 
                 </div>
             </Container>
+            <StickyFooter />
 
         </div>
     );
