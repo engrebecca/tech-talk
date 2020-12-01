@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
   navbar: {
     marginBottom: 50,
-    backgroundColor: 'lavender'
+    backgroundColor: 'white'
   }
 }));
 
