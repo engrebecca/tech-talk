@@ -5,6 +5,7 @@ import SignUp from "../components/SignUp";
 function SignupPage() {
     return (
         <div>
+                  <NavbarHP />
             <Container>
                 <SignUp />
             </Container>
