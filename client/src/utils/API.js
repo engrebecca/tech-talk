@@ -29,7 +29,7 @@ export default {
 
         logout() {
             console.log("api logout")
-            return axios.get("/api/user/logout");
+            return axios.post("/api/user/logout");
         },
         getCurrent() {
             return axios.get("/api/user/current");

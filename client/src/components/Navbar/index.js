@@ -1,5 +1,5 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { NavLink, Redirect } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import API from "../../utils/API";
+import { UserContext } from "../../utils/UserContext";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,10 +26,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ButtonAppBar() {
   const classes = useStyles();
-
-  const logoutUser = () => {
-    localStorage.removeItem("userName", "userId");
-  }
+  const { logout } = useContext(UserContext);
 
   return (
     <div className={classes.root}>
@@ -45,7 +42,9 @@ export default function ButtonAppBar() {
             <NavLink to="/profile"> Profile</NavLink>
           </Typography>
           {/* <NavLink to="/profile"> Profile </NavLink> */}
-          <NavLink to="/"> Logout </NavLink>
+          <Button onClick={() => {
+            logout()
+          }}> Logout </Button>
         </Toolbar>
       </AppBar>
     </div>
