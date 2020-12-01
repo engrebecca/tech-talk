@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { NavLink, Redirect } from 'react-router-dom';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -7,8 +7,6 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import { UserContext } from "../../utils/UserContext";
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,9 +23,8 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function ButtonAppBar() {
+export default function NavbarHP() {
   const classes = useStyles();
-  const { logout } = useContext(UserContext);
 
   return (
     <div className={classes.root}>
@@ -37,15 +34,10 @@ export default function ButtonAppBar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            <img className = "logo" src="https://i.ibb.co/zSC5kSq/TECH-TALK-21.png" alt="TECH-TALK-21" border="0"></img>
-            <NavLink to="/" exact> Home </NavLink>
-            <NavLink to="/members"> Members </NavLink>
-            <NavLink to="/profile"> Profile</NavLink>
+          <img className = "logo" src="https://i.ibb.co/p2GRqf0/TECH-TALK-10.png" alt="TECH-TALK-10" border="0"></img>
+          
           </Typography>
-          {/* <NavLink to="/profile"> Profile </NavLink> */}
-          <Button onClick={() => {
-            logout()
-          }}> Logout </Button>
+          <NavLink to="/"> Home</NavLink>
         </Toolbar>
       </AppBar>
     </div>
