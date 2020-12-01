@@ -5,7 +5,6 @@ import MemberPage from "./pages/MemberPage";
 import ProfilePage from "./pages/ProfilePage";
 import SignUpPage from "./pages/SignupPage";
 import PostPage from "./pages/PostPage";
-import StickyFooter from "./components/StickyFooter";
 import { UserContext } from "./utils/UserContext";
 import API from "./utils/API";
 
