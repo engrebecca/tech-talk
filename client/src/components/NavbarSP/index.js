@@ -37,7 +37,7 @@ export default function NavbarHP() {
           <img className = "logo" src="https://i.ibb.co/p2GRqf0/TECH-TALK-10.png" alt="TECH-TALK-10" border="0"></img>
           
           </Typography>
-          <NavLink to="/login"> Homepage</NavLink>
+          <NavLink to="/"> Home</NavLink>
         </Toolbar>
       </AppBar>
     </div>
