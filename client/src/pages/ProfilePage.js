@@ -7,7 +7,7 @@ import Navbar from "../components/Navbar";
 import Container from "../components/Container";
 import CardUser from "../components/CardUser";
 import { UserContext } from "../utils/UserContext";
-import StickyFooter from "./components/StickyFooter";
+import StickyFooter from "../components/StickyFooter";
 
 
 const useStyles = makeStyles((theme) => ({
