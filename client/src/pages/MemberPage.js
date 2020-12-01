@@ -56,6 +56,8 @@ function MemberPage() {
                     </Grid>
                 </div>
             </Container>
+            <StickyFooter />
+
         </div>
     );
 };
