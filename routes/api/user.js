@@ -16,10 +16,6 @@ router.route("/")
   // Add a new user
   .post(userController.create);
 
-// Route for finding a user by their id
-router.route("/:id")
-  .get(userController.findOne)
-
 
 // This is the route to login user with passport
 router.route("/login")
@@ -32,11 +28,11 @@ router.route("/login")
   });
 
 router.route("/logout")
-  .get((req, res) => {
+  .post((req, res) => {
     console.log("logging out");
     // Deletes session cookie
     req.session = null;
-    window.location.href = "/";
+    res.end()
   })
 
 
@@ -65,6 +61,11 @@ router.route("/current")
     }
     res.json(null);
   })
+
+// Route for finding a user by their id
+router.route("/:id")
+  .get(userController.findOne)
+
 
 // app.get("/homepage", (req, res) => {
 //     if (req.user) {
