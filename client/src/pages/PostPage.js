@@ -184,6 +184,8 @@ function PostPage() {
                             </Collapse >
                         </Grid>
                     </Card >
+             <StickyFooter />
+
                 )
             })}
 
