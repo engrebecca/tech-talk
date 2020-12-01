@@ -19,7 +19,8 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   navbar: {
-    marginBottom: 50
+    marginBottom: 50,
+    backgroundColor: 'white'
   }
 }));
 
