@@ -14,6 +14,8 @@ import Avatar from "../components/Avatar";
 import UserName from "../components/UserName";
 import UserRole from "../components/UserRole";
 import { UserContext } from "../utils/UserContext";
+import StickyFooter from "./components/StickyFooter";
+
 
 
 const useStyles = makeStyles((theme) => ({
