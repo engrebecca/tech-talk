@@ -52,7 +52,7 @@ export default function CheckboxesGroup() {
   function submitForm(e) {
     e.preventDefault();
     let newPostData =
-      { body: postText, title: postTitle, UserId: postUser, tags }
+      { body: postText, title: postTitle, tags }
     console.log(newPostData);
 
     API.Post.createPost(newPostData)
