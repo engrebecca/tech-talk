@@ -23,6 +23,7 @@ function Homepage() {
       <Mission />
 
       {/* </Container> */}
+      <StickyFooter />
     </div>
 
   );
