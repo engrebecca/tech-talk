@@ -6,6 +6,8 @@ import API from "../utils/API";
 import Navbar from "../components/Navbar";
 import Container from "../components/Container";
 import CardUser from "../components/CardUser";
+import StickyFooter from "../components/StickyFooter";
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -56,6 +58,8 @@ function MemberPage() {
                     </Grid>
                 </div>
             </Container>
+            <StickyFooter />
+
         </div>
     );
 };
