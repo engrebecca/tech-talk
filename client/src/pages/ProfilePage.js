@@ -14,6 +14,7 @@ import StickyFooter from "../components/StickyFooter";
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
+        backgroundColor: '#f3e5f5'
     },
     paper: {
         marginTop: theme.spacing(8),
@@ -30,7 +31,7 @@ function ProfilePage() {
     //need to get passport authentification (id) variable to put it in our profile page and use setUserId in a function 
 
     return (
-        <div>
+        <div className={classes.root}>
             <Navbar />
             <Container component="main" maxWidth="sm">
                 <div className={classes.root}>
