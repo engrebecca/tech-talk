@@ -18,7 +18,6 @@ const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
         overflow: 'hidden',
-        padding: theme.spacing(0, 3),
         backgroundColor: '#f3e5f5'
     },
     paper: {
