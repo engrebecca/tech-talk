@@ -11,16 +11,18 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 20
   },
   image: {
-    backgroundImage: 'url(https://static.ivanti.com/sites/marketing/media/images/blog/2018/03/women.in_.tech_-2.jpg)',
+    backgroundImage: 'url(https://www.uschamber.com/co/uploads/images/_w622h415/inclusive-workplace.jpg)',
     backgroundRepeat: 'no-repeat',
     backgroundColor:
       theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
     backgroundSize: 'cover',
     backgroundPosition: 'center',
+
+    // https://static.ivanti.com/sites/marketing/media/images/blog/2018/03/women.in_.tech_-2.jpg
   },
   paper: {
     margin: theme.spacing(8, 4),
-    display: 'flex',
+    display: 'flex', 
     flexDirection: 'column',
     alignItems: 'center',
   },
