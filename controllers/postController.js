@@ -24,8 +24,7 @@ module.exports = {
                 include: {
                     model: db.User,
                     attriutes: ["fistName", "lastName"]
-                },
-                // order: [[db.Comment, "createdAt", "DESC"]]
+                }
             },
             {
                 model: db.PostTag,

@@ -1,12 +1,4 @@
 const db = require("../models");
-const cloudinary = require('cloudinary').v2;
-
-// Configure Cloudinary with credentials
-cloudinary.config({
-    cloud_name: "tech-talk",
-    api_key: "438186626146857",
-    api_secret: "xpx_dD4p45QfTAOlA0OtHByYUr0"
-});
 
 module.exports = {
 
@@ -35,7 +27,6 @@ module.exports = {
 
     // create new user
     create: (req, res) => {
-        // Use uploader to upload a new image to Cloudinary
         db.User.create({
             firstName: req.body.firstName,
             lastName: req.body.lastName,
@@ -57,17 +48,3 @@ module.exports = {
     }
 
 };
-
-// For Postman entries
-// {
-//     "firstName": "Christy",
-//     "lastName": "Lee",
-//     "email": "email",
-//     "password": "password",
-//     "bio": "bio",
-//     "role": "role",
-//     "organization": "org",
-//     "github": "github",
-//     "website": "site",
-//     "location": "location"
-// }
