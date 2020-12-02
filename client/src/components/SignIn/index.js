@@ -12,9 +12,7 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import API from "../../utils/API";
 import { NavLink } from "react-router-dom";
-import { Redirect } from "react-router-dom";
 import { UserContext } from "../../utils/UserContext";
 
 function Copyright() {

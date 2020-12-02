@@ -6,7 +6,6 @@ export default {
 
     User: {
         create(userSignupData) {
-            // return axios.post("/api/user", formData, { headers: formData.getHeaders() })
             return axios.post("/api/user", userSignupData);
         },
 

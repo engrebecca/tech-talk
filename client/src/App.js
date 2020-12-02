@@ -41,11 +41,6 @@ function App() {
           <Route exact path="/members">{checkedUser && (!user ? <Redirect to="/" /> : <MemberPage />)}</Route>
           <Route exact path="/newsfeed">{checkedUser && (!user ? <Redirect to="/" /> : <PostPage />)}</Route>
           <Route exact path="/profile">{checkedUser && (!user ? <Redirect to="/" /> : <ProfilePage />)}</Route>
-          {/* <Route exact path="/members" component={MemberPage} /> */}
-          {/* <Route exact path="/signup" component={SignUpPage} /> */}
-          {/* <Route exact path="/newsfeed" component={PostPage} /> */}
-          {/* <Route exact path="/profile" component={ProfilePage} /> */}
-          {/* <Route exact path="/profile" component={ProfilePage} /> */}
           <Route path="*">
             {checkedUser && (user ? <Redirect to="/newsfeed" /> : <Redirect to="/" />)}
           </Route>

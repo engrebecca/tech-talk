@@ -98,7 +98,7 @@ export default function SignUp() {
     API.User.create(userSignupData)
       .then(res => {
         console.log("User created!");
-          window.location.href="/";
+        window.location.href = "/";
 
       })
       .catch(err => console.log(err));
@@ -260,7 +260,7 @@ export default function SignUp() {
               marginTop="10px"
             >
               <Box m="auto">
-                <img src={imageUrl} width={300} height={300}></img>
+                <img src={imageUrl} width={300} height={300} alt="userimg"></img>
               </Box>
             </Box>
             :
