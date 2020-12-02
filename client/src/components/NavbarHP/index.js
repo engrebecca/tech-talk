@@ -37,7 +37,7 @@ export default function NavbarHP() {
           <Typography variant="h6" className={classes.title}>
           <img className = "logo" src="https://i.ibb.co/ctthk2R/TECH-TALK-25.png" width="65" height="65" alt="TECH-TALK-10" border="0"></img>
           </Typography>
-         <Button> <NavLink to="/signup" className="signupbtn" style={{textDecoration: 'none'}}> Sign Up</NavLink></Button>
+         <Button> <NavLink to="/signup" className="signupbtn" style={{marginBottom= 40, textDecoration: 'none'}}> Sign Up</NavLink></Button>
         </Toolbar>
       </AppBar>
     </div>
