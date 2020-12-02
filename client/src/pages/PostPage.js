@@ -51,13 +51,12 @@ function PostPage() {
     const [posts, setPosts] = useState([]);
     const [expanded, setExpanded] = useState(false);
     const [newComment, setNewComment] = useState("");
-    // TO DO: change userId to be current signed in user, change postId to be the target post's id
-    // const [userId, setUserId] = useState(3);
-    const [postId, setPostId] = useState(1);
+    const [postId, setPostId] = useState();
+    const [submitComment, setSubmitComment] = useState(false);
 
     useEffect(() => {
         loadPosts()
-    }, []);
+    }, [submitComment]);
 
     function loadPosts() {
         API.Post.getPost()
@@ -70,6 +69,7 @@ function PostPage() {
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
+        console.log(expanded)
     };
 
     function submitForm(e) {
@@ -82,6 +82,8 @@ function PostPage() {
                 console.log("Comment created!");
             })
             .catch(err => console.log(err));
+
+        setSubmitComment(!submitComment);
     }
 
     return (
@@ -129,6 +131,12 @@ function PostPage() {
                                     aria-expanded={expanded}
                                     aria-label="show more"
                                 >
+                                    {/* <BtnComment numComments={post.Comments.length} handleExpandClick={handleExpandClick}
+                                    className={clsx(classes.expand, {
+                                        [classes.expandOpen]: expanded,
+                                    })}
+                                    aria-expanded={expanded}
+                                    aria-label="show more" /> */}
                                     <BtnComment numComments={post.Comments.length} />
                                 </div>
                             </CardActions>

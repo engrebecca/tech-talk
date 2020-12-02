@@ -48,6 +48,7 @@ export default function UserCard(props) {
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
+        console.log(expanded)
     };
 
     return (
