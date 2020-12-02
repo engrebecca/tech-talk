@@ -12,6 +12,7 @@ import StickyFooter from "../components/StickyFooter";
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
+        backgroundColor: '#f3e5f5'
     },
 }));
 
@@ -33,7 +34,7 @@ function MemberPage() {
     }
 
     return (
-        <div>
+        <div className={classes.root}>
             <Navbar />
             <Container>
                 <div className={classes.root}>
