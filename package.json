@@ -15,7 +15,8 @@
     "postinstall": "npm run seed",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "seed": "cd seeders && node 20201121231954-tech-talk.js"
   },
   "repository": {
     "type": "git",
