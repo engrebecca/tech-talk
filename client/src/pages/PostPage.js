@@ -1,11 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
-import { Paper, Grid, Card, CardContent, Collapse, CardActions, TextField, Button } from '@material-ui/core';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMoreSharp';
+import { Paper, Grid, Card, CardContent, Collapse, CardActions, TextField, Button, CssBaseline, FormLabel, FormControl, FormControlLabel, Checkbox, Typography, Container } from '@material-ui/core';
 import API from "../utils/API";
 import Navbar from "../components/Navbar";
-import NewPost from "../components/NewPost";
 import PostTitle from "../components/PostTitle";
 import PostComment from "../components/PostComment-Content";
 import BtnTags from "../components/Btn-tags";
@@ -15,8 +13,6 @@ import UserName from "../components/UserName";
 import UserRole from "../components/UserRole";
 import { UserContext } from "../utils/UserContext";
 import StickyFooter from "../components/StickyFooter";
-
-
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -47,17 +43,20 @@ const useStyles = makeStyles((theme) => ({
 
 function PostPage() {
     const classes = useStyles();
-    const { user, refreshUser } = useContext(UserContext);
+    const { user } = useContext(UserContext);
     const [posts, setPosts] = useState([]);
     const [expanded, setExpanded] = useState(false);
     const [newComment, setNewComment] = useState("");
-    // TO DO: change userId to be current signed in user, change postId to be the target post's id
-    const [userId, setUserId] = useState(3);
-    const [postId, setPostId] = useState(1);
+    const [postId, setPostId] = useState();
+    const [postText, setPostText] = useState("");
+    const [postTitle, setPostTitle] = useState("");
+    const [commentSubmitStatus, setCommentSubmitStatus] = useState(false);
+    const [postSubmitStatus, setPostSubmitStatus] = useState(false)
 
+    // Load posts & comments when page renders and when new post or comments are made
     useEffect(() => {
         loadPosts()
-    }, [newComment]);
+    }, [commentSubmitStatus, postSubmitStatus]);
 
     function loadPosts() {
         API.Post.getPost()
@@ -70,11 +69,13 @@ function PostPage() {
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
+        console.log(expanded)
     };
 
-    function submitForm(e) {
+    // Function to submit a new comment
+    function submitComment(e) {
         e.preventDefault();
-        let newCommentData = { text: newComment, userId: userId, postId: postId }
+        let newCommentData = { text: newComment, userId: user.id, postId: postId }
         console.log(newCommentData);
 
         API.Comment.createComment(newCommentData)
@@ -82,12 +83,172 @@ function PostPage() {
                 console.log("Comment created!");
             })
             .catch(err => console.log(err));
+
+
+        setCommentSubmitStatus(!commentSubmitStatus);
+    }
+
+    const [tags, setTags] = useState([
+        {
+            name: "careerAdvice",
+            checkedValue: false,
+            id: 1
+        },
+        {
+            name: "asks",
+            checkedValue: false,
+            id: 2
+        },
+        {
+            name: "mentorship",
+            checkedValue: false,
+            id: 3
+        },
+        {
+            name: "events",
+            checkedValue: false,
+            id: 4
+        },
+        {
+            name: "jobPost",
+            checkedValue: false,
+            id: 5
+        },
+        {
+            name: "random",
+            checkedValue: false,
+            id: 6
+        }
+    ]);
+
+    // Function to track tags a user selects to add to a post
+    const addTag = (event) => {
+        const updatedTags = tags.map(function (tag) {
+            return (tag.name === event.target.name) ?
+                { ...tag, checkedValue: true }
+                :
+                { ...tag };
+        });
+        console.log(updatedTags)
+        setTags(updatedTags)
+    };
+
+    const { careerAdvice, asks, mentorship, events, jobPost, random } = tags;
+
+    // Function to submit a new post
+    function submitPost(e) {
+        e.preventDefault();
+        let selectedTags = []
+        for (let i = 0; i < tags.length; i++) {
+            console.log(tags[i]);
+            if (tags[i].checkedValue) {
+                selectedTags.push(tags[i].id);
+            }
+        }
+        let newPostData =
+            { body: postText, title: postTitle, selectedTags }
+
+        API.Post.createPost(newPostData)
+            .then(res => {
+                console.log("Post created!");
+            })
+            .catch(err => console.log(err));
+        setPostSubmitStatus(!postSubmitStatus);
+        e.target.reset();
+        const clearTags = tags.map(function (tag) {
+            return { ...tag, checkedValue: false }
+        });
+        console.log(clearTags)
+        setTags(clearTags)
     }
 
     return (
         <div>
             <Navbar />
-            <NewPost />
+            <Container component="main" maxWidth="md">
+                <CssBaseline />
+                <div className={classes.paper}>
+                    <Typography component="h1" variant="h5">
+                        Create your post here!
+                    </Typography>
+                    <form className={classes.form} noValidate onSubmit={submitPost}>
+                        <Grid container spacing={2}>
+                            <Grid item xs={12}>
+                                <TextField
+                                    autoComplete="postTitle"
+                                    name="postTitle"
+                                    variant="outlined"
+                                    required
+                                    fullWidth
+                                    id="postTitle"
+                                    label="Title"
+                                    autoFocus
+                                    onChange={e => setPostTitle(e.target.value)}
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    variant="outlined"
+                                    required
+                                    fullWidth
+                                    multiline={true}
+                                    rows={3}
+                                    id="postText"
+                                    label="Text"
+                                    name="postText"
+                                    autoComplete="postText"
+                                    onChange={e => setPostText(e.target.value)}
+                                />
+                            </Grid>
+                        </Grid>
+
+
+                        <FormControl component="fieldset" className={classes.formControl}>
+                            <FormLabel component="legend">Choose tags associated with your post</FormLabel>
+                            <div>
+                                <FormControlLabel
+                                    control={<Checkbox checked={careerAdvice} onChange={addTag} name="careerAdvice" />}
+                                    label="Career Advice"
+                                />
+                                <FormControlLabel
+                                    control={<Checkbox checked={asks} onChange={addTag} name="asks" />}
+                                    label="Asks"
+                                />
+                                <FormControlLabel
+                                    control={<Checkbox checked={mentorship} onChange={addTag} name="mentorship" />}
+                                    label="Mentorship"
+                                />
+                                <FormControlLabel
+                                    control={<Checkbox checked={events} onChange={addTag} name="events" />}
+                                    label="Events"
+                                />
+                                <FormControlLabel
+                                    control={<Checkbox checked={jobPost} onChange={addTag} name="jobPost" />}
+                                    label="Job Post"
+                                />
+                                <FormControlLabel
+                                    control={<Checkbox checked={random} onChange={addTag} name="random" />}
+                                    label="Random"
+                                />
+                            </div>
+
+
+                        </FormControl>
+
+                        <Button item xs={4}
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            color="primary"
+                            className={classes.submit}
+                        >
+                            Submit
+                        </Button>
+
+                    </form>
+                </div>
+
+            </Container>
 
             {/* Map through all the posts from db and create a card to display info */}
             {posts.map(post => {
@@ -136,7 +297,7 @@ function PostPage() {
                             <Collapse in={expanded} timeout="auto" unmountOnExit>
                                 <CardContent>
                                     {/* Form for posting new comments */}
-                                    <form className={classes.form} noValidate onSubmit={submitForm}>
+                                    <form className={classes.form} noValidate onSubmit={submitComment}>
                                         <Grid container>
                                             <Grid item xs={12}>
                                                 <TextField
@@ -147,10 +308,10 @@ function PostPage() {
                                                     id="newComment"
                                                     label="Comment"
                                                     autoFocus
-                                                    postid={post.id}
+                                                    id={post.id}
                                                     onChange={e => {
                                                         setNewComment(e.target.value);
-                                                        // setPostId(e.target.postid);
+                                                        setPostId(e.target.id);
                                                     }}
                                                 />
                                             </Grid>
@@ -188,7 +349,7 @@ function PostPage() {
                     </Card >
                 )
             })}
-    <StickyFooter />
+            <StickyFooter />
 
         </div >
 

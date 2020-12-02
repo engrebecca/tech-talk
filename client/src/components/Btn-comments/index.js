@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button';
 
 function Comment(props) {
   return (
-    <Button variant="contained" color="primary">
+    <Button variant="contained" color="primary" onClick={props.handleExpandClick}>
       Comments: {props.numComments}
     </Button>
   );
