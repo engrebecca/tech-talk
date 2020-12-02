@@ -37,7 +37,8 @@ module.exports = {
                 model: db.User,
                 as: "User",
                 attriutes: ["fistName", "lastName"]
-            }]
+            }],
+            order: [["createdAt", "DESC"]]
         })
             .then(data => res.json(data))
             .catch(err => {

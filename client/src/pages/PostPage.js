@@ -283,12 +283,6 @@ function PostPage() {
                                     aria-expanded={expanded}
                                     aria-label="show more"
                                 >
-                                    {/* <BtnComment numComments={post.Comments.length} handleExpandClick={handleExpandClick}
-                                    className={clsx(classes.expand, {
-                                        [classes.expandOpen]: expanded,
-                                    })}
-                                    aria-expanded={expanded}
-                                    aria-label="show more" /> */}
                                     <BtnComment numComments={post.Comments.length} />
                                 </div>
                             </CardActions>
