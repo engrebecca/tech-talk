@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { NavLink } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import { UserContext } from "../../utils/UserContext";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,23 +25,32 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function NavbarHP() {
+export default function ButtonAppBar() {
   const classes = useStyles();
+  const { logout } = useContext(UserContext);
+
 
   return (
-    <div className={classes.root} style={{paddingLeft: 13, textDecoration: 'none'}}>
+    <div className={classes.root}>
       <AppBar position="static" className={classes.navbar}>
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+          {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon />
-          </IconButton>
+          </IconButton> */}
           <Typography variant="h6" className={classes.title}>
-          <img className = "logo" src="https://i.ibb.co/ctthk2R/TECH-TALK-25.png" width="65" height="65" alt="TECH-TALK-10" border="0"></img>
+          <img className = "logo" style={{marginTop: 20}} src="https://i.ibb.co/ctthk2R/TECH-TALK-25.png" width="65" height="65" alt="TECH-TALK-10" border="0"></img>
+          <Button><NavLink to="/" exact style={{marginBottom: 40, color: 'black', textDecoration: 'none'}}> Home </NavLink></Button>
+            <Button><NavLink to="/members" style={{marginBottom: 40, color: 'black', textDecoration: 'none'}}> Members </NavLink></Button>
+            <Button> <NavLink to="/profile" style={{marginBottom: 40, color: 'black', textDecoration: 'none'}}> Profile</NavLink></Button>
           </Typography>
-         <Button> <NavLink to="/signup" className="signupbtn" style={{marginBottom= 40, textDecoration: 'none'}}> Sign Up</NavLink></Button>
+          {/* <NavLink to="/profile"> Profile </NavLink> */}
+          <Button onClick={() => {
+            logout()
+          }}> Logout </Button>
         </Toolbar>
       </AppBar>
     </div>
   );
 }
+
 
