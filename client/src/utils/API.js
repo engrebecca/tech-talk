@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL = "https://api..com/v1_1/tech-talk/upload"
+const URL = "https://api.cloudinary.com/v1_1/tech-talk/upload"
 
 export default {
 
