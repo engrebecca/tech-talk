@@ -38,7 +38,7 @@ export default function ButtonAppBar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-          <img className = "logo" src="https://i.ibb.co/ctthk2R/TECH-TALK" width="65" height="65" alt="TECH-TALK-10" border="0"></img>
+          <img className = "logo" src="https://i.ibb.co/ctthk2R/TECH-TALK-25.png" width="65" height="65" alt="TECH-TALK-10" border="0"></img>
             <NavLink to="/" exact> Home </NavLink>
             <NavLink to="/members"> Members </NavLink>
             <NavLink to="/profile"> Profile</NavLink>
