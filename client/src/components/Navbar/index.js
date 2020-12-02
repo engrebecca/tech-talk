@@ -34,14 +34,14 @@ export default function ButtonAppBar() {
     <div className={classes.root}>
       <AppBar position="static" className={classes.navbar}>
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+          {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon />
-          </IconButton>
+          </IconButton> */}
           <Typography variant="h6" className={classes.title}>
-          <img className = "logo" src="https://i.ibb.co/ctthk2R/TECH-TALK-25.png" width="65" height="65" alt="TECH-TALK-10" border="0"></img>
-          <Button><NavLink to="/" exact style={{marginBottom= 40, color: 'black', textDecoration: 'none'}}> Home </NavLink></Button>
-            <Button><NavLink to="/members" style={{marginBottom= 40, color: 'black', textDecoration: 'none'}}> Members </NavLink></Button>
-            <Button> <NavLink to="/profile" style={{marginBottom= 40, color: 'black', textDecoration: 'none'}}> Profile</NavLink></Button>
+          <img className = "logo" style={{marginTop: 20}} src="https://i.ibb.co/ctthk2R/TECH-TALK-25.png" width="65" height="65" alt="TECH-TALK-10" border="0"></img>
+          <Button><NavLink to="/" exact style={{marginBottom: 40, color: 'black', textDecoration: 'none'}}> Home </NavLink></Button>
+            <Button><NavLink to="/members" style={{marginBottom: 40,  color: 'black', textDecoration: 'none'}}> Members </NavLink></Button>
+            <Button> <NavLink to="/profile" style={{marginBottom: 40,  color: 'black', textDecoration: 'none'}}> Profile</NavLink></Button>
           </Typography>
           {/* <NavLink to="/profile"> Profile </NavLink> */}
           <Button onClick={() => {
