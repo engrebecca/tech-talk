@@ -4,18 +4,12 @@ const passport = require("../../config/passport");
 const jwt = require("jsonwebtoken");
 const db = require("../../models");
 
-// var multipart = require('connect-multiparty');
-// var multipartMiddleware = multipart();
-
-console.log("inside User file");
-
 // Routes getting all users and add a new user
 router.route("/")
   // View all users
   .get(userController.findAll)
   // Add a new user
   .post(userController.create);
-
 
 // This is the route to login user with passport
 router.route("/login")
@@ -65,37 +59,5 @@ router.route("/current")
 // Route for finding a user by their id
 router.route("/:id")
   .get(userController.findOne)
-
-
-// app.get("/homepage", (req, res) => {
-//     if (req.user) {
-//         res.redirect("/profile");
-//     }
-//     // res.sendFile(path.join(__dirname, "../../client/src/pages/ProfilePage.js"));
-// });
-
-// app.post("/api/homepage", passport.authenticate("local"), (req, res) => {
-//     res.json(req.user);
-// });
-
-// app.get("/", (req, res) => {
-//     if (req.user) {
-//         res.redirect("/profile");
-//     }
-
-//     // res.sendFile(path.join(__dirname, "../../../../pages/SignupPage.js"));
-// });
-
-// app.get("/profile", isAuthenticated, isProfileConfirmed, (req, res) => {
-
-//     // res.sendFile(path.join(__dirname, "../../../../pages/ProfilePage.js"));
-
-// });
-
-
-
-// app.get("/profilepage", (req, res) => {
-
-// });
 
 module.exports = router;
