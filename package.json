@@ -15,8 +15,7 @@
     "postinstall": "npm run seed",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build",
-    "seed": "cd seeds && node seed.js"
+    "heroku-postbuild": "npm run build"
   },
   "repository": {
     "type": "git",
