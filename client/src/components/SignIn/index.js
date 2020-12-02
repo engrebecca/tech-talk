@@ -127,7 +127,7 @@ export default function SignInSide() {
               type="submit"
               fullWidth
               variant="contained"
-              color="primary"
+              color="#9e9e9e"
               className={classes.submit}
             >
               Sign In
