@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import API from "../utils/API";
 import Navbar from "../components/Navbar";
@@ -24,6 +23,7 @@ function MemberPage() {
         loadMembers()
     }, []);
 
+    // Function to retrieve all members' data from the database
     function loadMembers() {
         API.User.getUser()
             .then(res => {

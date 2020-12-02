@@ -67,6 +67,7 @@ function PostPage() {
             .catch(err => console.log(err));
     }
 
+    // On click function to handle when user clicks button to open comments on a post
     const handleExpandClick = () => {
         setExpanded(!expanded);
         console.log(expanded)
@@ -165,89 +166,81 @@ function PostPage() {
     return (
         <div className={classes.root}>
             <Navbar />
-                <CssBaseline />
-                <Card className={classes.root, classes.card}>
-                    <Typography component="h1" variant="h5">
-                        Create your post here!
+            <CssBaseline />
+            <Card className={classes.root, classes.card}>
+                <Typography component="h1" variant="h5">
+                    Create your post here!
                     </Typography>
-                    <form className={classes.form} noValidate onSubmit={submitPost}>
-                        <Grid container spacing={2}>
-                            <Grid item xs={12}>
-                                <TextField
-                                    autoComplete="postTitle"
-                                    name="postTitle"
-                                    variant="outlined"
-                                    required
-                                    fullWidth
-                                    id="postTitle"
-                                    label="Title"
-                                    autoFocus
-                                    onChange={e => setPostTitle(e.target.value)}
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TextField
-                                    variant="outlined"
-                                    required
-                                    fullWidth
-                                    multiline={true}
-                                    rows={3}
-                                    id="postText"
-                                    label="Text"
-                                    name="postText"
-                                    autoComplete="postText"
-                                    onChange={e => setPostText(e.target.value)}
-                                />
-                            </Grid>
+                <form className={classes.form} noValidate onSubmit={submitPost}>
+                    <Grid container spacing={2}>
+                        <Grid item xs={12}>
+                            <TextField
+                                autoComplete="postTitle"
+                                name="postTitle"
+                                variant="outlined"
+                                required
+                                fullWidth
+                                id="postTitle"
+                                label="Title"
+                                autoFocus
+                                onChange={e => setPostTitle(e.target.value)}
+                            />
                         </Grid>
-
-
-                        <FormControl component="fieldset" className={classes.formControl}>
-                            <FormLabel component="legend">Choose tags associated with your post</FormLabel>
-                            <div>
-                                <FormControlLabel
-                                    control={<Checkbox checked={careerAdvice} onChange={addTag} name="careerAdvice" />}
-                                    label="Career Advice"
-                                />
-                                <FormControlLabel
-                                    control={<Checkbox checked={asks} onChange={addTag} name="asks" />}
-                                    label="Asks"
-                                />
-                                <FormControlLabel
-                                    control={<Checkbox checked={mentorship} onChange={addTag} name="mentorship" />}
-                                    label="Mentorship"
-                                />
-                                <FormControlLabel
-                                    control={<Checkbox checked={events} onChange={addTag} name="events" />}
-                                    label="Events"
-                                />
-                                <FormControlLabel
-                                    control={<Checkbox checked={jobPost} onChange={addTag} name="jobPost" />}
-                                    label="Job Post"
-                                />
-                                <FormControlLabel
-                                    control={<Checkbox checked={random} onChange={addTag} name="random" />}
-                                    label="Random"
-                                />
-                            </div>
-
-
-                        </FormControl>
-
-                        <Button item xs={4}
-                            type="submit"
-                            fullWidth
-                            variant="contained"
-                            color="#9e9e9e"
-                            className={classes.submit}
-                        >
-                            Submit
+                        <Grid item xs={12}>
+                            <TextField
+                                variant="outlined"
+                                required
+                                fullWidth
+                                multiline={true}
+                                rows={3}
+                                id="postText"
+                                label="Text"
+                                name="postText"
+                                autoComplete="postText"
+                                onChange={e => setPostText(e.target.value)}
+                            />
+                        </Grid>
+                    </Grid>
+                    <FormControl component="fieldset" className={classes.formControl}>
+                        <FormLabel component="legend">Choose tags associated with your post</FormLabel>
+                        <div>
+                            <FormControlLabel
+                                control={<Checkbox checked={careerAdvice} onChange={addTag} name="careerAdvice" />}
+                                label="Career Advice"
+                            />
+                            <FormControlLabel
+                                control={<Checkbox checked={asks} onChange={addTag} name="asks" />}
+                                label="Asks"
+                            />
+                            <FormControlLabel
+                                control={<Checkbox checked={mentorship} onChange={addTag} name="mentorship" />}
+                                label="Mentorship"
+                            />
+                            <FormControlLabel
+                                control={<Checkbox checked={events} onChange={addTag} name="events" />}
+                                label="Events"
+                            />
+                            <FormControlLabel
+                                control={<Checkbox checked={jobPost} onChange={addTag} name="jobPost" />}
+                                label="Job Post"
+                            />
+                            <FormControlLabel
+                                control={<Checkbox checked={random} onChange={addTag} name="random" />}
+                                label="Random"
+                            />
+                        </div>
+                    </FormControl>
+                    <Button item xs={4}
+                        type="submit"
+                        fullWidth
+                        variant="contained"
+                        color="#9e9e9e"
+                        className={classes.submit}
+                    >
+                        Submit
                         </Button>
-
-                    </form>
-                    </Card>
-
-
+                </form>
+            </Card>
             {/* Map through all the posts from db and create a card to display info */}
             {posts.map(post => {
                 return (

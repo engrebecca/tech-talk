@@ -1,11 +1,8 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import API from "../utils/API";
 import Navbar from "../components/Navbar";
 import Container from "../components/Container";
-// import CardUser from "../components/CardUser";
 import CardProfile from "../components/CardProfile";
 import { UserContext } from "../utils/UserContext";
 import StickyFooter from "../components/StickyFooter";
@@ -26,9 +23,6 @@ const useStyles = makeStyles((theme) => ({
 function ProfilePage() {
     const classes = useStyles();
     const { user, login, logout, refreshUser } = useContext(UserContext);
-    console.log(user);
-
-    //need to get passport authentification (id) variable to put it in our profile page and use setUserId in a function 
 
     return (
         <div className={classes.root}>
@@ -45,8 +39,6 @@ function ProfilePage() {
                             </Grid>
                         </Grid>
                     </div>
-
-
                 </div>
             </Container>
             <StickyFooter />
