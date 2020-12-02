@@ -35,8 +35,7 @@ export default function NavbarHP() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-          <img className = "logo" src="https://i.ibb.co/p2GRqf0/TECH-TALK-10.png" alt="TECH-TALK-10" border="0"></img>
-          
+          <img className = "logo" src="https://i.ibb.co/j6J780D/TECH-TALK-24.png" width="65" height="65" alt="TECH-TALK-10" border="0"></img>
           </Typography>
           <NavLink to="/signup"> Sign Up</NavLink>
         </Toolbar>
