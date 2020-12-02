@@ -8,7 +8,7 @@
 
   ## Description 
 Tech-Talk is a professional network for women in technology. This is the perfect place for ambitious women to connect and make things happen. Whether you are searching for a job opportunity, looking for a mentor to guide you through this bustling industry, or just have questions about the tech field you're in, Tech-Talk is the community to join. We want you to level up personally and professionally.
-Tech-Talk is a professional network for ambitious women in technology to connect and uplift each other professionally and personally. Whether you are searching for a job opportunity, looking for a mentor to guide you through this bustling industry, or just have questions about the tech field you're in, Tech-Talk is the community to join! 
+Although this site is catered towards women, all who support women in tech are welcome to join! Our goal is to uplift and support women in tech.
 
 
 ## Mission Statement
@@ -40,8 +40,14 @@ I want to be able to:
  
 ```
 ### Built With
+* [Cloudinary](https://cloudinary.com/) - cloud-based image management API
+* [JSON Web Token](https://www.npmjs.com/package/jsonwebtoken) - method for representing claims between user and server
+* [Passport](http://www.passportjs.org/) - authentication middleware for Node.js
+* [Sequelize](https://sequelize.org/) - promise-based Node.js ORM for MySQL
+* [Sequelize CLI](https://www.npmjs.com/package/sequelize-cli) - Command line interface used to configure the Sequelize database
 * [MySQL Workbench](https://www.mysql.com/) - provides data modeling, SQL development, and comprehensive administration tools for server configuration, user administration, backup, and much more
 * [Express](https://expressjs.com/) - backend web application framework for Node.js, for building web applications and APIs
+* [Axios](https://www.npmjs.com/package/axios) - Promise based HTTP client for the browser and Node.js
 * [React.js](https://reactjs.org/) - a front-end JavaScript library for building user interfaces and UI components
 * [Node.js](https://nodejs.org/en/) - a JavaScript runtime environment that allows JavaScript to be run in command line
 * [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - code that creates the logic and structure of the program
