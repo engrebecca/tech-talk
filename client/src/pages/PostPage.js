@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
         overflow: 'hidden',
         padding: theme.spacing(0, 3),
+        backgroundColor: '#f3e5f5'
     },
     paper: {
         maxWidth: 750,
@@ -37,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
         transition: theme.transitions.create('transform', {
             duration: theme.transitions.duration.shortest,
         }),
-    },
+    }
 }));
 
 
@@ -163,11 +164,10 @@ function PostPage() {
     }
 
     return (
-        <div>
+        <div className={classes.root}>
             <Navbar />
-            <Container component="main" maxWidth="md">
                 <CssBaseline />
-                <div className={classes.paper}>
+                <Card className={classes.root, classes.card}>
                     <Typography component="h1" variant="h5">
                         Create your post here!
                     </Typography>
@@ -246,9 +246,8 @@ function PostPage() {
                         </Button>
 
                     </form>
-                </div>
+                    </Card>
 
-            </Container>
 
             {/* Map through all the posts from db and create a card to display info */}
             {posts.map(post => {
