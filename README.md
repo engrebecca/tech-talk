@@ -19,14 +19,13 @@ Our goal is for you to ask questions, exchange ideas, and connect with each othe
 * MySQL stores user information
 * Express defines the backend server API routes
 * React creates the application and the user interface components
-    * The _____page_____page are stateful components that import all other components
+    * The post page members page are stateful pages that import all other components
     * Multiple useState hooks are utilized to access and update different states
-    * A useEffect hook is utilized to render a user's __________
     * React Router allows React to dynamically render page components depending on what a user selects from the navbar
 * Node.js runs JavaScript outside of the browser to allow the backend to function
 Here is a demo of our app:
 
-![alttext](.gif)
+![alttext](techtalk.gif)
 ## User Story
 ```
 As a User,
