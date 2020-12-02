@@ -239,7 +239,7 @@ function PostPage() {
                             type="submit"
                             fullWidth
                             variant="contained"
-                            color="primary"
+                            color="#9e9e9e"
                             className={classes.submit}
                         >
                             Submit
@@ -319,7 +319,7 @@ function PostPage() {
                                                 <Button item xs={4}
                                                     type="submit"
                                                     variant="contained"
-                                                    color="primary"
+                                                    color="#9e9e9e"
                                                     className={classes.submit}
                                                 >
                                                     Submit
