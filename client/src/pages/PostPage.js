@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
-import { Paper, Grid, Card, CardContent, Collapse, CardActions, TextField, Button, CssBaseline, FormLabel, FormControl, FormControlLabel, Checkbox, Typography, Container } from '@material-ui/core';
+import { Paper, Grid, Card, CardContent, Collapse, CardActions, TextField, Button, CssBaseline, FormLabel, FormControl, FormControlLabel, Checkbox, Typography } from '@material-ui/core';
 import API from "../utils/API";
 import Navbar from "../components/Navbar";
 import PostTitle from "../components/PostTitle";

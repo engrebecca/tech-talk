@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Card, CardMedia, CardContent, CardActions, Typography, Paper, Grid } from '@material-ui/core';
+import { Card, CardMedia, CardContent, Typography, Paper, Grid } from '@material-ui/core';
 import AccountCircleSharpIcon from '@material-ui/icons/AccountCircleSharp';
 import LanguageSharpIcon from '@material-ui/icons/LanguageSharp';
 import WorkOutlineSharpIcon from '@material-ui/icons/WorkOutlineSharp';
@@ -14,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
         maxWidth: 345,
         flexGrow: 1,
         margin: 30,
-        // height: 310,
     },
     paper: {
         padding: theme.spacing(2),
@@ -42,11 +41,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function UserCard(props) {
     const classes = useStyles();
-    const [expanded, setExpanded] = React.useState(false);
-
-    const handleExpandClick = () => {
-        setExpanded(!expanded);
-    };
 
     return (
 
@@ -71,26 +65,26 @@ export default function UserCard(props) {
                 </Typography>
             </CardContent>
 
-                <CardContent>
-                    <Grid container spacing={1}>
-                        {/* Bio */}
-                        <Grid item xs={12}>
-                            <Paper className={classes.paper} ><AccountCircleSharpIcon className="icon" />{props.bio}</Paper>
-                        </Grid>
-                        {/* Org */}
-                        <Grid item xs={12}>
-                            <Paper className={classes.paper} ><WorkOutlineSharpIcon className="icon" />{props.org}</Paper>
-                        </Grid>
-                        {/* GitHub */}
-                        <Grid item xs={12}>
-                            <Paper className={classes.paper} ><ComputerIcon className="icon" /><a href={props.github} target="_blank" rel="noopener noreferrer">{props.github}</a></Paper>
-                        </Grid>
-                        {/* Website */}
-                        <Grid item xs={12}>
-                            <Paper className={classes.paper} ><LanguageSharpIcon className="icon" /><a href={props.website} target="_blank" rel="noopener noreferrer">{props.website}</a></Paper>
-                        </Grid>
+            <CardContent>
+                <Grid container spacing={1}>
+                    {/* Bio */}
+                    <Grid item xs={12}>
+                        <Paper className={classes.paper} ><AccountCircleSharpIcon className="icon" />{props.bio}</Paper>
                     </Grid>
-                </CardContent>
+                    {/* Org */}
+                    <Grid item xs={12}>
+                        <Paper className={classes.paper} ><WorkOutlineSharpIcon className="icon" />{props.org}</Paper>
+                    </Grid>
+                    {/* GitHub */}
+                    <Grid item xs={12}>
+                        <Paper className={classes.paper} ><ComputerIcon className="icon" /><a href={props.github} target="_blank" rel="noopener noreferrer">{props.github}</a></Paper>
+                    </Grid>
+                    {/* Website */}
+                    <Grid item xs={12}>
+                        <Paper className={classes.paper} ><LanguageSharpIcon className="icon" /><a href={props.website} target="_blank" rel="noopener noreferrer">{props.website}</a></Paper>
+                    </Grid>
+                </Grid>
+            </CardContent>
         </Card >
 
     );

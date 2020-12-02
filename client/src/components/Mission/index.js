@@ -18,11 +18,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: 'cover',
     backgroundPosition: 'center',
 
-    // https://static.ivanti.com/sites/marketing/media/images/blog/2018/03/women.in_.tech_-2.jpg
   },
   paper: {
     margin: theme.spacing(8, 4),
-    display: 'flex', 
+    display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
   },
