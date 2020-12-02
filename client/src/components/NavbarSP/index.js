@@ -19,8 +19,8 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   navbar: {
-    marginBottom: 50,
-    backgroundColor: 'white'
+    marginBottom: 20,
+    backgroundColor: '#9e9e9e'
   }
 }));
 
@@ -35,7 +35,7 @@ export default function NavbarHP() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-          <img className = "logo" src="https://i.ibb.co/j6J780D/TECH-TALK-24.png" width="65" height="65" alt="TECH-TALK-10" border="0"></img>
+          <img className = "logo" src="https://i.ibb.co/ctthk2R/TECH-TALK-25.png" width="65" height="65" alt="TECH-TALK-10" border="0"></img>
           </Typography>
           <NavLink to="/"> Home</NavLink>
         </Toolbar>
