@@ -3,12 +3,12 @@ const db = require("../models");
 module.exports = {
     // Controller to create a new post with it's associated user and tags
     create: (req, res) => {
-        const { title, body, tags } = req.body
+        const { title, body, selectedTags } = req.body
         console.log(req.user);
         db.Post.create({ title, body, UserId: req.user.id })
             .then(newPost => {
                 db.PostTag.bulkCreate(
-                    tags.map((TagId) => ({ PostId: newPost.id, TagId }))
+                    selectedTags.map((TagId) => ({ PostId: newPost.id, TagId }))
                 ).catch(err => res.status(422).json(err));
                 res.send(true);
             })
@@ -24,7 +24,8 @@ module.exports = {
                 include: {
                     model: db.User,
                     attriutes: ["fistName", "lastName"]
-                }
+                },
+                // order: [[db.Comment, "createdAt", "DESC"]]
             },
             {
                 model: db.PostTag,
@@ -37,7 +38,8 @@ module.exports = {
                 model: db.User,
                 as: "User",
                 attriutes: ["fistName", "lastName"]
-            }]
+            }],
+            order: [["createdAt", "DESC"]]
         })
             .then(data => res.json(data))
             .catch(err => {
