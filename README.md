@@ -79,6 +79,7 @@ I want to be able to:
 - [Github](https://github.com/christyglee)
 - [LinkedIn](https://www.linkedin.com/in/christy-lee/)
 <br> 
+
 ## Acknowledgments
 * [Link to Google](https://www.google.com)
 * [Link to W3 Schools](https://www.w3schools.com)
