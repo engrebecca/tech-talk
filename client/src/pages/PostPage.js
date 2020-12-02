@@ -84,6 +84,7 @@ function PostPage() {
             })
             .catch(err => console.log(err));
 
+
         setCommentSubmitStatus(!commentSubmitStatus);
     }
 
@@ -153,6 +154,12 @@ function PostPage() {
             })
             .catch(err => console.log(err));
         setPostSubmitStatus(!postSubmitStatus);
+        e.target.reset();
+        const clearTags = tags.map(function (tag) {
+            return { ...tag, checkedValue: false }
+        });
+        console.log(clearTags)
+        setTags(clearTags)
     }
 
     return (
