@@ -38,9 +38,7 @@ const useStyles = makeStyles((theme) => ({
   image: {
     backgroundImage: 'url(https://res.cloudinary.com/tech-talk/image/upload/v1606714581/tech-talk/techtalklogobig_ay98tb.png)',
     backgroundRepeat: 'no-repeat',
-    // backgroundColor:
-    //   theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
-    // backgroundSize: 'cover',
+    backgroundSize: '100%',
     backgroundPosition: 'center',
 
   },
