@@ -69,7 +69,6 @@ export default function CheckboxesGroup() {
 
   const [postText, setPostText] = useState("");
   const [postTitle, setPostTitle] = useState("");
-  const [postUser, setPostUser] = useState(1)
 
   const addTag = (event) => {
     const updatedTags = tags.map(function (tag) {

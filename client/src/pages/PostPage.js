@@ -52,12 +52,12 @@ function PostPage() {
     const [expanded, setExpanded] = useState(false);
     const [newComment, setNewComment] = useState("");
     // TO DO: change userId to be current signed in user, change postId to be the target post's id
-    const [userId, setUserId] = useState(3);
+    // const [userId, setUserId] = useState(3);
     const [postId, setPostId] = useState(1);
 
     useEffect(() => {
         loadPosts()
-    }, [newComment]);
+    }, []);
 
     function loadPosts() {
         API.Post.getPost()
@@ -74,7 +74,7 @@ function PostPage() {
 
     function submitForm(e) {
         e.preventDefault();
-        let newCommentData = { text: newComment, userId: userId, postId: postId }
+        let newCommentData = { text: newComment, userId: user.id, postId: postId }
         console.log(newCommentData);
 
         API.Comment.createComment(newCommentData)
@@ -147,10 +147,10 @@ function PostPage() {
                                                     id="newComment"
                                                     label="Comment"
                                                     autoFocus
-                                                    postid={post.id}
+                                                    id={post.id}
                                                     onChange={e => {
                                                         setNewComment(e.target.value);
-                                                        // setPostId(e.target.postid);
+                                                        setPostId(e.target.id);
                                                     }}
                                                 />
                                             </Grid>
@@ -188,7 +188,7 @@ function PostPage() {
                     </Card >
                 )
             })}
-    <StickyFooter />
+            <StickyFooter />
 
         </div >
 
