@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   navbar: {
-    marginBottom: 50,
+    marginBottom: 20,
     backgroundColor: '#9e9e9e'
   }
 }));
