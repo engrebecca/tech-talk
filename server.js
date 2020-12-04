@@ -2,6 +2,7 @@
 // Server.js - This file is the initial starting point for the Node/Express server.
 //
 // ******************************************************************************
+require('newrelic');
 require("dotenv").config();
 const routes = require("./routes");
 const passport = require("./config/passport");
