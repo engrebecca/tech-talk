@@ -7,14 +7,13 @@
     "node": "14.x"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node server.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && npm run start",
-    "postinstall": "npm run seed",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
+    "postinstall": "npm run seed",
     "heroku-postbuild": "npm run build",
     "seed": "cd seeders && node 20201121231954-tech-talk.js"
   },
