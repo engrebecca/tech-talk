@@ -1,4 +1,4 @@
-# Tech-Talk: A Social Media Platform For Women In Technology
+# Tech-Talk: A Professional Network For Women In Technology
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![Generic badge](https://img.shields.io/badge/Hard_Dependancy-express-red.svg)](https://shields.io/)
 [![Generic badge](https://img.shields.io/badge/Hard_Dependancy-axios-yellow.svg)](https://shields.io/)
@@ -16,7 +16,7 @@ Our goal is for you to ask questions, exchange ideas, and connect with each othe
 ![Tech Talk](client/public/signin.gif)
 
 ## Deployed Link
-* [Visit Tech Talk](https://tech-talk-wit.herokuapp.com/)
+* [Visit Tech Talk](https://app-tech-talk.herokuapp.com/)
 
 ### Sample login
 * email: jane@gmail.com
