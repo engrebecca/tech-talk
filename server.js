@@ -6,7 +6,7 @@ require('newrelic');
 require("dotenv").config();
 const routes = require("./routes");
 const passport = require("./config/passport");
-console.log(process.env.JWT_SECRET)
+console.log('JWT Secret: ' + process.env.JWT_SECRET)
 // Sets up the Express App
 // =============================================================
 const express = require("express");

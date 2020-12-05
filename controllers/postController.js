@@ -9,8 +9,10 @@ module.exports = {
             .then(newPost => {
                 db.PostTag.bulkCreate(
                     selectedTags.map((TagId) => ({ PostId: newPost.id, TagId }))
-                ).catch(err => res.status(422).json(err));
-                res.send(true);
+                )
+                    .then(res.send(true))
+                    .catch(err => res.status(422).json(err));
+
             })
     },
 
