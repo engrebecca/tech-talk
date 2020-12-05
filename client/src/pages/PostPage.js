@@ -50,13 +50,11 @@ function PostPage() {
     const [postId, setPostId] = useState();
     const [postText, setPostText] = useState("");
     const [postTitle, setPostTitle] = useState("");
-    const [commentSubmitStatus, setCommentSubmitStatus] = useState(false);
-    const [postSubmitStatus, setPostSubmitStatus] = useState(false)
 
     // Load posts & comments when page renders and when new post or comments are made
     useEffect(() => {
         loadPosts()
-    }, [commentSubmitStatus, postSubmitStatus]);
+    }, []);
 
     function loadPosts() {
         API.Post.getPost()
@@ -82,11 +80,9 @@ function PostPage() {
         API.Comment.createComment(newCommentData)
             .then(res => {
                 console.log("Comment created!");
+                loadPosts()
             })
             .catch(err => console.log(err));
-
-
-        setCommentSubmitStatus(!commentSubmitStatus);
     }
 
     const [tags, setTags] = useState([
@@ -152,9 +148,9 @@ function PostPage() {
         API.Post.createPost(newPostData)
             .then(res => {
                 console.log("Post created!");
+                loadPosts()
             })
             .catch(err => console.log(err));
-        setPostSubmitStatus(!postSubmitStatus);
         e.target.reset();
         const clearTags = tags.map(function (tag) {
             return { ...tag, checkedValue: false }

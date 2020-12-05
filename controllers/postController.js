@@ -5,9 +5,9 @@ module.exports = {
     create: (req, res) => {
         const { title, body, selectedTags } = req.body
         console.log(req.user);
-        db.Post.bulkCreate({ title, body, UserId: req.user.id })
+        db.Post.create({ title, body, UserId: req.user.id })
             .then(newPost => {
-                db.PostTag.create(
+                db.PostTag.bulkCreate(
                     selectedTags.map((TagId) => ({ PostId: newPost.id, TagId }))
                 )
                     .then(res.send(true))
