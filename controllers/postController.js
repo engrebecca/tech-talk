@@ -7,7 +7,7 @@ module.exports = {
         console.log(req.user);
         db.Post.create({ title, body, UserId: req.user.id })
             .then(newPost => {
-                db.PostTag.bulkCreate(
+                db.PostTag.create(
                     selectedTags.map((TagId) => ({ PostId: newPost.id, TagId }))
                 ).catch(err => res.status(422).json(err));
                 res.send(true);
