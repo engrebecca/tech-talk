@@ -13,6 +13,7 @@ import UserName from "../components/UserName";
 import UserRole from "../components/UserRole";
 import { UserContext } from "../utils/UserContext";
 import StickyFooter from "../components/StickyFooter";
+import CardPost from "../components/CardPost";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -61,26 +62,6 @@ function PostPage() {
             .then(res => {
                 console.log(res.data);
                 setPosts(res.data);
-            })
-            .catch(err => console.log(err));
-    }
-
-    // On click function to handle when user clicks button to open comments on a post
-    const handleExpandClick = () => {
-        setExpanded(!expanded);
-        console.log(expanded)
-    };
-
-    // Function to submit a new comment
-    function submitComment(e) {
-        e.preventDefault();
-        let newCommentData = { text: newComment, userId: user.id, postId: postId }
-        console.log(newCommentData);
-
-        API.Comment.createComment(newCommentData)
-            .then(res => {
-                console.log("Comment created!");
-                loadPosts()
             })
             .catch(err => console.log(err));
     }
@@ -239,102 +220,7 @@ function PostPage() {
             </Card>
             {/* Map through all the posts from db and create a card to display info */}
             {posts.map(post => {
-                return (
-                    <Card className={classes.root, classes.card} key={post.id}>
-                        <Grid container wrap="nowrap" spacing={2}>
-                            <Grid item xs zeroMinWidth>
-                                {/* Map through all the tags associated with a post and create buttons for each */}
-                                {post.PostTags.map(tag => {
-                                    return (
-                                        <BtnTags tags={tag.Tag.name} key={tag.id} />
-                                    )
-                                })}
-                            </Grid>
-                        </Grid>
-                        <Grid container wrap="nowrap" spacing={2}>
-                            <Grid item>
-                                {/* Pass props to the Avatar component to render each user's individual information */}
-                                <Avatar photo={post.User.photo} />
-                            </Grid>
-                            <Grid item xs zeroMinWidth>
-                                {/* Pass props to the UserName component to render each user's individual information */}
-                                <UserName firstName={post.User.firstName} lastName={post.User.lastName} />
-                                <UserRole role={post.User.role} />
-                            </Grid>
-                        </Grid>
-                        <Grid item xs zeroMinWidth>
-                            {/* Pass props to the PostTitle component to render each post title */}
-                            <PostTitle postTitle={post.title} />
-                            {/* Pass props to the PostComment component to render each post body text */}
-                            <PostComment postBody={post.body} />
-                            {/* Logic for opening and closing the comments with expand more icon */}
-                            <CardActions disableSpacing>
-                                <div
-                                    className={clsx(classes.expand, {
-                                        [classes.expandOpen]: expanded,
-                                    })}
-                                    onClick={handleExpandClick}
-                                    aria-expanded={expanded}
-                                    aria-label="show more"
-                                >
-                                    <BtnComment numComments={post.Comments.length} />
-                                </div>
-                            </CardActions>
-                            {/* Hidden comments that display when user clicks the expand more icon */}
-                            <Collapse in={expanded} timeout="auto" unmountOnExit>
-                                <CardContent>
-                                    {/* Form for posting new comments */}
-                                    <form className={classes.form} noValidate onSubmit={submitComment}>
-                                        <Grid container>
-                                            <Grid item xs={12}>
-                                                <TextField
-                                                    name="newComment"
-                                                    variant="outlined"
-                                                    required
-                                                    fullWidth
-                                                    id="newComment"
-                                                    label="Comment"
-                                                    autoFocus
-                                                    id={post.id}
-                                                    onChange={e => {
-                                                        setNewComment(e.target.value);
-                                                        setPostId(e.target.id);
-                                                    }}
-                                                />
-                                            </Grid>
-                                            <Grid item xs={12} style={{ textAlign: "right", margin: "10px" }}>
-                                                <Button item xs={4}
-                                                    type="submit"
-                                                    variant="contained"
-                                                    color="#9e9e9e"
-                                                    className={classes.submit}
-                                                >
-                                                    Submit
-                                                </Button>
-                                            </Grid>
-                                        </Grid>
-                                    </form>
-                                    {post.Comments.map(comment => {
-                                        return (
-                                            <Grid container spacing={1} key={comment.id}>
-                                                {/* Map through all the comments associated with a post and create a new paper component to display */}
-                                                <Grid item xs={12}>
-                                                    <Paper className={classes.paper}>
-                                                        <Avatar
-                                                            // Pass props to the Avatar component to render each user's individual information
-                                                            photo={comment.User.photo}
-                                                        />
-                                                        {comment.text}
-                                                    </Paper>
-                                                </Grid>
-                                            </Grid>
-                                        )
-                                    })}
-                                </CardContent>
-                            </Collapse >
-                        </Grid>
-                    </Card >
-                )
+                return (<CardPost id={post.id} postBody={post.body} postTitle={post.title} photo={post.User.photo} firstName={post.User.firstName} lastName={post.User.lastName} role={post.User.role} tags={post.PostTags} numComments={post.Comments.length} comments={post.Comments} />)
             })}
             <StickyFooter />
 
