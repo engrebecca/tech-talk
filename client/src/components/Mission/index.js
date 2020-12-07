@@ -24,13 +24,14 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    paddingTop: 20
   },
   text: {
     fontFamily: [
       'Comfortaa',
       'cursive',
     ].join(','),
-    height: 170,
+    height: 150,
     display: "flex",
     flexDirection: "column",
     justifyContent: "center"
@@ -49,14 +50,12 @@ export default function Mission() {
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
 
-          <Typography component="h1" className={classes.text} variant="h3">
+          <Typography variant="h4" className={classes.text} gutterBottom>
             Our Mission
           </Typography>
-          <Typography component="p" className={classes.text} variant="h6">
+          <Typography variant="subtitle" className={classes.text}>
             Our goal is for you to ask questions, exchange ideas, and connect with each other. We’re creating a space for you to share not just what you do, but who you are to build a better you! We want to provide the tools and connections that women in technology need to own their futures.
           </Typography>
-
-
         </div>
       </Grid>
     </Grid>
