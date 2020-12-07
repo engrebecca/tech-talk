@@ -1,17 +1,8 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
-import { Paper, Grid, Card, CardContent, Collapse, CardActions, TextField, Button, CssBaseline, FormLabel, FormControl, FormControlLabel, Checkbox, Typography } from '@material-ui/core';
+import { Grid, Card, TextField, Button, CssBaseline, FormLabel, FormControl, FormControlLabel, Checkbox, Typography } from '@material-ui/core';
 import API from "../utils/API";
 import Navbar from "../components/Navbar";
-import PostTitle from "../components/PostTitle";
-import PostComment from "../components/PostComment-Content";
-import BtnTags from "../components/Btn-tags";
-import BtnComment from "../components/Btn-comments";
-import Avatar from "../components/Avatar";
-import UserName from "../components/UserName";
-import UserRole from "../components/UserRole";
-import { UserContext } from "../utils/UserContext";
 import StickyFooter from "../components/StickyFooter";
 import CardPost from "../components/CardPost";
 
@@ -44,18 +35,14 @@ const useStyles = makeStyles((theme) => ({
 
 function PostPage() {
     const classes = useStyles();
-    const { user } = useContext(UserContext);
     const [posts, setPosts] = useState([]);
-    const [expanded, setExpanded] = useState(false);
-    const [newComment, setNewComment] = useState("");
-    const [postId, setPostId] = useState();
     const [postText, setPostText] = useState("");
     const [postTitle, setPostTitle] = useState("");
 
     // Load posts & comments when page renders and when new post or comments are made
     useEffect(() => {
         loadPosts()
-    }, []);
+    }, [posts]);
 
     function loadPosts() {
         API.Post.getPost()

@@ -46,6 +46,10 @@ function postCard(props) {
     const [newComment, setNewComment] = useState("");
     const [postId, setPostId] = useState();
 
+    useEffect(() => {
+        loadPosts()
+    }, [posts]);
+
     function loadPosts() {
         API.Post.getPost()
             .then(res => {
