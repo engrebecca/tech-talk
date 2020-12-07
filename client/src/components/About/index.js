@@ -24,13 +24,14 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    paddingTop: 20
   },
   text: {
     fontFamily: [
       'Comfortaa',
       'cursive',
     ].join(','),
-    height: 200,
+    height: 170,
     display: "flex",
     flexDirection: "column",
     justifyContent: "center"
@@ -47,10 +48,10 @@ export default function About() {
       
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
-        <Typography component="h1" className={classes.text} variant="h3">
+        <Typography variant="h4" className={classes.text} gutterBottom>
             About Tech Talk
           </Typography>
-          <Typography component="p" className={classes.text} variant="h6">
+          <Typography variant="subtitle" className={classes.text} >
           Tech-Talk is a professional network for women in technology. This is the perfect place for ambitious women to connect and make things happen. Whether you are searching for a job opportunity, looking for a mentor to guide you through this bustling industry, or just have questions about the tech field you're in, Tech-Talk is the community to join. We want you to level up personally and professionally.
           </Typography>
           
