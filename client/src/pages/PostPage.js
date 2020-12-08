@@ -47,7 +47,6 @@ function PostPage() {
     function loadPosts() {
         API.Post.getPost()
             .then(res => {
-                console.log(res.data);
                 setPosts(res.data);
             })
             .catch(err => console.log(err));
