@@ -197,7 +197,6 @@ function PostPage() {
                         type="submit"
                         fullWidth
                         variant="contained"
-                        color="#9e9e9e"
                         className={classes.submit}
                     >
                         Submit
