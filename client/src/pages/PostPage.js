@@ -47,7 +47,6 @@ function PostPage() {
     function loadPosts() {
         API.Post.getPost()
             .then(res => {
-                console.log(res.data);
                 setPosts(res.data);
             })
             .catch(err => console.log(err));
@@ -198,7 +197,6 @@ function PostPage() {
                         type="submit"
                         fullWidth
                         variant="contained"
-                        color="#9e9e9e"
                         className={classes.submit}
                     >
                         Submit

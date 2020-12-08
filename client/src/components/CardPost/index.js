@@ -53,7 +53,6 @@ function postCard(props) {
     function loadPosts() {
         API.Post.getPost()
             .then(res => {
-                console.log(res.data);
                 setPosts(res.data);
             })
             .catch(err => console.log(err));
@@ -77,6 +76,7 @@ function postCard(props) {
                 loadPosts()
             })
             .catch(err => console.log(err));
+        e.target.reset();
     }
 
     return (
@@ -146,7 +146,6 @@ function postCard(props) {
                                     <Button item xs={4}
                                         type="submit"
                                         variant="contained"
-                                        color="#9e9e9e"
                                         className={classes.submit}
                                     >
                                         Submit
@@ -156,18 +155,23 @@ function postCard(props) {
                         </form>
                         {props.comments.map(comment => {
                             return (
-                                <Grid container spacing={1} key={comment.id}>
-                                    {/* Map through all the comments associated with a post and create a new paper component to display */}
-                                    <Grid item xs={12}>
-                                        <Paper className={classes.paper}>
-                                            <Avatar
-                                                // Pass props to the Avatar component to render each user's individual information
-                                                photo={comment.User.photo}
-                                            />
-                                            {comment.text}
-                                        </Paper>
+                                <div>
+                                    <Grid container wrap="nowrap" spacing={2} key={comment.id}>
+                                        <Grid item>
+                                            {/* Pass props to the Avatar component to render each user's individual information */}
+                                            <Avatar photo={comment.User.photo} />
+                                        </Grid>
+                                        <Grid item xs zeroMinWidth>
+                                            {/* Pass props to the UserName component to render each user's individual information */}
+                                            <UserName firstName={comment.User.firstName} lastName={comment.User.lastName} />
+                                        </Grid>
                                     </Grid>
-                                </Grid>
+                                    <Grid container>
+                                        <Grid item style={{ marginTop: "5px" }}>
+                                            {comment.text}
+                                        </Grid>
+                                    </Grid>
+                                </div>
                             )
                         })}
                     </CardContent>
