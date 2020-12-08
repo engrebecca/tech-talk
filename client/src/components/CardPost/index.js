@@ -76,6 +76,7 @@ function postCard(props) {
                 loadPosts()
             })
             .catch(err => console.log(err));
+        e.target.reset();
     }
 
     return (
